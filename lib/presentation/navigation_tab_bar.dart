@@ -1,7 +1,23 @@
 import 'package:flutter/cupertino.dart';
+import 'package:winsouls/presentation/tabs/home/home_tab.dart';
+import 'package:winsouls/presentation/tabs/maps/maps_tab.dart';
+import 'package:winsouls/presentation/tabs/profile/profile_tab.dart';
+import 'package:winsouls/presentation/tabs/stats/stats_tab.dart';
 
-class NavigationTabBar extends StatelessWidget {
+class NavigationTabBar extends StatefulWidget {
   const NavigationTabBar({super.key});
+
+  @override
+  State<NavigationTabBar> createState() => _NavigationTabBarState();
+}
+
+class _NavigationTabBarState extends State<NavigationTabBar> {
+  List<Widget> tabs = [
+    const HomeTabPage(),
+    const MapsTabPage(),
+    const StatsTabPage(),
+    const ProfileTabPage()
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -9,29 +25,27 @@ class NavigationTabBar extends StatelessWidget {
       tabBar: CupertinoTabBar(
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.star_fill),
-            label: 'Favorites',
+            icon: Icon(CupertinoIcons.home),
+            label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.clock_solid),
-            label: 'Recents',
+            icon: Icon(CupertinoIcons.map),
+            label: 'Maps',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.person_alt_circle_fill),
-            label: 'Contacts',
+            icon: Icon(CupertinoIcons.chart_bar),
+            label: 'Stats',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.circle_grid_3x3_fill),
-            label: 'Keypad',
+            icon: Icon(CupertinoIcons.person),
+            label: 'Profile',
           ),
         ],
       ),
       tabBuilder: (BuildContext context, int index) {
         return CupertinoTabView(
           builder: (BuildContext context) {
-            return Center(
-              child: Text('Content of tab $index'),
-            );
+            return tabs[index];
           },
         );
       },

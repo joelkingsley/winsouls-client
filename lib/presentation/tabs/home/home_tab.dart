@@ -1,47 +1,44 @@
 import 'package:flutter/cupertino.dart';
 
 class HomeTabPage extends StatefulWidget {
-  const HomeTabPage({super.key, required this.title});
-
-  final String title;
+  const HomeTabPage({super.key});
 
   @override
   State<HomeTabPage> createState() => _HomeTabPageState();
 }
 
-class _HomeTabPageState extends State<HomeTabPage> {
-  int _counter = 0;
+enum EventStatus { current, upcoming }
 
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
+class _HomeTabPageState extends State<HomeTabPage> {
+  EventStatus _selectedEventStatus = EventStatus.current;
 
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
-      navigationBar: CupertinoNavigationBar(
-        middle: Text(widget.title),
-      ),
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: CupertinoTheme.of(context).textTheme.textStyle,
-            ),
-            CupertinoButton(
-              onPressed: _incrementCounter,
-              child: const Icon(CupertinoIcons.add),
-            ),
-          ],
+        navigationBar: const CupertinoNavigationBar(
+          middle: Text('Home'),
         ),
-      ),
-    );
+        child: ListView(children: [
+          const Text('Events'),
+          CupertinoSegmentedControl<EventStatus>(
+            // Provide horizontal padding around the children.
+            padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 12),
+            // This represents a currently selected segmented control.
+            groupValue: _selectedEventStatus,
+            // Callback that sets the selected segmented control.
+            onValueChanged: (EventStatus value) {
+              setState(() {
+                _selectedEventStatus = value;
+              });
+            },
+            children: const <EventStatus, Widget>{
+              EventStatus.current: Text('Current'),
+              EventStatus.upcoming: Text('Upcoming'),
+            },
+          ),
+          Center(
+              child:
+                  Text('Selected event status: ${_selectedEventStatus.name}'))
+        ]));
   }
 }
