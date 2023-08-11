@@ -15,6 +15,7 @@ class _ProfileTabPageState extends State<ProfileTabPage> {
     return CupertinoPageScaffold(
       navigationBar: const CupertinoNavigationBar(
         middle: Text('Profile'),
+        trailing: Icon(CupertinoIcons.qrcode),
       ),
       child: Center(
         child: Column(

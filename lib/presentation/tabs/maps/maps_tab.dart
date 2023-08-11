@@ -43,6 +43,7 @@ class _MapsTabPageState extends State<MapsTabPage> {
     return CupertinoPageScaffold(
       navigationBar: const CupertinoNavigationBar(
         middle: Text('Maps'),
+        trailing: Icon(CupertinoIcons.qrcode),
       ),
       child: ListView(
         children: [
@@ -82,11 +83,17 @@ class _MapsTabPageState extends State<MapsTabPage> {
                 ]),
           ),
           Center(child: Text(_organizationNames[_selectedOrganization])),
-          CupertinoListSection(
+          const Padding(padding: EdgeInsets.only(bottom: 15)),
+          const Padding(
+            padding: EdgeInsets.all(10),
+            child: CupertinoSearchTextField(),
+          ),
+          CupertinoListSection.insetGrouped(
             backgroundColor: CupertinoColors.systemBackground,
             children: <CupertinoListTile>[
               CupertinoListTile.notched(
                 title: const Text('Pforzheim'),
+                subtitle: const Text('Around the church'),
                 additionalInfo: const Text('5 map areas'),
                 trailing: const CupertinoListTileChevron(),
                 onTap: () => Navigator.of(context).push(
@@ -99,6 +106,7 @@ class _MapsTabPageState extends State<MapsTabPage> {
               ),
               CupertinoListTile.notched(
                 title: const Text('Magdeburg'),
+                subtitle: const Text('Near the Bahnhof'),
                 additionalInfo: const Text('2 map areas'),
                 trailing: const CupertinoListTileChevron(),
                 onTap: () => Navigator.of(context).push(
@@ -111,6 +119,7 @@ class _MapsTabPageState extends State<MapsTabPage> {
               ),
               CupertinoListTile.notched(
                 title: const Text('Paderborn'),
+                subtitle: const Text('Near the University'),
                 additionalInfo: const Text('3 map areas'),
                 trailing: const CupertinoListTileChevron(),
                 onTap: () => Navigator.of(context).push(

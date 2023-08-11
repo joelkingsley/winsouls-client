@@ -16,21 +16,23 @@ class _HomeTabPageState extends State<HomeTabPage> {
     return CupertinoPageScaffold(
       navigationBar: const CupertinoNavigationBar(
         middle: Text('Home'),
+        trailing: Icon(CupertinoIcons.qrcode),
       ),
       child: ListView(
         children: [
-          CupertinoListSection(
+          CupertinoListSection.insetGrouped(
               backgroundColor: CupertinoColors.systemBackground,
-              header: const Text('Current Events'),
+              header: const Row(
+                children: [
+                  Text('Current Events'),
+                  Padding(padding: EdgeInsets.symmetric(horizontal: 2)),
+                  Icon(CupertinoIcons.antenna_radiowaves_left_right)
+                ],
+              ),
               children: <CupertinoListTile>[
                 CupertinoListTile.notched(
                   title: const Text('Monthly Soul Winning Marathon'),
                   subtitle: const Text('Baptistenkirche Zuverlässiges Wort'),
-                  leading: Container(
-                    width: double.infinity,
-                    height: double.infinity,
-                    color: CupertinoColors.activeGreen,
-                  ),
                   trailing: const CupertinoListTileChevron(),
                   onTap: () => Navigator.of(context).push(
                     CupertinoPageRoute<void>(
@@ -41,18 +43,17 @@ class _HomeTabPageState extends State<HomeTabPage> {
                   ),
                 )
               ]),
-          CupertinoListSection(
+          CupertinoListSection.insetGrouped(
             backgroundColor: CupertinoColors.systemBackground,
             header: const Text('Upcoming Events'),
+            footer: Center(
+              child: CupertinoButton(
+                  child: const Text('See all'), onPressed: () => ()),
+            ),
             children: [
               CupertinoListTile.notched(
                 title: const Text('Soul Winning Magdeburg'),
                 subtitle: const Text('Baptistenkirche Zuverlässiges Wort'),
-                leading: Container(
-                  width: double.infinity,
-                  height: double.infinity,
-                  color: CupertinoColors.systemRed,
-                ),
                 trailing: const CupertinoListTileChevron(),
                 additionalInfo: const Text('In 7 days'),
                 onTap: () => Navigator.of(context).push(
@@ -66,11 +67,6 @@ class _HomeTabPageState extends State<HomeTabPage> {
               CupertinoListTile.notched(
                 title: const Text('Soul Winning Passau'),
                 subtitle: const Text('Baptistenkirche Zuverlässiges Wort'),
-                leading: Container(
-                  width: double.infinity,
-                  height: double.infinity,
-                  color: CupertinoColors.activeOrange,
-                ),
                 additionalInfo: const Text('In 3 days'),
                 trailing: const CupertinoListTileChevron(),
                 onTap: () => Navigator.of(context).push(
@@ -82,7 +78,7 @@ class _HomeTabPageState extends State<HomeTabPage> {
                 ),
               ),
             ],
-          )
+          ),
         ],
       ),
     );
