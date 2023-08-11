@@ -19,7 +19,8 @@ class _HomeTabPageState extends State<HomeTabPage> {
       ),
       child: ListView(
         children: [
-          CupertinoListSection.insetGrouped(
+          CupertinoListSection(
+              backgroundColor: CupertinoColors.systemBackground,
               header: const Text('Current Events'),
               children: <CupertinoListTile>[
                 CupertinoListTile.notched(
@@ -40,7 +41,8 @@ class _HomeTabPageState extends State<HomeTabPage> {
                   ),
                 )
               ]),
-          CupertinoListSection.insetGrouped(
+          CupertinoListSection(
+            backgroundColor: CupertinoColors.systemBackground,
             header: const Text('Upcoming Events'),
             children: [
               CupertinoListTile.notched(
