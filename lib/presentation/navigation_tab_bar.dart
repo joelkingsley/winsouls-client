@@ -29,15 +29,15 @@ class _NavigationTabBarState extends State<NavigationTabBar> {
             label: 'Home',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.map),
+            icon: Icon(CupertinoIcons.map_fill),
             label: 'Maps',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.chart_bar),
+            icon: Icon(CupertinoIcons.chart_bar_square_fill),
             label: 'Stats',
           ),
           BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.person),
+            icon: Icon(CupertinoIcons.person_fill),
             label: 'Profile',
           ),
         ],
