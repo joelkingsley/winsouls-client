@@ -97,44 +97,45 @@ class _MapsTabPageState extends State<MapsTabPage> {
               padding: EdgeInsets.symmetric(horizontal: 15),
               child: CupertinoSearchTextField(),
             ),
-            CupertinoListSection(
+            CupertinoListSection.insetGrouped(
               backgroundColor: CupertinoColors.systemBackground,
               children: <CupertinoListTile>[
-                CupertinoListTile.notched(
-                  title: const Text('Pforzheim'),
+                CupertinoListTile(
+                  title: const Text('Pforzheim City'),
                   subtitle: const Text('Around the church'),
                   additionalInfo: const Text('5 map areas'),
                   trailing: const CupertinoListTileChevron(),
                   onTap: () => Navigator.of(context).push(
                     CupertinoPageRoute<void>(
                       builder: (BuildContext context) {
-                        return const MapDetailPage();
+                        return const MapDetailPage(title: 'Pforzheim City');
                       },
                     ),
                   ),
                 ),
-                CupertinoListTile.notched(
-                  title: const Text('Magdeburg'),
+                CupertinoListTile(
+                  title: const Text('Magdeburg City'),
                   subtitle: const Text('Near the Bahnhof'),
                   additionalInfo: const Text('2 map areas'),
                   trailing: const CupertinoListTileChevron(),
                   onTap: () => Navigator.of(context).push(
                     CupertinoPageRoute<void>(
                       builder: (BuildContext context) {
-                        return const MapDetailPage();
+                        return const MapDetailPage(title: 'Magdeburg City');
                       },
                     ),
                   ),
                 ),
-                CupertinoListTile.notched(
-                  title: const Text('Paderborn'),
+                CupertinoListTile(
+                  title: const Text('Paderborn University'),
                   subtitle: const Text('Near the University'),
                   additionalInfo: const Text('3 map areas'),
                   trailing: const CupertinoListTileChevron(),
                   onTap: () => Navigator.of(context).push(
                     CupertinoPageRoute<void>(
                       builder: (BuildContext context) {
-                        return const MapDetailPage();
+                        return const MapDetailPage(
+                            title: 'Paderborn University');
                       },
                     ),
                   ),

@@ -28,7 +28,7 @@ class _HomeTabPageState extends State<HomeTabPage> {
                     child: const Text('Add Event'), onPressed: () => ()),
               ],
             ),
-            CupertinoListSection(
+            CupertinoListSection.insetGrouped(
                 backgroundColor: CupertinoColors.systemBackground,
                 header: const Row(
                   children: [
@@ -38,7 +38,7 @@ class _HomeTabPageState extends State<HomeTabPage> {
                   ],
                 ),
                 children: <CupertinoListTile>[
-                  CupertinoListTile.notched(
+                  CupertinoListTile(
                     title: const Text('Monthly Soul Winning Marathon'),
                     subtitle: const Text('Baptistenkirche Zuverlässiges Wort'),
                     trailing: const CupertinoListTileChevron(),
@@ -51,7 +51,7 @@ class _HomeTabPageState extends State<HomeTabPage> {
                     ),
                   )
                 ]),
-            CupertinoListSection(
+            CupertinoListSection.insetGrouped(
               backgroundColor: CupertinoColors.systemBackground,
               header: const Text('Upcoming Events'),
               footer: Center(
@@ -59,7 +59,7 @@ class _HomeTabPageState extends State<HomeTabPage> {
                     child: const Text('See all'), onPressed: () => ()),
               ),
               children: [
-                CupertinoListTile.notched(
+                CupertinoListTile(
                   title: const Text('Soul Winning Magdeburg'),
                   subtitle: const Text('Baptistenkirche Zuverlässiges Wort'),
                   trailing: const CupertinoListTileChevron(),
@@ -72,7 +72,7 @@ class _HomeTabPageState extends State<HomeTabPage> {
                     ),
                   ),
                 ),
-                CupertinoListTile.notched(
+                CupertinoListTile(
                   title: const Text('Soul Winning Passau'),
                   subtitle: const Text('Baptistenkirche Zuverlässiges Wort'),
                   additionalInfo: const Text('In 9 days'),
