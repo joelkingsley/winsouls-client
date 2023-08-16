@@ -21,6 +21,7 @@ class _StatsTabPageState extends State<StatsTabPage> {
     return CupertinoPageScaffold(
       navigationBar: const CupertinoNavigationBar(
         middle: Text('Stats'),
+        trailing: Icon(CupertinoIcons.qrcode),
       ),
       child: Center(
         child: Column(

@@ -9,62 +9,141 @@ class MapsTabPage extends StatefulWidget {
 }
 
 class _MapsTabPageState extends State<MapsTabPage> {
+  final double _kItemExtent = 32.0;
+  final List<String> _organizationNames = <String>[
+    'Baptistenkirche Zuverlässiges Wort',
+    'Soul Winning India',
+  ];
+  int _selectedOrganization = 0;
+
+  // This shows a CupertinoModalPopup with a reasonable fixed height which hosts CupertinoPicker.
+  void _showDialog(Widget child) {
+    showCupertinoModalPopup<void>(
+      context: context,
+      builder: (BuildContext context) => Container(
+        height: 216,
+        padding: const EdgeInsets.only(top: 6.0),
+        // The Bottom margin is provided to align the popup above the system navigation bar.
+        margin: EdgeInsets.only(
+          bottom: MediaQuery.of(context).viewInsets.bottom,
+        ),
+        // Provide a background color for the popup.
+        color: CupertinoColors.systemBackground.resolveFrom(context),
+        // Use a SafeArea widget to avoid system overlaps.
+        child: SafeArea(
+          top: false,
+          child: child,
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: const CupertinoNavigationBar(
         middle: Text('Maps'),
+        trailing: Icon(CupertinoIcons.qrcode),
       ),
-      child: ListView(
-        children: [
-          CupertinoListSection.insetGrouped(
-            header: const Text('My Reminders'),
-            children: <CupertinoListTile>[
-              CupertinoListTile.notched(
-                title: const Text('Open pull request'),
-                leading: Container(
-                  width: double.infinity,
-                  height: double.infinity,
-                  color: CupertinoColors.activeGreen,
+      child: SafeArea(
+        child: ListView(
+          children: [
+            CupertinoButton(
+              padding: EdgeInsets.zero,
+              // Display a CupertinoPicker with list of fruits.
+              onPressed: () => _showDialog(
+                CupertinoPicker(
+                  magnification: 1.22,
+                  squeeze: 1.2,
+                  useMagnifier: true,
+                  itemExtent: _kItemExtent,
+                  // This sets the initial item.
+                  scrollController: FixedExtentScrollController(
+                    initialItem: _selectedOrganization,
+                  ),
+                  // This is called when selected item is changed.
+                  onSelectedItemChanged: (int selectedItem) {
+                    setState(() {
+                      _selectedOrganization = selectedItem;
+                    });
+                  },
+                  children: List<Widget>.generate(_organizationNames.length,
+                      (int index) {
+                    return Center(child: Text(_organizationNames[index]));
+                  }),
                 ),
-                trailing: const CupertinoListTileChevron(),
-                onTap: () => Navigator.of(context).push(
-                  CupertinoPageRoute<void>(
-                    builder: (BuildContext context) {
-                      return const MapDetailPage();
-                    },
+              ),
+              // This displays the selected fruit name.
+              child: const Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Switch Organization',
+                    ),
+                    Padding(padding: EdgeInsets.only(right: 5)),
+                    Icon(CupertinoIcons.arrow_up_arrow_down),
+                  ]),
+            ),
+            Center(child: Text(_organizationNames[_selectedOrganization])),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.end,
+              children: [
+                CupertinoButton(
+                    child: const Text('Add Map'), onPressed: () => ())
+              ],
+            ),
+            const Padding(padding: EdgeInsets.only(bottom: 10)),
+            const Padding(
+              padding: EdgeInsets.symmetric(horizontal: 15),
+              child: CupertinoSearchTextField(),
+            ),
+            CupertinoListSection.insetGrouped(
+              backgroundColor: CupertinoColors.systemBackground,
+              children: <CupertinoListTile>[
+                CupertinoListTile(
+                  title: const Text('Pforzheim City'),
+                  subtitle: const Text('Around the church'),
+                  additionalInfo: const Text('5 map areas'),
+                  trailing: const CupertinoListTileChevron(),
+                  onTap: () => Navigator.of(context).push(
+                    CupertinoPageRoute<void>(
+                      builder: (BuildContext context) {
+                        return const MapDetailPage(title: 'Pforzheim City');
+                      },
+                    ),
                   ),
                 ),
-              ),
-              CupertinoListTile.notched(
-                title: const Text('Push to master'),
-                leading: Container(
-                  width: double.infinity,
-                  height: double.infinity,
-                  color: CupertinoColors.systemRed,
-                ),
-                additionalInfo: const Text('Not available'),
-              ),
-              CupertinoListTile.notched(
-                title: const Text('View last commit'),
-                leading: Container(
-                  width: double.infinity,
-                  height: double.infinity,
-                  color: CupertinoColors.activeOrange,
-                ),
-                additionalInfo: const Text('12 days ago'),
-                trailing: const CupertinoListTileChevron(),
-                onTap: () => Navigator.of(context).push(
-                  CupertinoPageRoute<void>(
-                    builder: (BuildContext context) {
-                      return const MapDetailPage();
-                    },
+                CupertinoListTile(
+                  title: const Text('Magdeburg City'),
+                  subtitle: const Text('Near the Bahnhof'),
+                  additionalInfo: const Text('2 map areas'),
+                  trailing: const CupertinoListTileChevron(),
+                  onTap: () => Navigator.of(context).push(
+                    CupertinoPageRoute<void>(
+                      builder: (BuildContext context) {
+                        return const MapDetailPage(title: 'Magdeburg City');
+                      },
+                    ),
                   ),
                 ),
-              ),
-            ],
-          )
-        ],
+                CupertinoListTile(
+                  title: const Text('Paderborn University'),
+                  subtitle: const Text('Near the University'),
+                  additionalInfo: const Text('3 map areas'),
+                  trailing: const CupertinoListTileChevron(),
+                  onTap: () => Navigator.of(context).push(
+                    CupertinoPageRoute<void>(
+                      builder: (BuildContext context) {
+                        return const MapDetailPage(
+                            title: 'Paderborn University');
+                      },
+                    ),
+                  ),
+                ),
+              ],
+            )
+          ],
+        ),
       ),
     );
   }
