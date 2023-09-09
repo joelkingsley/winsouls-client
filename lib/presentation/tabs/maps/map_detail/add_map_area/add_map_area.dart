@@ -11,7 +11,6 @@ class AddMapAreaPage extends StatefulWidget {
 class _AddMapAreaPageState extends State<AddMapAreaPage> {
   late GoogleMapController mapController;
   late TextEditingController _titleController;
-  late TextEditingController _subtitleController;
   final LatLng _center = const LatLng(45.521563, -122.677433);
 
   @override
@@ -23,7 +22,6 @@ class _AddMapAreaPageState extends State<AddMapAreaPage> {
   @override
   void dispose() {
     _titleController.dispose();
-    _subtitleController.dispose();
     super.dispose();
   }
 

@@ -11,7 +11,6 @@ class MapAreaDetailPage extends StatefulWidget {
 
 class _MapAreaDetailPageState extends State<MapAreaDetailPage> {
   late TextEditingController _titleController;
-  late TextEditingController _subtitleController;
 
   @override
   void initState() {
@@ -22,7 +21,6 @@ class _MapAreaDetailPageState extends State<MapAreaDetailPage> {
   @override
   void dispose() {
     _titleController.dispose();
-    _subtitleController.dispose();
     super.dispose();
   }
 

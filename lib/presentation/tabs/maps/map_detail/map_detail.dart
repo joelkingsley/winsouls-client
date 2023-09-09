@@ -34,7 +34,7 @@ class _MapDetailPageState extends State<MapDetailPage> {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: const CupertinoNavigationBar(
-        middle: Text('Map'),
+        middle: Text('Map Detail'),
       ),
       child: SafeArea(
         child: ListView(
