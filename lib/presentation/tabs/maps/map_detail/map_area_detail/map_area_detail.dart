@@ -1,23 +1,22 @@
 import 'package:flutter/cupertino.dart';
-import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-class AddMapAreaPage extends StatefulWidget {
-  const AddMapAreaPage({super.key});
+class MapAreaDetailPage extends StatefulWidget {
+  final String title;
+
+  const MapAreaDetailPage({super.key, required this.title});
 
   @override
-  State<AddMapAreaPage> createState() => _AddMapAreaPageState();
+  State<MapAreaDetailPage> createState() => _MapAreaDetailPageState();
 }
 
-class _AddMapAreaPageState extends State<AddMapAreaPage> {
-  late GoogleMapController mapController;
+class _MapAreaDetailPageState extends State<MapAreaDetailPage> {
   late TextEditingController _titleController;
   late TextEditingController _subtitleController;
-  final LatLng _center = const LatLng(45.521563, -122.677433);
 
   @override
   void initState() {
     super.initState();
-    _titleController = TextEditingController(text: '');
+    _titleController = TextEditingController(text: 'Around the church');
   }
 
   @override
@@ -31,7 +30,7 @@ class _AddMapAreaPageState extends State<AddMapAreaPage> {
   Widget build(BuildContext context) {
     return CupertinoPageScaffold(
       navigationBar: const CupertinoNavigationBar(
-        middle: Text('Add Map Area'),
+        middle: Text('Map Area Detail'),
       ),
       child: SafeArea(
         child: ListView(
@@ -48,24 +47,11 @@ class _AddMapAreaPageState extends State<AddMapAreaPage> {
                     onSubmitted: (String text) => (),
                   ),
                 ),
-                SizedBox(
-                    height: 500,
-                    child: GoogleMap(
-                      onMapCreated: _onMapCreated,
-                      initialCameraPosition: CameraPosition(
-                        target: _center,
-                        zoom: 11.0,
-                      ),
-                    )),
               ],
             ),
           ],
         ),
       ),
     );
-  }
-
-  void _onMapCreated(GoogleMapController controller) {
-    mapController = controller;
   }
 }
