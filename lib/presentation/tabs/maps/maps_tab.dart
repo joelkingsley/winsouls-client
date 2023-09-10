@@ -97,8 +97,9 @@ class _MapsTabPageState extends State<MapsTabPage> {
               padding: EdgeInsets.symmetric(horizontal: 15),
               child: CupertinoSearchTextField(),
             ),
-            CupertinoListSection.insetGrouped(
+            CupertinoListSection(
               backgroundColor: CupertinoColors.systemBackground,
+              hasLeading: false,
               children: <CupertinoListTile>[
                 CupertinoListTile(
                   title: const Text('Pforzheim City'),

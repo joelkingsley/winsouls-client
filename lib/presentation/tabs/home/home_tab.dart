@@ -28,7 +28,7 @@ class _HomeTabPageState extends State<HomeTabPage> {
                     child: const Text('Add Event'), onPressed: () => ()),
               ],
             ),
-            CupertinoListSection.insetGrouped(
+            CupertinoListSection(
                 backgroundColor: CupertinoColors.systemBackground,
                 header: const Row(
                   children: [
@@ -37,6 +37,7 @@ class _HomeTabPageState extends State<HomeTabPage> {
                     Icon(CupertinoIcons.antenna_radiowaves_left_right)
                   ],
                 ),
+                hasLeading: false,
                 children: <CupertinoListTile>[
                   CupertinoListTile(
                     title: const Text('Monthly Soul Winning Marathon'),
@@ -51,13 +52,14 @@ class _HomeTabPageState extends State<HomeTabPage> {
                     ),
                   )
                 ]),
-            CupertinoListSection.insetGrouped(
+            CupertinoListSection(
               backgroundColor: CupertinoColors.systemBackground,
               header: const Text('Upcoming Events'),
               footer: Center(
                 child: CupertinoButton(
                     child: const Text('See all'), onPressed: () => ()),
               ),
+              hasLeading: false,
               children: [
                 CupertinoListTile(
                   title: const Text('Soul Winning Magdeburg'),
