@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:winsouls/presentation/tabs/home/event_detail/event_detail.dart';
 
 class HomeTabPage extends StatefulWidget {
@@ -13,84 +14,71 @@ enum EventStatus { current, upcoming }
 class _HomeTabPageState extends State<HomeTabPage> {
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-      navigationBar: const CupertinoNavigationBar(
-        middle: Text('Home'),
-        trailing: Icon(CupertinoIcons.qrcode),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Home'),
+        actions: const [Icon(Icons.qr_code)],
       ),
-      child: SafeArea(
-        child: ListView(
-          children: [
-            Row(
+      body: ListView(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                CupertinoButton(
-                    child: const Text('Add Event'), onPressed: () => ()),
+                FloatingActionButton.extended(
+                    label: const Text('Add Event'),
+                    icon: const Icon(Icons.add),
+                    onPressed: () => ()),
               ],
             ),
-            CupertinoListSection(
-                backgroundColor: CupertinoColors.systemBackground,
-                header: const Row(
-                  children: [
-                    Text('Current Events'),
-                    Padding(padding: EdgeInsets.symmetric(horizontal: 2)),
-                    Icon(CupertinoIcons.antenna_radiowaves_left_right)
-                  ],
+          ),
+          Card(
+            child: ListTile(
+              title: const Text('Monthly Soul Winning Marathon'),
+              subtitle: const Text('Baptistenkirche Zuverlässiges Wort'),
+              onTap: () => Navigator.of(context).push(
+                CupertinoPageRoute<void>(
+                  builder: (BuildContext context) {
+                    return const EventDetailPage();
+                  },
                 ),
-                hasLeading: false,
-                children: <CupertinoListTile>[
-                  CupertinoListTile(
-                    title: const Text('Monthly Soul Winning Marathon'),
-                    subtitle: const Text('Baptistenkirche Zuverlässiges Wort'),
-                    trailing: const CupertinoListTileChevron(),
-                    onTap: () => Navigator.of(context).push(
-                      CupertinoPageRoute<void>(
-                        builder: (BuildContext context) {
-                          return const EventDetailPage();
-                        },
-                      ),
-                    ),
-                  )
-                ]),
-            CupertinoListSection(
-              backgroundColor: CupertinoColors.systemBackground,
-              header: const Text('Upcoming Events'),
-              footer: Center(
-                child: CupertinoButton(
-                    child: const Text('See all'), onPressed: () => ()),
               ),
-              hasLeading: false,
-              children: [
-                CupertinoListTile(
-                  title: const Text('Soul Winning Magdeburg'),
-                  subtitle: const Text('Baptistenkirche Zuverlässiges Wort'),
-                  trailing: const CupertinoListTileChevron(),
-                  additionalInfo: const Text('In 3 days'),
-                  onTap: () => Navigator.of(context).push(
-                    CupertinoPageRoute<void>(
-                      builder: (BuildContext context) {
-                        return const EventDetailPage();
-                      },
-                    ),
-                  ),
-                ),
-                CupertinoListTile(
-                  title: const Text('Soul Winning Passau'),
-                  subtitle: const Text('Baptistenkirche Zuverlässiges Wort'),
-                  additionalInfo: const Text('In 9 days'),
-                  trailing: const CupertinoListTileChevron(),
-                  onTap: () => Navigator.of(context).push(
-                    CupertinoPageRoute<void>(
-                      builder: (BuildContext context) {
-                        return const EventDetailPage();
-                      },
-                    ),
-                  ),
-                ),
-              ],
             ),
-          ],
-        ),
+          ),
+          Card(
+            child: ListTile(
+              title: const Text('Soul Winning Magdeburg'),
+              subtitle: const Text('Baptistenkirche Zuverlässiges Wort'),
+              trailing: const Text('In 3 days'),
+              onTap: () => Navigator.of(context).push(
+                CupertinoPageRoute<void>(
+                  builder: (BuildContext context) {
+                    return const EventDetailPage();
+                  },
+                ),
+              ),
+            ),
+          ),
+          Card(
+            child: ListTile(
+              title: const Text('Soul Winning Passau'),
+              subtitle: const Text('Baptistenkirche Zuverlässiges Wort'),
+              trailing: const Text('In 9 days'),
+              onTap: () => Navigator.of(context).push(
+                CupertinoPageRoute<void>(
+                  builder: (BuildContext context) {
+                    return const EventDetailPage();
+                  },
+                ),
+              ),
+            ),
+          ),
+          Center(
+            child: CupertinoButton(
+                child: const Text('See all'), onPressed: () => ()),
+          ),
+        ],
       ),
     );
   }

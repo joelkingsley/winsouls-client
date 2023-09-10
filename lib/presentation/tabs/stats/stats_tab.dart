@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class StatsTabPage extends StatefulWidget {
   const StatsTabPage({super.key});
@@ -18,27 +19,14 @@ class _StatsTabPageState extends State<StatsTabPage> {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-      navigationBar: const CupertinoNavigationBar(
-        middle: Text('Stats'),
-        trailing: Icon(CupertinoIcons.qrcode),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Stats'),
+        actions: const [Icon(Icons.qr_code)],
       ),
-      child: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            const Text(
-              'You have pushed the button this many times:',
-            ),
-            Text(
-              '$_counter',
-              style: CupertinoTheme.of(context).textTheme.textStyle,
-            ),
-            CupertinoButton(
-              onPressed: _incrementCounter,
-              child: const Icon(CupertinoIcons.add),
-            ),
-          ],
+      body: const Center(
+        child: Text(
+          'Stats page',
         ),
       ),
     );

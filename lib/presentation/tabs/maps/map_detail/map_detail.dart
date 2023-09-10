@@ -32,124 +32,115 @@ class _MapDetailPageState extends State<MapDetailPage> {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-      navigationBar: const CupertinoNavigationBar(
-        middle: Text('Map Detail'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Map Detail'),
       ),
-      child: SafeArea(
+      body: SafeArea(
         child: ListView(
           children: <Widget>[
             Column(
               children: [
                 Padding(
                   padding: const EdgeInsets.all(10),
-                  child: CupertinoTextField(
+                  child: TextField(
                     controller: _titleController,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(fontSize: 25),
-                    placeholder: 'Title (Eg. Pforzheim City)',
+                    textAlign: TextAlign.start,
+                    decoration: const InputDecoration(
+                        label: Text('Title (Eg. Pforzheim City)'),
+                        border: OutlineInputBorder()),
                     onSubmitted: (String text) => (),
                   ),
                 ),
                 Padding(
                   padding:
                       const EdgeInsets.only(left: 10, right: 10, bottom: 10),
-                  child: CupertinoTextField(
+                  child: TextField(
                     controller: _subtitleController,
-                    textAlign: TextAlign.center,
-                    placeholder: 'Subtitle (Eg. Around the church) (optional)',
+                    textAlign: TextAlign.start,
+                    decoration: const InputDecoration(
+                        label:
+                            Text('Subtitle (Eg. Around the church) (optional)'),
+                        border: OutlineInputBorder()),
                     onSubmitted: (String text) => (),
                   ),
                 ),
-                CupertinoButton.filled(
-                    child: const Text('Update Details'), onPressed: () => ()),
+                FloatingActionButton.extended(
+                    label: const Text('Update Details'), onPressed: () => ()),
                 const Padding(
                   padding: EdgeInsets.all(15),
                   child: Divider(),
                 ),
-                const Padding(
-                  padding: EdgeInsets.all(10),
-                  child: Text(
-                    'Map Areas',
-                    style: TextStyle(fontWeight: FontWeight.w900, fontSize: 20),
-                  ),
-                ),
               ],
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                CupertinoButton(
-                  child: const Text('Add Map Area'),
-                  onPressed: () => Navigator.of(context).push(
-                    CupertinoPageRoute<void>(
-                      builder: (BuildContext context) {
-                        return const AddMapAreaPage();
-                      },
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  const Padding(
+                    padding: EdgeInsets.only(left: 10),
+                    child: Text(
+                      'Map Areas',
+                      style:
+                          TextStyle(fontWeight: FontWeight.w900, fontSize: 20),
                     ),
                   ),
-                )
-              ],
+                  FloatingActionButton.extended(
+                    label: const Text('Add Map Area'),
+                    icon: const Icon(Icons.add),
+                    onPressed: () => Navigator.of(context).push(
+                      CupertinoPageRoute<void>(
+                        builder: (BuildContext context) {
+                          return const AddMapAreaPage();
+                        },
+                      ),
+                    ),
+                  ),
+                ],
+              ),
             ),
             const Padding(padding: EdgeInsets.only(bottom: 10)),
-            const Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15),
-              child: CupertinoSearchTextField(),
+            Card(
+              child: ListTile(
+                title: const Text('Around the church'),
+                trailing: const CupertinoListTileChevron(),
+                onTap: () => Navigator.of(context).push(
+                  CupertinoPageRoute<void>(
+                    builder: (BuildContext context) {
+                      return const MapAreaDetailPage(
+                          title: 'Around the church');
+                    },
+                  ),
+                ),
+              ),
             ),
-            CupertinoListSection(
-              backgroundColor: CupertinoColors.systemBackground,
-              children: <CupertinoListTile>[
-                CupertinoListTile(
-                  title: const Text('Around the church'),
-                  leading: Container(
-                    width: double.infinity,
-                    height: double.infinity,
-                    color: CupertinoColors.systemBlue,
-                  ),
-                  trailing: const CupertinoListTileChevron(),
-                  onTap: () => Navigator.of(context).push(
-                    CupertinoPageRoute<void>(
-                      builder: (BuildContext context) {
-                        return const MapAreaDetailPage(
-                            title: 'Around the church');
-                      },
-                    ),
+            Card(
+              child: CupertinoListTile(
+                title: const Text('Near the park'),
+                trailing: const CupertinoListTileChevron(),
+                onTap: () => Navigator.of(context).push(
+                  CupertinoPageRoute<void>(
+                    builder: (BuildContext context) {
+                      return const MapAreaDetailPage(title: 'Near the park');
+                    },
                   ),
                 ),
-                CupertinoListTile(
-                  title: const Text('Near the park'),
-                  leading: Container(
-                    width: double.infinity,
-                    height: double.infinity,
-                    color: CupertinoColors.systemRed,
-                  ),
-                  trailing: const CupertinoListTileChevron(),
-                  onTap: () => Navigator.of(context).push(
-                    CupertinoPageRoute<void>(
-                      builder: (BuildContext context) {
-                        return const MapAreaDetailPage(title: 'Near the park');
-                      },
-                    ),
+              ),
+            ),
+            Card(
+              child: CupertinoListTile(
+                title: const Text('Around the university'),
+                trailing: const CupertinoListTileChevron(),
+                onTap: () => Navigator.of(context).push(
+                  CupertinoPageRoute<void>(
+                    builder: (BuildContext context) {
+                      return const MapAreaDetailPage(
+                          title: 'Around the university');
+                    },
                   ),
                 ),
-                CupertinoListTile(
-                  title: const Text('Around the university'),
-                  leading: Container(
-                    width: double.infinity,
-                    height: double.infinity,
-                    color: CupertinoColors.systemGreen,
-                  ),
-                  trailing: const CupertinoListTileChevron(),
-                  onTap: () => Navigator.of(context).push(
-                    CupertinoPageRoute<void>(
-                      builder: (BuildContext context) {
-                        return const MapAreaDetailPage(
-                            title: 'Around the university');
-                      },
-                    ),
-                  ),
-                ),
-              ],
+              ),
             ),
           ],
         ),

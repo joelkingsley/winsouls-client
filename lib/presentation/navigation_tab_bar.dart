@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:winsouls/presentation/tabs/home/home_tab.dart';
 import 'package:winsouls/presentation/tabs/maps/maps_tab.dart';
 import 'package:winsouls/presentation/tabs/profile/profile_tab.dart';
@@ -12,6 +12,8 @@ class NavigationTabBar extends StatefulWidget {
 }
 
 class _NavigationTabBarState extends State<NavigationTabBar> {
+  int currentPageIndex = 0;
+
   List<Widget> tabs = [
     const HomeTabPage(),
     const MapsTabPage(),
@@ -21,34 +23,38 @@ class _NavigationTabBarState extends State<NavigationTabBar> {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoTabScaffold(
-      tabBar: CupertinoTabBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.home),
+    return Scaffold(
+      bottomNavigationBar: NavigationBar(
+        onDestinationSelected: (int index) {
+          setState(() {
+            currentPageIndex = index;
+          });
+        },
+        destinations: const <Widget>[
+          NavigationDestination(
+            selectedIcon: Icon(Icons.home),
+            icon: Icon(Icons.home_outlined),
             label: 'Home',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.map_fill),
+          NavigationDestination(
+            icon: Icon(Icons.map_outlined),
+            selectedIcon: Icon(Icons.map),
             label: 'Maps',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.chart_bar_square_fill),
+          NavigationDestination(
+            selectedIcon: Icon(Icons.pie_chart),
+            icon: Icon(Icons.pie_chart_outline_outlined),
             label: 'Stats',
           ),
-          BottomNavigationBarItem(
-            icon: Icon(CupertinoIcons.person_fill),
+          NavigationDestination(
+            selectedIcon: Icon(Icons.person),
+            icon: Icon(Icons.person_outline),
             label: 'Profile',
           ),
         ],
+        selectedIndex: currentPageIndex,
       ),
-      tabBuilder: (BuildContext context, int index) {
-        return CupertinoTabView(
-          builder: (BuildContext context) {
-            return tabs[index];
-          },
-        );
-      },
+      body: tabs[currentPageIndex],
     );
   }
 }
