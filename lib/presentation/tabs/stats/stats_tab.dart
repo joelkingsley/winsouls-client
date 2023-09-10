@@ -1,4 +1,3 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class StatsTabPage extends StatefulWidget {
@@ -9,14 +8,6 @@ class StatsTabPage extends StatefulWidget {
 }
 
 class _StatsTabPageState extends State<StatsTabPage> {
-  int _counter = 0;
-
-  void _incrementCounter() {
-    setState(() {
-      _counter++;
-    });
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
