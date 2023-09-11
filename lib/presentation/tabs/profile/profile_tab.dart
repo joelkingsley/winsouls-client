@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 class ProfileTabPage extends StatefulWidget {
   const ProfileTabPage({super.key});
@@ -12,12 +13,12 @@ class _ProfileTabPageState extends State<ProfileTabPage> {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-      navigationBar: const CupertinoNavigationBar(
-        middle: Text('Profile'),
-        trailing: Icon(CupertinoIcons.qrcode),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Profile'),
+        actions: const [Icon(Icons.qr_code)],
       ),
-      child: Center(
+      body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
@@ -26,8 +27,7 @@ class _ProfileTabPageState extends State<ProfileTabPage> {
             ),
             CupertinoButton(
               onPressed: _logoutPressed,
-              child: const Icon(
-                  CupertinoIcons.rectangle_arrow_up_right_arrow_down_left),
+              child: const Icon(CupertinoIcons.arrowtriangle_down_square),
             ),
           ],
         ),

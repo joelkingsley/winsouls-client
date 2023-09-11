@@ -1,4 +1,6 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapAreaDetailPage extends StatefulWidget {
   final String title;
@@ -10,7 +12,9 @@ class MapAreaDetailPage extends StatefulWidget {
 }
 
 class _MapAreaDetailPageState extends State<MapAreaDetailPage> {
+  late GoogleMapController mapController;
   late TextEditingController _titleController;
+  final LatLng _center = const LatLng(45.521563, -122.677433);
 
   @override
   void initState() {
@@ -26,30 +30,41 @@ class _MapAreaDetailPageState extends State<MapAreaDetailPage> {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-      navigationBar: const CupertinoNavigationBar(
-        middle: Text('Map Area Detail'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Map Area Detail'),
       ),
-      child: SafeArea(
+      body: SafeArea(
         child: ListView(
           children: <Widget>[
-            Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.all(10),
-                  child: CupertinoTextField(
-                    controller: _titleController,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(fontSize: 25),
-                    placeholder: 'Title (Eg. Around the church)',
-                    onSubmitted: (String text) => (),
-                  ),
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: TextField(
+                controller: _titleController,
+                textAlign: TextAlign.start,
+                decoration: const InputDecoration(
+                  label: Text('Title (Eg. Around the church)'),
+                  border: OutlineInputBorder(),
                 ),
-              ],
+                onSubmitted: (String text) => (),
+              ),
             ),
+            SizedBox(
+                height: 500,
+                child: GoogleMap(
+                  onMapCreated: _onMapCreated,
+                  initialCameraPosition: CameraPosition(
+                    target: _center,
+                    zoom: 11.0,
+                  ),
+                )),
           ],
         ),
       ),
     );
+  }
+
+  void _onMapCreated(GoogleMapController controller) {
+    mapController = controller;
   }
 }

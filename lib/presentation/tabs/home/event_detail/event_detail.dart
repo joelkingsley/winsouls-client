@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:winsouls/presentation/styles/dark_mode.dart';
 
 class EventDetailPage extends StatelessWidget {
@@ -6,11 +7,12 @@ class EventDetailPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-      navigationBar: const CupertinoNavigationBar(
-        middle: Text('Event'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Event'),
+        actions: const [Icon(Icons.qr_code)],
       ),
-      child: ListView(
+      body: ListView(
         children: [
           Column(children: [
             Stack(
@@ -33,14 +35,8 @@ class EventDetailPage extends StatelessWidget {
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: context.isDarkMode
-                        ? [
-                            CupertinoColors.black.withOpacity(0.0),
-                            CupertinoColors.black
-                          ]
-                        : [
-                            CupertinoColors.white.withOpacity(0.0),
-                            CupertinoColors.white
-                          ],
+                        ? [Colors.white.withOpacity(0.0), Colors.white]
+                        : [Colors.white.withOpacity(0.0), Colors.white],
                   )),
                 ),
               ],
@@ -67,28 +63,31 @@ class EventDetailPage extends StatelessWidget {
                 children: [
                   Expanded(
                     flex: 9,
-                    child: CupertinoButton.filled(
+                    child: ElevatedButton(
                         child: const Text('Interested'), onPressed: () => ()),
                   ),
                   const Padding(padding: EdgeInsets.only(right: 10)),
                   Expanded(
                     flex: 1,
                     child: CupertinoButton(
-                        child: const Icon(CupertinoIcons.ellipsis_vertical),
+                        child: const Icon(Icons.more_vert),
                         onPressed: () => ()),
                   ),
                 ],
               ),
             ),
           ),
-          SafeArea(
-            child: CupertinoListSection.insetGrouped(
-              backgroundColor: CupertinoColors.systemBackground,
-              header: const Text('What to expect'),
-              children: const [
-                Text(
-                    'Auch wenn Sie noch keine Erfahrung im Seelengewinnen haben, können Sie gerne als stiller Partner dabei sein und lernen, wie wir evangelisieren. Auf der Seite Seelengewinnen finden Sie weitere Informationen zum Thema Seelengewinnen. Sie können uns auch gerne jederzeit eine E-Mail schreiben, falls Sie weitere Fragen haben: post@bkzw.church.'),
-              ],
+          const Padding(
+            padding: EdgeInsets.all(10),
+            child: Text(
+              'What to expect',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.all(10),
+            child: Text(
+              'Auch wenn Sie noch keine Erfahrung im Seelengewinnen haben, können Sie gerne als stiller Partner dabei sein und lernen, wie wir evangelisieren. Auf der Seite Seelengewinnen finden Sie weitere Informationen zum Thema Seelengewinnen. Sie können uns auch gerne jederzeit eine E-Mail schreiben, falls Sie weitere Fragen haben: post@bkzw.church.',
             ),
           ),
         ],

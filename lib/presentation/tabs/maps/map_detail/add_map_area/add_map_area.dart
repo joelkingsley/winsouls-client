@@ -1,4 +1,4 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class AddMapAreaPage extends StatefulWidget {
@@ -27,23 +27,24 @@ class _AddMapAreaPageState extends State<AddMapAreaPage> {
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-      navigationBar: const CupertinoNavigationBar(
-        middle: Text('Add Map Area'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Add Map Area'),
       ),
-      child: SafeArea(
+      body: SafeArea(
         child: ListView(
           children: <Widget>[
             Column(
               children: [
                 Padding(
                   padding: const EdgeInsets.all(10),
-                  child: CupertinoTextField(
+                  child: TextField(
                     controller: _titleController,
-                    textAlign: TextAlign.center,
-                    style: const TextStyle(fontSize: 25),
-                    placeholder: 'Title (Eg. Around the church)',
+                    textAlign: TextAlign.start,
                     onSubmitted: (String text) => (),
+                    decoration: const InputDecoration(
+                        label: Text('Title (Eg. Around the church)'),
+                        border: OutlineInputBorder()),
                   ),
                 ),
                 SizedBox(
