@@ -57,6 +57,11 @@ class _MapAreaDetailPageState extends State<MapAreaDetailPage> {
                     zoom: 11.0,
                   ),
                 )),
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: FloatingActionButton.extended(
+                  label: const Text('Update Details'), onPressed: () => ()),
+            ),
           ],
         ),
       ),

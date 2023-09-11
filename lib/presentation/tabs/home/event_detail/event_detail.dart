@@ -44,10 +44,10 @@ class EventDetailPage extends StatelessWidget {
               ],
             ),
           ]),
-          const SafeArea(
+          SafeArea(
             child: Text(
-              '5 APR AT 10:00 - 9 APR AT 07:00',
-              style: TextStyle(fontWeight: FontWeight.w300),
+              '${event.scheduledStartTimeInUtc.toLocal().day}/${event.scheduledStartTimeInUtc.toLocal().month}/${event.scheduledStartTimeInUtc.toLocal().year} (${event.scheduledStartTimeInUtc.toLocal().hour.toString().padLeft(2, '0')}:${event.scheduledStartTimeInUtc.toLocal().minute.toString().padLeft(2, '0')}) - ${event.scheduledEndTimeInUtc.toLocal().day}/${event.scheduledEndTimeInUtc.toLocal().month}/${event.scheduledEndTimeInUtc.toLocal().year} (${event.scheduledEndTimeInUtc.toLocal().hour.toString().padLeft(2, '0')}:${event.scheduledEndTimeInUtc.toLocal().minute.toString().padLeft(2, '0')})',
+              style: const TextStyle(fontWeight: FontWeight.w300),
               textAlign: TextAlign.center,
             ),
           ),
@@ -92,6 +92,47 @@ class EventDetailPage extends StatelessWidget {
               event.whatToExpect,
             ),
           ),
+          const Padding(
+            padding: EdgeInsets.all(10),
+            child: Text(
+              'Event plan',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Text(
+              event.eventPlan,
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.all(10),
+            child: Text(
+              'Sessions',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
+            ),
+          ),
+          event.sessions.isNotEmpty
+              ? Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        children: [
+                          for (var session in event.sessions)
+                            Card(
+                              child: ListTile(
+                                title: Text(session.name),
+                                subtitle: Text(
+                                    '${session.scheduledStartTimeInUtc.toLocal()} - ${session.scheduledEndTimeInUtc.toLocal()}'),
+                              ),
+                            )
+                        ],
+                      ),
+                    ),
+                  ],
+                )
+              : const SizedBox.shrink(),
         ],
       ),
     );

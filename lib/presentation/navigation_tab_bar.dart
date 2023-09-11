@@ -15,7 +15,7 @@ class _NavigationTabBarState extends State<NavigationTabBar> {
   int currentPageIndex = 0;
 
   List<Widget> tabs = [
-    const HomeTabPage(),
+    HomeTabPage(),
     const MapsTabPage(),
     const StatsTabPage(),
     const ProfileTabPage()
