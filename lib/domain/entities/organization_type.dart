@@ -1,0 +1,1 @@
+enum OrganizationType { church, soulWinningClub }
