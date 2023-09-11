@@ -59,8 +59,7 @@ class _MapDetailPageState extends State<MapDetailPage> {
                     controller: _subtitleController,
                     textAlign: TextAlign.start,
                     decoration: const InputDecoration(
-                        label:
-                            Text('Subtitle (Eg. Around the church) (optional)'),
+                        label: Text('Subtitle (Eg. City center) (optional)'),
                         border: OutlineInputBorder()),
                     onSubmitted: (String text) => (),
                   ),

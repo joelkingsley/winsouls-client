@@ -1,9 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:winsouls/domain/entities/event.dart';
 import 'package:winsouls/presentation/styles/dark_mode.dart';
 
 class EventDetailPage extends StatelessWidget {
-  const EventDetailPage({super.key});
+  final Event event;
+
+  const EventDetailPage({super.key, required this.event});
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +23,10 @@ class EventDetailPage extends StatelessWidget {
                 Container(
                   width: MediaQuery.of(context).size.width,
                   height: 200,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     image: DecorationImage(
                       fit: BoxFit.fitWidth,
-                      image: NetworkImage(
-                          'https://i0.wp.com/baptisten-zuverlaessiges-wort.church/wp-content/uploads/2022/08/BKZW-scaled.jpg?resize=1200%2C750&ssl=1'),
+                      image: NetworkImage(event.coverPhotoUrl),
                     ),
                   ),
                 ),
@@ -49,10 +51,10 @@ class EventDetailPage extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
           ),
-          const SafeArea(
+          SafeArea(
             child: Text(
-              'Seelengewinnen-Mega-Marathon',
-              style: TextStyle(fontWeight: FontWeight.w900, fontSize: 30),
+              event.title,
+              style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 30),
               textAlign: TextAlign.center,
             ),
           ),
@@ -84,10 +86,10 @@ class EventDetailPage extends StatelessWidget {
               style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
             ),
           ),
-          const Padding(
-            padding: EdgeInsets.all(10),
+          Padding(
+            padding: const EdgeInsets.all(10),
             child: Text(
-              'Auch wenn Sie noch keine Erfahrung im Seelengewinnen haben, können Sie gerne als stiller Partner dabei sein und lernen, wie wir evangelisieren. Auf der Seite Seelengewinnen finden Sie weitere Informationen zum Thema Seelengewinnen. Sie können uns auch gerne jederzeit eine E-Mail schreiben, falls Sie weitere Fragen haben: post@bkzw.church.',
+              event.whatToExpect,
             ),
           ),
         ],
