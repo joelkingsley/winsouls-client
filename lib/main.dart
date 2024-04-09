@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:winsouls/presentation/navigation_tab_bar.dart';
 
 void main() {
-  runApp(const WinSoulsApp());
+  runApp(const ProviderScope(child: WinSoulsApp()));
 }
 
 class WinSoulsApp extends StatelessWidget {

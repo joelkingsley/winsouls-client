@@ -1,0 +1,3180 @@
+schema  { query: query_root mutation: mutation_root subscription: subscription_root }
+
+scalar EncounterResultType
+
+scalar EventTypeType
+
+scalar OrganizationTypeType
+
+scalar jsonb
+
+scalar timestamp
+
+type __Directive { args: __InputValue
+  description: String!
+  isRepeatable: String!
+  locations: String!
+  name: String!
+}
+
+type __EnumValue { deprecationReason: String!
+  description: String!
+  isDeprecated: String!
+  name: String!
+}
+
+type __Field { args: __InputValue
+  deprecationReason: String!
+  description: String!
+  isDeprecated: String!
+  name: String!
+  type: __Type
+}
+
+type __InputValue { defaultValue: String!
+  description: String!
+  name: String!
+  type: __Type
+}
+
+type __Schema { description: String!
+  directives: __Directive
+  mutationType: __Type
+  queryType: __Type
+  subscriptionType: __Type
+  types: __Type
+}
+
+type __Type { description: String!
+  enumValues(includeDeprecated: Boolean = false): __EnumValue
+  fields(includeDeprecated: Boolean = false): __Field
+  inputFields: __InputValue
+  interfaces: __Type
+  kind: __TypeKind!
+  name: String!
+  ofType: __Type
+  possibleTypes: __Type
+}
+
+type query_root { "An aggregate relationship" 
+_SoulWinningSessionGroup_members_aggregate("filter the rows returned" 
+where: _SoulWinningSessionGroup_members_bool_exp, "sort the rows by one or more columns" 
+order_by: [_SoulWinningSessionGroup_members_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [_SoulWinningSessionGroup_members_select_column!]): _SoulWinningSessionGroup_members_aggregate!
+  "An array relationship" 
+_SoulWinningSessionGroup_members("filter the rows returned" 
+where: _SoulWinningSessionGroup_members_bool_exp, "sort the rows by one or more columns" 
+order_by: [_SoulWinningSessionGroup_members_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [_SoulWinningSessionGroup_members_select_column!]): [_SoulWinningSessionGroup_members!]!
+  "fetch aggregated fields from the table: \"Encounter\"" 
+Encounter_aggregate("filter the rows returned" 
+where: Encounter_bool_exp, "sort the rows by one or more columns" 
+order_by: [Encounter_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [Encounter_select_column!]): Encounter_aggregate!
+  "fetch aggregated fields from the table: \"Event\"" 
+Event_aggregate("filter the rows returned" 
+where: Event_bool_exp, "sort the rows by one or more columns" 
+order_by: [Event_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [Event_select_column!]): Event_aggregate!
+  "fetch aggregated fields from the table: \"Map\"" 
+Map_aggregate("filter the rows returned" 
+where: Map_bool_exp, "sort the rows by one or more columns" 
+order_by: [Map_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [Map_select_column!]): Map_aggregate!
+  "fetch aggregated fields from the table: \"MapArea\"" 
+MapArea_aggregate("filter the rows returned" 
+where: MapArea_bool_exp, "sort the rows by one or more columns" 
+order_by: [MapArea_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [MapArea_select_column!]): MapArea_aggregate!
+  "fetch aggregated fields from the table: \"Organization\"" 
+Organization_aggregate("filter the rows returned" 
+where: Organization_bool_exp, "sort the rows by one or more columns" 
+order_by: [Organization_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [Organization_select_column!]): Organization_aggregate!
+  "fetch aggregated fields from the table: \"SavedPerson\"" 
+SavedPerson_aggregate("filter the rows returned" 
+where: SavedPerson_bool_exp, "sort the rows by one or more columns" 
+order_by: [SavedPerson_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [SavedPerson_select_column!]): SavedPerson_aggregate!
+  "fetch aggregated fields from the table: \"SoulWinningSession\"" 
+SoulWinningSession_aggregate("filter the rows returned" 
+where: SoulWinningSession_bool_exp, "sort the rows by one or more columns" 
+order_by: [SoulWinningSession_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [SoulWinningSession_select_column!]): SoulWinningSession_aggregate!
+  "fetch aggregated fields from the table: \"SoulWinningSessionGroup\"" 
+SoulWinningSessionGroup_aggregate("filter the rows returned" 
+where: SoulWinningSessionGroup_bool_exp, "sort the rows by one or more columns" 
+order_by: [SoulWinningSessionGroup_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [SoulWinningSessionGroup_select_column!]): SoulWinningSessionGroup_aggregate!
+  "fetch aggregated fields from the table: \"User\"" 
+User_aggregate("filter the rows returned" 
+where: User_bool_exp, "sort the rows by one or more columns" 
+order_by: [User_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [User_select_column!]): User_aggregate!
+  "fetch aggregated fields from the table: \"_Organization_adminsOfOrganization\"" 
+_Organization_adminsOfOrganization_aggregate("filter the rows returned" 
+where: _Organization_adminsOfOrganization_bool_exp, "sort the rows by one or more columns" 
+order_by: [_Organization_adminsOfOrganization_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [_Organization_adminsOfOrganization_select_column!]): _Organization_adminsOfOrganization_aggregate!
+  "fetch aggregated fields from the table: \"_Organization_membersInOrganization\"" 
+_Organization_membersInOrganization_aggregate("filter the rows returned" 
+where: _Organization_membersInOrganization_bool_exp, "sort the rows by one or more columns" 
+order_by: [_Organization_membersInOrganization_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [_Organization_membersInOrganization_select_column!]): _Organization_membersInOrganization_aggregate!
+  "fetch data from the table: \"Encounter\"" 
+Encounter("filter the rows returned" 
+where: Encounter_bool_exp, "sort the rows by one or more columns" 
+order_by: [Encounter_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [Encounter_select_column!]): [Encounter!]!
+  "fetch data from the table: \"Encounter\" using primary key columns" 
+Encounter_by_pk(id: String!): Encounter
+  "fetch data from the table: \"Event\"" 
+Event("filter the rows returned" 
+where: Event_bool_exp, "sort the rows by one or more columns" 
+order_by: [Event_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [Event_select_column!]): [Event!]!
+  "fetch data from the table: \"Event\" using primary key columns" 
+Event_by_pk(id: String!): Event
+  "fetch data from the table: \"Map\"" 
+Map("filter the rows returned" 
+where: Map_bool_exp, "sort the rows by one or more columns" 
+order_by: [Map_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [Map_select_column!]): [Map!]!
+  "fetch data from the table: \"Map\" using primary key columns" 
+Map_by_pk(id: String!): Map
+  "fetch data from the table: \"MapArea\"" 
+MapArea("filter the rows returned" 
+where: MapArea_bool_exp, "sort the rows by one or more columns" 
+order_by: [MapArea_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [MapArea_select_column!]): [MapArea!]!
+  "fetch data from the table: \"MapArea\" using primary key columns" 
+MapArea_by_pk(id: String!): MapArea
+  "fetch data from the table: \"Organization\"" 
+Organization("filter the rows returned" 
+where: Organization_bool_exp, "sort the rows by one or more columns" 
+order_by: [Organization_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [Organization_select_column!]): [Organization!]!
+  "fetch data from the table: \"Organization\" using primary key columns" 
+Organization_by_pk(id: String!): Organization
+  "fetch data from the table: \"SavedPerson\"" 
+SavedPerson("filter the rows returned" 
+where: SavedPerson_bool_exp, "sort the rows by one or more columns" 
+order_by: [SavedPerson_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [SavedPerson_select_column!]): [SavedPerson!]!
+  "fetch data from the table: \"SavedPerson\" using primary key columns" 
+SavedPerson_by_pk(id: String!): SavedPerson
+  "fetch data from the table: \"SoulWinningSession\"" 
+SoulWinningSession("filter the rows returned" 
+where: SoulWinningSession_bool_exp, "sort the rows by one or more columns" 
+order_by: [SoulWinningSession_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [SoulWinningSession_select_column!]): [SoulWinningSession!]!
+  "fetch data from the table: \"SoulWinningSession\" using primary key columns" 
+SoulWinningSession_by_pk(id: String!): SoulWinningSession
+  "fetch data from the table: \"SoulWinningSessionGroup\"" 
+SoulWinningSessionGroup("filter the rows returned" 
+where: SoulWinningSessionGroup_bool_exp, "sort the rows by one or more columns" 
+order_by: [SoulWinningSessionGroup_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [SoulWinningSessionGroup_select_column!]): [SoulWinningSessionGroup!]!
+  "fetch data from the table: \"SoulWinningSessionGroup\" using primary key columns" 
+SoulWinningSessionGroup_by_pk(id: String!): SoulWinningSessionGroup
+  "fetch data from the table: \"User\"" 
+User("filter the rows returned" 
+where: User_bool_exp, "sort the rows by one or more columns" 
+order_by: [User_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [User_select_column!]): [User!]!
+  "fetch data from the table: \"User\" using primary key columns" 
+User_by_pk(id: String!): User
+  "fetch data from the table: \"_Organization_adminsOfOrganization\"" 
+_Organization_adminsOfOrganization("filter the rows returned" 
+where: _Organization_adminsOfOrganization_bool_exp, "sort the rows by one or more columns" 
+order_by: [_Organization_adminsOfOrganization_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [_Organization_adminsOfOrganization_select_column!]): [_Organization_adminsOfOrganization!]!
+  "fetch data from the table: \"_Organization_membersInOrganization\"" 
+_Organization_membersInOrganization("filter the rows returned" 
+where: _Organization_membersInOrganization_bool_exp, "sort the rows by one or more columns" 
+order_by: [_Organization_membersInOrganization_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [_Organization_membersInOrganization_select_column!]): [_Organization_membersInOrganization!]!
+}
+
+type subscription_root { "An aggregate relationship" 
+_SoulWinningSessionGroup_members_aggregate("filter the rows returned" 
+where: _SoulWinningSessionGroup_members_bool_exp, "sort the rows by one or more columns" 
+order_by: [_SoulWinningSessionGroup_members_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [_SoulWinningSessionGroup_members_select_column!]): _SoulWinningSessionGroup_members_aggregate!
+  "An array relationship" 
+_SoulWinningSessionGroup_members("filter the rows returned" 
+where: _SoulWinningSessionGroup_members_bool_exp, "sort the rows by one or more columns" 
+order_by: [_SoulWinningSessionGroup_members_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [_SoulWinningSessionGroup_members_select_column!]): [_SoulWinningSessionGroup_members!]!
+  "fetch aggregated fields from the table: \"Encounter\"" 
+Encounter_aggregate("filter the rows returned" 
+where: Encounter_bool_exp, "sort the rows by one or more columns" 
+order_by: [Encounter_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [Encounter_select_column!]): Encounter_aggregate!
+  "fetch aggregated fields from the table: \"Event\"" 
+Event_aggregate("filter the rows returned" 
+where: Event_bool_exp, "sort the rows by one or more columns" 
+order_by: [Event_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [Event_select_column!]): Event_aggregate!
+  "fetch aggregated fields from the table: \"Map\"" 
+Map_aggregate("filter the rows returned" 
+where: Map_bool_exp, "sort the rows by one or more columns" 
+order_by: [Map_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [Map_select_column!]): Map_aggregate!
+  "fetch aggregated fields from the table: \"MapArea\"" 
+MapArea_aggregate("filter the rows returned" 
+where: MapArea_bool_exp, "sort the rows by one or more columns" 
+order_by: [MapArea_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [MapArea_select_column!]): MapArea_aggregate!
+  "fetch aggregated fields from the table: \"Organization\"" 
+Organization_aggregate("filter the rows returned" 
+where: Organization_bool_exp, "sort the rows by one or more columns" 
+order_by: [Organization_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [Organization_select_column!]): Organization_aggregate!
+  "fetch aggregated fields from the table: \"SavedPerson\"" 
+SavedPerson_aggregate("filter the rows returned" 
+where: SavedPerson_bool_exp, "sort the rows by one or more columns" 
+order_by: [SavedPerson_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [SavedPerson_select_column!]): SavedPerson_aggregate!
+  "fetch aggregated fields from the table: \"SoulWinningSession\"" 
+SoulWinningSession_aggregate("filter the rows returned" 
+where: SoulWinningSession_bool_exp, "sort the rows by one or more columns" 
+order_by: [SoulWinningSession_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [SoulWinningSession_select_column!]): SoulWinningSession_aggregate!
+  "fetch aggregated fields from the table: \"SoulWinningSessionGroup\"" 
+SoulWinningSessionGroup_aggregate("filter the rows returned" 
+where: SoulWinningSessionGroup_bool_exp, "sort the rows by one or more columns" 
+order_by: [SoulWinningSessionGroup_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [SoulWinningSessionGroup_select_column!]): SoulWinningSessionGroup_aggregate!
+  "fetch aggregated fields from the table: \"User\"" 
+User_aggregate("filter the rows returned" 
+where: User_bool_exp, "sort the rows by one or more columns" 
+order_by: [User_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [User_select_column!]): User_aggregate!
+  "fetch aggregated fields from the table: \"_Organization_adminsOfOrganization\"" 
+_Organization_adminsOfOrganization_aggregate("filter the rows returned" 
+where: _Organization_adminsOfOrganization_bool_exp, "sort the rows by one or more columns" 
+order_by: [_Organization_adminsOfOrganization_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [_Organization_adminsOfOrganization_select_column!]): _Organization_adminsOfOrganization_aggregate!
+  "fetch aggregated fields from the table: \"_Organization_membersInOrganization\"" 
+_Organization_membersInOrganization_aggregate("filter the rows returned" 
+where: _Organization_membersInOrganization_bool_exp, "sort the rows by one or more columns" 
+order_by: [_Organization_membersInOrganization_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [_Organization_membersInOrganization_select_column!]): _Organization_membersInOrganization_aggregate!
+  "fetch data from the table in a streaming manner: \"Encounter\"" 
+Encounter_stream("filter the rows returned" 
+where: Encounter_bool_exp, "cursor to stream the results returned by the query" 
+cursor: [Encounter_stream_cursor_input]!, "maximum number of rows returned in a single batch" 
+batch_size: Int!): [Encounter!]!
+  "fetch data from the table in a streaming manner: \"Event\"" 
+Event_stream("filter the rows returned" 
+where: Event_bool_exp, "cursor to stream the results returned by the query" 
+cursor: [Event_stream_cursor_input]!, "maximum number of rows returned in a single batch" 
+batch_size: Int!): [Event!]!
+  "fetch data from the table in a streaming manner: \"Map\"" 
+Map_stream("filter the rows returned" 
+where: Map_bool_exp, "cursor to stream the results returned by the query" 
+cursor: [Map_stream_cursor_input]!, "maximum number of rows returned in a single batch" 
+batch_size: Int!): [Map!]!
+  "fetch data from the table in a streaming manner: \"MapArea\"" 
+MapArea_stream("filter the rows returned" 
+where: MapArea_bool_exp, "cursor to stream the results returned by the query" 
+cursor: [MapArea_stream_cursor_input]!, "maximum number of rows returned in a single batch" 
+batch_size: Int!): [MapArea!]!
+  "fetch data from the table in a streaming manner: \"Organization\"" 
+Organization_stream("filter the rows returned" 
+where: Organization_bool_exp, "cursor to stream the results returned by the query" 
+cursor: [Organization_stream_cursor_input]!, "maximum number of rows returned in a single batch" 
+batch_size: Int!): [Organization!]!
+  "fetch data from the table in a streaming manner: \"SavedPerson\"" 
+SavedPerson_stream("filter the rows returned" 
+where: SavedPerson_bool_exp, "cursor to stream the results returned by the query" 
+cursor: [SavedPerson_stream_cursor_input]!, "maximum number of rows returned in a single batch" 
+batch_size: Int!): [SavedPerson!]!
+  "fetch data from the table in a streaming manner: \"SoulWinningSession\"" 
+SoulWinningSession_stream("filter the rows returned" 
+where: SoulWinningSession_bool_exp, "cursor to stream the results returned by the query" 
+cursor: [SoulWinningSession_stream_cursor_input]!, "maximum number of rows returned in a single batch" 
+batch_size: Int!): [SoulWinningSession!]!
+  "fetch data from the table in a streaming manner: \"SoulWinningSessionGroup\"" 
+SoulWinningSessionGroup_stream("filter the rows returned" 
+where: SoulWinningSessionGroup_bool_exp, "cursor to stream the results returned by the query" 
+cursor: [SoulWinningSessionGroup_stream_cursor_input]!, "maximum number of rows returned in a single batch" 
+batch_size: Int!): [SoulWinningSessionGroup!]!
+  "fetch data from the table in a streaming manner: \"User\"" 
+User_stream("filter the rows returned" 
+where: User_bool_exp, "cursor to stream the results returned by the query" 
+cursor: [User_stream_cursor_input]!, "maximum number of rows returned in a single batch" 
+batch_size: Int!): [User!]!
+  "fetch data from the table in a streaming manner: \"_Organization_adminsOfOrganization\"" 
+_Organization_adminsOfOrganization_stream("filter the rows returned" 
+where: _Organization_adminsOfOrganization_bool_exp, "cursor to stream the results returned by the query" 
+cursor: [_Organization_adminsOfOrganization_stream_cursor_input]!, "maximum number of rows returned in a single batch" 
+batch_size: Int!): [_Organization_adminsOfOrganization!]!
+  "fetch data from the table in a streaming manner: \"_Organization_membersInOrganization\"" 
+_Organization_membersInOrganization_stream("filter the rows returned" 
+where: _Organization_membersInOrganization_bool_exp, "cursor to stream the results returned by the query" 
+cursor: [_Organization_membersInOrganization_stream_cursor_input]!, "maximum number of rows returned in a single batch" 
+batch_size: Int!): [_Organization_membersInOrganization!]!
+  "fetch data from the table in a streaming manner: \"_SoulWinningSessionGroup_members\"" 
+_SoulWinningSessionGroup_members_stream("filter the rows returned" 
+where: _SoulWinningSessionGroup_members_bool_exp, "cursor to stream the results returned by the query" 
+cursor: [_SoulWinningSessionGroup_members_stream_cursor_input]!, "maximum number of rows returned in a single batch" 
+batch_size: Int!): [_SoulWinningSessionGroup_members!]!
+  "fetch data from the table: \"Encounter\"" 
+Encounter("filter the rows returned" 
+where: Encounter_bool_exp, "sort the rows by one or more columns" 
+order_by: [Encounter_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [Encounter_select_column!]): [Encounter!]!
+  "fetch data from the table: \"Encounter\" using primary key columns" 
+Encounter_by_pk(id: String!): Encounter
+  "fetch data from the table: \"Event\"" 
+Event("filter the rows returned" 
+where: Event_bool_exp, "sort the rows by one or more columns" 
+order_by: [Event_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [Event_select_column!]): [Event!]!
+  "fetch data from the table: \"Event\" using primary key columns" 
+Event_by_pk(id: String!): Event
+  "fetch data from the table: \"Map\"" 
+Map("filter the rows returned" 
+where: Map_bool_exp, "sort the rows by one or more columns" 
+order_by: [Map_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [Map_select_column!]): [Map!]!
+  "fetch data from the table: \"Map\" using primary key columns" 
+Map_by_pk(id: String!): Map
+  "fetch data from the table: \"MapArea\"" 
+MapArea("filter the rows returned" 
+where: MapArea_bool_exp, "sort the rows by one or more columns" 
+order_by: [MapArea_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [MapArea_select_column!]): [MapArea!]!
+  "fetch data from the table: \"MapArea\" using primary key columns" 
+MapArea_by_pk(id: String!): MapArea
+  "fetch data from the table: \"Organization\"" 
+Organization("filter the rows returned" 
+where: Organization_bool_exp, "sort the rows by one or more columns" 
+order_by: [Organization_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [Organization_select_column!]): [Organization!]!
+  "fetch data from the table: \"Organization\" using primary key columns" 
+Organization_by_pk(id: String!): Organization
+  "fetch data from the table: \"SavedPerson\"" 
+SavedPerson("filter the rows returned" 
+where: SavedPerson_bool_exp, "sort the rows by one or more columns" 
+order_by: [SavedPerson_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [SavedPerson_select_column!]): [SavedPerson!]!
+  "fetch data from the table: \"SavedPerson\" using primary key columns" 
+SavedPerson_by_pk(id: String!): SavedPerson
+  "fetch data from the table: \"SoulWinningSession\"" 
+SoulWinningSession("filter the rows returned" 
+where: SoulWinningSession_bool_exp, "sort the rows by one or more columns" 
+order_by: [SoulWinningSession_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [SoulWinningSession_select_column!]): [SoulWinningSession!]!
+  "fetch data from the table: \"SoulWinningSession\" using primary key columns" 
+SoulWinningSession_by_pk(id: String!): SoulWinningSession
+  "fetch data from the table: \"SoulWinningSessionGroup\"" 
+SoulWinningSessionGroup("filter the rows returned" 
+where: SoulWinningSessionGroup_bool_exp, "sort the rows by one or more columns" 
+order_by: [SoulWinningSessionGroup_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [SoulWinningSessionGroup_select_column!]): [SoulWinningSessionGroup!]!
+  "fetch data from the table: \"SoulWinningSessionGroup\" using primary key columns" 
+SoulWinningSessionGroup_by_pk(id: String!): SoulWinningSessionGroup
+  "fetch data from the table: \"User\"" 
+User("filter the rows returned" 
+where: User_bool_exp, "sort the rows by one or more columns" 
+order_by: [User_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [User_select_column!]): [User!]!
+  "fetch data from the table: \"User\" using primary key columns" 
+User_by_pk(id: String!): User
+  "fetch data from the table: \"_Organization_adminsOfOrganization\"" 
+_Organization_adminsOfOrganization("filter the rows returned" 
+where: _Organization_adminsOfOrganization_bool_exp, "sort the rows by one or more columns" 
+order_by: [_Organization_adminsOfOrganization_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [_Organization_adminsOfOrganization_select_column!]): [_Organization_adminsOfOrganization!]!
+  "fetch data from the table: \"_Organization_membersInOrganization\"" 
+_Organization_membersInOrganization("filter the rows returned" 
+where: _Organization_membersInOrganization_bool_exp, "sort the rows by one or more columns" 
+order_by: [_Organization_membersInOrganization_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [_Organization_membersInOrganization_select_column!]): [_Organization_membersInOrganization!]!
+}
+
+"aggregate fields of \"Encounter\"" 
+type Encounter_aggregate_fields { count(distinct: Boolean, columns: [Encounter_select_column!]): Int!
+  max: Encounter_max_fields
+  min: Encounter_min_fields
+}
+
+"aggregate fields of \"Event\"" 
+type Event_aggregate_fields { count(distinct: Boolean, columns: [Event_select_column!]): Int!
+  max: Event_max_fields
+  min: Event_min_fields
+}
+
+"aggregate fields of \"Map\"" 
+type Map_aggregate_fields { count(distinct: Boolean, columns: [Map_select_column!]): Int!
+  max: Map_max_fields
+  min: Map_min_fields
+}
+
+"aggregate fields of \"MapArea\"" 
+type MapArea_aggregate_fields { count(distinct: Boolean, columns: [MapArea_select_column!]): Int!
+  max: MapArea_max_fields
+  min: MapArea_min_fields
+}
+
+"aggregate fields of \"Organization\"" 
+type Organization_aggregate_fields { count(distinct: Boolean, columns: [Organization_select_column!]): Int!
+  max: Organization_max_fields
+  min: Organization_min_fields
+}
+
+"aggregate fields of \"SavedPerson\"" 
+type SavedPerson_aggregate_fields { count(distinct: Boolean, columns: [SavedPerson_select_column!]): Int!
+  max: SavedPerson_max_fields
+  min: SavedPerson_min_fields
+}
+
+"aggregate fields of \"SoulWinningSession\"" 
+type SoulWinningSession_aggregate_fields { count(distinct: Boolean, columns: [SoulWinningSession_select_column!]): Int!
+  max: SoulWinningSession_max_fields
+  min: SoulWinningSession_min_fields
+}
+
+"aggregate fields of \"SoulWinningSessionGroup\"" 
+type SoulWinningSessionGroup_aggregate_fields { count(distinct: Boolean, columns: [SoulWinningSessionGroup_select_column!]): Int!
+  max: SoulWinningSessionGroup_max_fields
+  min: SoulWinningSessionGroup_min_fields
+}
+
+"aggregate fields of \"User\"" 
+type User_aggregate_fields { count(distinct: Boolean, columns: [User_select_column!]): Int!
+  max: User_max_fields
+  min: User_min_fields
+}
+
+"aggregate fields of \"_Organization_adminsOfOrganization\"" 
+type _Organization_adminsOfOrganization_aggregate_fields { count(distinct: Boolean, columns: [_Organization_adminsOfOrganization_select_column!]): Int!
+  max: _Organization_adminsOfOrganization_max_fields
+  min: _Organization_adminsOfOrganization_min_fields
+}
+
+"aggregate fields of \"_Organization_membersInOrganization\"" 
+type _Organization_membersInOrganization_aggregate_fields { count(distinct: Boolean, columns: [_Organization_membersInOrganization_select_column!]): Int!
+  max: _Organization_membersInOrganization_max_fields
+  min: _Organization_membersInOrganization_min_fields
+}
+
+"aggregate fields of \"_SoulWinningSessionGroup_members\"" 
+type _SoulWinningSessionGroup_members_aggregate_fields { count(distinct: Boolean, columns: [_SoulWinningSessionGroup_members_select_column!]): Int!
+  max: _SoulWinningSessionGroup_members_max_fields
+  min: _SoulWinningSessionGroup_members_min_fields
+}
+
+"aggregate max on columns" 
+type Encounter_max_fields { encounterTimeInUtc: timestamp
+  group: String
+  houseAddress: String
+  id: String
+  result: EncounterResultType
+}
+
+"aggregate max on columns" 
+type Event_max_fields { coverPhotoUrl: String
+  eventPlan: String
+  id: String
+  name: String
+  organization: String
+  scheduledEndTimeInUtc: timestamp
+  scheduledStartTimeInUtc: timestamp
+  type: EventTypeType
+  whatToExpect: String
+}
+
+"aggregate max on columns" 
+type MapArea_max_fields { belongingMap: String
+  id: String
+  name: String
+}
+
+"aggregate max on columns" 
+type Map_max_fields { belongingOrganization: String
+  id: String
+  name: String
+}
+
+"aggregate max on columns" 
+type Organization_max_fields { id: String
+  name: String
+  type: OrganizationTypeType
+}
+
+"aggregate max on columns" 
+type SavedPerson_max_fields { email: String
+  id: String
+  name: String
+  phone: String
+  savingEncounter: String
+}
+
+"aggregate max on columns" 
+type SoulWinningSessionGroup_max_fields { assignedMapArea: String
+  id: String
+  session: String
+}
+
+"aggregate max on columns" 
+type SoulWinningSession_max_fields { event: String
+  id: String
+  name: String
+  scheduledEndTimeInUtc: timestamp
+  scheduledStartTimeInUtc: timestamp
+}
+
+"aggregate max on columns" 
+type User_max_fields { adminUiPassword: String
+  createdAt: timestamp
+  email: String
+  id: String
+  name: String
+}
+
+"aggregate max on columns" 
+type _Organization_adminsOfOrganization_max_fields { A: String
+  B: String
+}
+
+"aggregate max on columns" 
+type _Organization_membersInOrganization_max_fields { A: String
+  B: String
+}
+
+"aggregate max on columns" 
+type _SoulWinningSessionGroup_members_max_fields { A: String
+  B: String
+}
+
+"aggregate min on columns" 
+type Encounter_min_fields { encounterTimeInUtc: timestamp
+  group: String
+  houseAddress: String
+  id: String
+  result: EncounterResultType
+}
+
+"aggregate min on columns" 
+type Event_min_fields { coverPhotoUrl: String
+  eventPlan: String
+  id: String
+  name: String
+  organization: String
+  scheduledEndTimeInUtc: timestamp
+  scheduledStartTimeInUtc: timestamp
+  type: EventTypeType
+  whatToExpect: String
+}
+
+"aggregate min on columns" 
+type MapArea_min_fields { belongingMap: String
+  id: String
+  name: String
+}
+
+"aggregate min on columns" 
+type Map_min_fields { belongingOrganization: String
+  id: String
+  name: String
+}
+
+"aggregate min on columns" 
+type Organization_min_fields { id: String
+  name: String
+  type: OrganizationTypeType
+}
+
+"aggregate min on columns" 
+type SavedPerson_min_fields { email: String
+  id: String
+  name: String
+  phone: String
+  savingEncounter: String
+}
+
+"aggregate min on columns" 
+type SoulWinningSessionGroup_min_fields { assignedMapArea: String
+  id: String
+  session: String
+}
+
+"aggregate min on columns" 
+type SoulWinningSession_min_fields { event: String
+  id: String
+  name: String
+  scheduledEndTimeInUtc: timestamp
+  scheduledStartTimeInUtc: timestamp
+}
+
+"aggregate min on columns" 
+type User_min_fields { adminUiPassword: String
+  createdAt: timestamp
+  email: String
+  id: String
+  name: String
+}
+
+"aggregate min on columns" 
+type _Organization_adminsOfOrganization_min_fields { A: String
+  B: String
+}
+
+"aggregate min on columns" 
+type _Organization_membersInOrganization_min_fields { A: String
+  B: String
+}
+
+"aggregate min on columns" 
+type _SoulWinningSessionGroup_members_min_fields { A: String
+  B: String
+}
+
+"aggregated selection of \"Encounter\"" 
+type Encounter_aggregate { aggregate: Encounter_aggregate_fields
+  nodes: [Encounter!]!
+}
+
+"aggregated selection of \"Event\"" 
+type Event_aggregate { aggregate: Event_aggregate_fields
+  nodes: [Event!]!
+}
+
+"aggregated selection of \"Map\"" 
+type Map_aggregate { aggregate: Map_aggregate_fields
+  nodes: [Map!]!
+}
+
+"aggregated selection of \"MapArea\"" 
+type MapArea_aggregate { aggregate: MapArea_aggregate_fields
+  nodes: [MapArea!]!
+}
+
+"aggregated selection of \"Organization\"" 
+type Organization_aggregate { aggregate: Organization_aggregate_fields
+  nodes: [Organization!]!
+}
+
+"aggregated selection of \"SavedPerson\"" 
+type SavedPerson_aggregate { aggregate: SavedPerson_aggregate_fields
+  nodes: [SavedPerson!]!
+}
+
+"aggregated selection of \"SoulWinningSession\"" 
+type SoulWinningSession_aggregate { aggregate: SoulWinningSession_aggregate_fields
+  nodes: [SoulWinningSession!]!
+}
+
+"aggregated selection of \"SoulWinningSessionGroup\"" 
+type SoulWinningSessionGroup_aggregate { aggregate: SoulWinningSessionGroup_aggregate_fields
+  nodes: [SoulWinningSessionGroup!]!
+}
+
+"aggregated selection of \"User\"" 
+type User_aggregate { aggregate: User_aggregate_fields
+  nodes: [User!]!
+}
+
+"aggregated selection of \"_Organization_adminsOfOrganization\"" 
+type _Organization_adminsOfOrganization_aggregate { aggregate: _Organization_adminsOfOrganization_aggregate_fields
+  nodes: [_Organization_adminsOfOrganization!]!
+}
+
+"aggregated selection of \"_Organization_membersInOrganization\"" 
+type _Organization_membersInOrganization_aggregate { aggregate: _Organization_membersInOrganization_aggregate_fields
+  nodes: [_Organization_membersInOrganization!]!
+}
+
+"aggregated selection of \"_SoulWinningSessionGroup_members\"" 
+type _SoulWinningSessionGroup_members_aggregate { aggregate: _SoulWinningSessionGroup_members_aggregate_fields
+  nodes: [_SoulWinningSessionGroup_members!]!
+}
+
+"columns and relationships of \"Encounter\"" 
+type Encounter { encounterTimeInUtc: timestamp
+  group: String
+  houseAddress: String!
+  id: String!
+  result: EncounterResultType!
+  "An aggregate relationship" 
+SavedPeople_aggregate("filter the rows returned" 
+where: SavedPerson_bool_exp, "sort the rows by one or more columns" 
+order_by: [SavedPerson_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [SavedPerson_select_column!]): SavedPerson_aggregate!
+  "An array relationship" 
+SavedPeople("filter the rows returned" 
+where: SavedPerson_bool_exp, "sort the rows by one or more columns" 
+order_by: [SavedPerson_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [SavedPerson_select_column!]): [SavedPerson!]!
+  "An object relationship" 
+SoulWinningSessionGroup: SoulWinningSessionGroup
+}
+
+"columns and relationships of \"Event\"" 
+type Event { coverPhotoUrl: String!
+  eventPlan: String!
+  id: String!
+  name: String!
+  organization: String
+  scheduledEndTimeInUtc: timestamp!
+  scheduledStartTimeInUtc: timestamp!
+  type: EventTypeType!
+  whatToExpect: String!
+  "An aggregate relationship" 
+SoulWinningSessions_aggregate("filter the rows returned" 
+where: SoulWinningSession_bool_exp, "sort the rows by one or more columns" 
+order_by: [SoulWinningSession_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [SoulWinningSession_select_column!]): SoulWinningSession_aggregate!
+  "An array relationship" 
+SoulWinningSessions("filter the rows returned" 
+where: SoulWinningSession_bool_exp, "sort the rows by one or more columns" 
+order_by: [SoulWinningSession_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [SoulWinningSession_select_column!]): [SoulWinningSession!]!
+  "An object relationship" 
+Organization: Organization
+}
+
+"columns and relationships of \"Map\"" 
+type Map { belongingOrganization: String
+  id: String!
+  name: String!
+  "An aggregate relationship" 
+MapAreas_aggregate("filter the rows returned" 
+where: MapArea_bool_exp, "sort the rows by one or more columns" 
+order_by: [MapArea_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [MapArea_select_column!]): MapArea_aggregate!
+  "An array relationship" 
+MapAreas("filter the rows returned" 
+where: MapArea_bool_exp, "sort the rows by one or more columns" 
+order_by: [MapArea_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [MapArea_select_column!]): [MapArea!]!
+  "An object relationship" 
+Organization: Organization
+}
+
+"columns and relationships of \"MapArea\"" 
+type MapArea { belongingMap: String
+  id: String!
+  name: String!
+  polygonGeoJson("JSON select path" 
+path: String): jsonb
+  "An aggregate relationship" 
+SoulWinningSessionGroups_aggregate("filter the rows returned" 
+where: SoulWinningSessionGroup_bool_exp, "sort the rows by one or more columns" 
+order_by: [SoulWinningSessionGroup_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [SoulWinningSessionGroup_select_column!]): SoulWinningSessionGroup_aggregate!
+  "An array relationship" 
+SoulWinningSessionGroups("filter the rows returned" 
+where: SoulWinningSessionGroup_bool_exp, "sort the rows by one or more columns" 
+order_by: [SoulWinningSessionGroup_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [SoulWinningSessionGroup_select_column!]): [SoulWinningSessionGroup!]!
+  "An object relationship" 
+Map: Map
+}
+
+"columns and relationships of \"Organization\"" 
+type Organization { id: String!
+  name: String!
+  type: OrganizationTypeType!
+  "An aggregate relationship" 
+Events_aggregate("filter the rows returned" 
+where: Event_bool_exp, "sort the rows by one or more columns" 
+order_by: [Event_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [Event_select_column!]): Event_aggregate!
+  "An aggregate relationship" 
+Maps_aggregate("filter the rows returned" 
+where: Map_bool_exp, "sort the rows by one or more columns" 
+order_by: [Map_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [Map_select_column!]): Map_aggregate!
+  "An aggregate relationship" 
+_Organization_adminsOfOrganizations_aggregate("filter the rows returned" 
+where: _Organization_adminsOfOrganization_bool_exp, "sort the rows by one or more columns" 
+order_by: [_Organization_adminsOfOrganization_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [_Organization_adminsOfOrganization_select_column!]): _Organization_adminsOfOrganization_aggregate!
+  "An aggregate relationship" 
+_Organization_membersInOrganizations_aggregate("filter the rows returned" 
+where: _Organization_membersInOrganization_bool_exp, "sort the rows by one or more columns" 
+order_by: [_Organization_membersInOrganization_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [_Organization_membersInOrganization_select_column!]): _Organization_membersInOrganization_aggregate!
+  "An array relationship" 
+Events("filter the rows returned" 
+where: Event_bool_exp, "sort the rows by one or more columns" 
+order_by: [Event_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [Event_select_column!]): [Event!]!
+  "An array relationship" 
+Maps("filter the rows returned" 
+where: Map_bool_exp, "sort the rows by one or more columns" 
+order_by: [Map_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [Map_select_column!]): [Map!]!
+  "An array relationship" 
+_Organization_adminsOfOrganizations("filter the rows returned" 
+where: _Organization_adminsOfOrganization_bool_exp, "sort the rows by one or more columns" 
+order_by: [_Organization_adminsOfOrganization_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [_Organization_adminsOfOrganization_select_column!]): [_Organization_adminsOfOrganization!]!
+  "An array relationship" 
+_Organization_membersInOrganizations("filter the rows returned" 
+where: _Organization_membersInOrganization_bool_exp, "sort the rows by one or more columns" 
+order_by: [_Organization_membersInOrganization_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [_Organization_membersInOrganization_select_column!]): [_Organization_membersInOrganization!]!
+}
+
+"columns and relationships of \"SavedPerson\"" 
+type SavedPerson { email: String!
+  id: String!
+  name: String!
+  phone: String!
+  savingEncounter: String
+  "An object relationship" 
+Encounter: Encounter
+}
+
+"columns and relationships of \"SoulWinningSession\"" 
+type SoulWinningSession { event: String
+  id: String!
+  name: String!
+  scheduledEndTimeInUtc: timestamp!
+  scheduledStartTimeInUtc: timestamp!
+  "An aggregate relationship" 
+SoulWinningSessionGroups_aggregate("filter the rows returned" 
+where: SoulWinningSessionGroup_bool_exp, "sort the rows by one or more columns" 
+order_by: [SoulWinningSessionGroup_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [SoulWinningSessionGroup_select_column!]): SoulWinningSessionGroup_aggregate!
+  "An array relationship" 
+SoulWinningSessionGroups("filter the rows returned" 
+where: SoulWinningSessionGroup_bool_exp, "sort the rows by one or more columns" 
+order_by: [SoulWinningSessionGroup_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [SoulWinningSessionGroup_select_column!]): [SoulWinningSessionGroup!]!
+  "An object relationship" 
+Event: Event
+}
+
+"columns and relationships of \"SoulWinningSessionGroup\"" 
+type SoulWinningSessionGroup { assignedMapArea: String
+  id: String!
+  session: String
+  "An aggregate relationship" 
+Encounters_aggregate("filter the rows returned" 
+where: Encounter_bool_exp, "sort the rows by one or more columns" 
+order_by: [Encounter_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [Encounter_select_column!]): Encounter_aggregate!
+  "An aggregate relationship" 
+_SoulWinningSessionGroup_members_aggregate("filter the rows returned" 
+where: _SoulWinningSessionGroup_members_bool_exp, "sort the rows by one or more columns" 
+order_by: [_SoulWinningSessionGroup_members_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [_SoulWinningSessionGroup_members_select_column!]): _SoulWinningSessionGroup_members_aggregate!
+  "An array relationship" 
+Encounters("filter the rows returned" 
+where: Encounter_bool_exp, "sort the rows by one or more columns" 
+order_by: [Encounter_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [Encounter_select_column!]): [Encounter!]!
+  "An array relationship" 
+_SoulWinningSessionGroup_members("filter the rows returned" 
+where: _SoulWinningSessionGroup_members_bool_exp, "sort the rows by one or more columns" 
+order_by: [_SoulWinningSessionGroup_members_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [_SoulWinningSessionGroup_members_select_column!]): [_SoulWinningSessionGroup_members!]!
+  "An object relationship" 
+MapArea: MapArea
+  "An object relationship" 
+SoulWinningSession: SoulWinningSession
+}
+
+"columns and relationships of \"User\"" 
+type User { adminUiPassword: String!
+  createdAt: timestamp
+  email: String!
+  id: String!
+  name: String!
+  "An aggregate relationship" 
+_Organization_adminsOfOrganizations_aggregate("filter the rows returned" 
+where: _Organization_adminsOfOrganization_bool_exp, "sort the rows by one or more columns" 
+order_by: [_Organization_adminsOfOrganization_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [_Organization_adminsOfOrganization_select_column!]): _Organization_adminsOfOrganization_aggregate!
+  "An aggregate relationship" 
+_Organization_membersInOrganizations_aggregate("filter the rows returned" 
+where: _Organization_membersInOrganization_bool_exp, "sort the rows by one or more columns" 
+order_by: [_Organization_membersInOrganization_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [_Organization_membersInOrganization_select_column!]): _Organization_membersInOrganization_aggregate!
+  "An aggregate relationship" 
+_SoulWinningSessionGroup_members_aggregate("filter the rows returned" 
+where: _SoulWinningSessionGroup_members_bool_exp, "sort the rows by one or more columns" 
+order_by: [_SoulWinningSessionGroup_members_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [_SoulWinningSessionGroup_members_select_column!]): _SoulWinningSessionGroup_members_aggregate!
+  "An array relationship" 
+_Organization_adminsOfOrganizations("filter the rows returned" 
+where: _Organization_adminsOfOrganization_bool_exp, "sort the rows by one or more columns" 
+order_by: [_Organization_adminsOfOrganization_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [_Organization_adminsOfOrganization_select_column!]): [_Organization_adminsOfOrganization!]!
+  "An array relationship" 
+_Organization_membersInOrganizations("filter the rows returned" 
+where: _Organization_membersInOrganization_bool_exp, "sort the rows by one or more columns" 
+order_by: [_Organization_membersInOrganization_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [_Organization_membersInOrganization_select_column!]): [_Organization_membersInOrganization!]!
+  "An array relationship" 
+_SoulWinningSessionGroup_members("filter the rows returned" 
+where: _SoulWinningSessionGroup_members_bool_exp, "sort the rows by one or more columns" 
+order_by: [_SoulWinningSessionGroup_members_order_by!], "limit the number of rows returned" 
+limit: Int, "skip the first n rows. Use only with order_by" 
+offset: Int, "distinct select on columns" 
+distinct_on: [_SoulWinningSessionGroup_members_select_column!]): [_SoulWinningSessionGroup_members!]!
+}
+
+"columns and relationships of \"_Organization_adminsOfOrganization\"" 
+type _Organization_adminsOfOrganization { A: String!
+  B: String!
+  "An object relationship" 
+Organization: Organization!
+  "An object relationship" 
+User: User!
+}
+
+"columns and relationships of \"_Organization_membersInOrganization\"" 
+type _Organization_membersInOrganization { A: String!
+  B: String!
+  "An object relationship" 
+Organization: Organization!
+  "An object relationship" 
+User: User!
+}
+
+"columns and relationships of \"_SoulWinningSessionGroup_members\"" 
+type _SoulWinningSessionGroup_members { A: String!
+  B: String!
+  "An object relationship" 
+SoulWinningSessionGroup: SoulWinningSessionGroup!
+  "An object relationship" 
+User: User!
+}
+
+"mutation root" 
+type mutation_root { "delete data from the table: \"Encounter\"" 
+delete_Encounter("filter the rows which have to be deleted" 
+where: Encounter_bool_exp!): Encounter_mutation_response
+  "delete data from the table: \"Event\"" 
+delete_Event("filter the rows which have to be deleted" 
+where: Event_bool_exp!): Event_mutation_response
+  "delete data from the table: \"Map\"" 
+delete_Map("filter the rows which have to be deleted" 
+where: Map_bool_exp!): Map_mutation_response
+  "delete data from the table: \"MapArea\"" 
+delete_MapArea("filter the rows which have to be deleted" 
+where: MapArea_bool_exp!): MapArea_mutation_response
+  "delete data from the table: \"Organization\"" 
+delete_Organization("filter the rows which have to be deleted" 
+where: Organization_bool_exp!): Organization_mutation_response
+  "delete data from the table: \"SavedPerson\"" 
+delete_SavedPerson("filter the rows which have to be deleted" 
+where: SavedPerson_bool_exp!): SavedPerson_mutation_response
+  "delete data from the table: \"SoulWinningSession\"" 
+delete_SoulWinningSession("filter the rows which have to be deleted" 
+where: SoulWinningSession_bool_exp!): SoulWinningSession_mutation_response
+  "delete data from the table: \"SoulWinningSessionGroup\"" 
+delete_SoulWinningSessionGroup("filter the rows which have to be deleted" 
+where: SoulWinningSessionGroup_bool_exp!): SoulWinningSessionGroup_mutation_response
+  "delete data from the table: \"User\"" 
+delete_User("filter the rows which have to be deleted" 
+where: User_bool_exp!): User_mutation_response
+  "delete data from the table: \"_Organization_adminsOfOrganization\"" 
+delete__Organization_adminsOfOrganization("filter the rows which have to be deleted" 
+where: _Organization_adminsOfOrganization_bool_exp!): _Organization_adminsOfOrganization_mutation_response
+  "delete data from the table: \"_Organization_membersInOrganization\"" 
+delete__Organization_membersInOrganization("filter the rows which have to be deleted" 
+where: _Organization_membersInOrganization_bool_exp!): _Organization_membersInOrganization_mutation_response
+  "delete data from the table: \"_SoulWinningSessionGroup_members\"" 
+delete__SoulWinningSessionGroup_members("filter the rows which have to be deleted" 
+where: _SoulWinningSessionGroup_members_bool_exp!): _SoulWinningSessionGroup_members_mutation_response
+  "delete single row from the table: \"Encounter\"" 
+delete_Encounter_by_pk(id: String!): Encounter
+  "delete single row from the table: \"Event\"" 
+delete_Event_by_pk(id: String!): Event
+  "delete single row from the table: \"Map\"" 
+delete_Map_by_pk(id: String!): Map
+  "delete single row from the table: \"MapArea\"" 
+delete_MapArea_by_pk(id: String!): MapArea
+  "delete single row from the table: \"Organization\"" 
+delete_Organization_by_pk(id: String!): Organization
+  "delete single row from the table: \"SavedPerson\"" 
+delete_SavedPerson_by_pk(id: String!): SavedPerson
+  "delete single row from the table: \"SoulWinningSession\"" 
+delete_SoulWinningSession_by_pk(id: String!): SoulWinningSession
+  "delete single row from the table: \"SoulWinningSessionGroup\"" 
+delete_SoulWinningSessionGroup_by_pk(id: String!): SoulWinningSessionGroup
+  "delete single row from the table: \"User\"" 
+delete_User_by_pk(id: String!): User
+  "insert a single row into the table: \"Encounter\"" 
+insert_Encounter_one("upsert condition" 
+on_conflict: Encounter_on_conflict, "the row to be inserted" 
+object: Encounter_insert_input!): Encounter
+  "insert a single row into the table: \"Event\"" 
+insert_Event_one("upsert condition" 
+on_conflict: Event_on_conflict, "the row to be inserted" 
+object: Event_insert_input!): Event
+  "insert a single row into the table: \"Map\"" 
+insert_Map_one("upsert condition" 
+on_conflict: Map_on_conflict, "the row to be inserted" 
+object: Map_insert_input!): Map
+  "insert a single row into the table: \"MapArea\"" 
+insert_MapArea_one("upsert condition" 
+on_conflict: MapArea_on_conflict, "the row to be inserted" 
+object: MapArea_insert_input!): MapArea
+  "insert a single row into the table: \"Organization\"" 
+insert_Organization_one("upsert condition" 
+on_conflict: Organization_on_conflict, "the row to be inserted" 
+object: Organization_insert_input!): Organization
+  "insert a single row into the table: \"SavedPerson\"" 
+insert_SavedPerson_one("upsert condition" 
+on_conflict: SavedPerson_on_conflict, "the row to be inserted" 
+object: SavedPerson_insert_input!): SavedPerson
+  "insert a single row into the table: \"SoulWinningSession\"" 
+insert_SoulWinningSession_one("upsert condition" 
+on_conflict: SoulWinningSession_on_conflict, "the row to be inserted" 
+object: SoulWinningSession_insert_input!): SoulWinningSession
+  "insert a single row into the table: \"SoulWinningSessionGroup\"" 
+insert_SoulWinningSessionGroup_one("upsert condition" 
+on_conflict: SoulWinningSessionGroup_on_conflict, "the row to be inserted" 
+object: SoulWinningSessionGroup_insert_input!): SoulWinningSessionGroup
+  "insert a single row into the table: \"User\"" 
+insert_User_one("upsert condition" 
+on_conflict: User_on_conflict, "the row to be inserted" 
+object: User_insert_input!): User
+  "insert a single row into the table: \"_Organization_adminsOfOrganization\"" 
+insert__Organization_adminsOfOrganization_one("upsert condition" 
+on_conflict: _Organization_adminsOfOrganization_on_conflict, "the row to be inserted" 
+object: _Organization_adminsOfOrganization_insert_input!): _Organization_adminsOfOrganization
+  "insert a single row into the table: \"_Organization_membersInOrganization\"" 
+insert__Organization_membersInOrganization_one("upsert condition" 
+on_conflict: _Organization_membersInOrganization_on_conflict, "the row to be inserted" 
+object: _Organization_membersInOrganization_insert_input!): _Organization_membersInOrganization
+  "insert a single row into the table: \"_SoulWinningSessionGroup_members\"" 
+insert__SoulWinningSessionGroup_members_one("upsert condition" 
+on_conflict: _SoulWinningSessionGroup_members_on_conflict, "the row to be inserted" 
+object: _SoulWinningSessionGroup_members_insert_input!): _SoulWinningSessionGroup_members
+  "insert data into the table: \"Encounter\"" 
+insert_Encounter("upsert condition" 
+on_conflict: Encounter_on_conflict, "the rows to be inserted" 
+objects: [Encounter_insert_input!]!): Encounter_mutation_response
+  "insert data into the table: \"Event\"" 
+insert_Event("upsert condition" 
+on_conflict: Event_on_conflict, "the rows to be inserted" 
+objects: [Event_insert_input!]!): Event_mutation_response
+  "insert data into the table: \"Map\"" 
+insert_Map("upsert condition" 
+on_conflict: Map_on_conflict, "the rows to be inserted" 
+objects: [Map_insert_input!]!): Map_mutation_response
+  "insert data into the table: \"MapArea\"" 
+insert_MapArea("upsert condition" 
+on_conflict: MapArea_on_conflict, "the rows to be inserted" 
+objects: [MapArea_insert_input!]!): MapArea_mutation_response
+  "insert data into the table: \"Organization\"" 
+insert_Organization("upsert condition" 
+on_conflict: Organization_on_conflict, "the rows to be inserted" 
+objects: [Organization_insert_input!]!): Organization_mutation_response
+  "insert data into the table: \"SavedPerson\"" 
+insert_SavedPerson("upsert condition" 
+on_conflict: SavedPerson_on_conflict, "the rows to be inserted" 
+objects: [SavedPerson_insert_input!]!): SavedPerson_mutation_response
+  "insert data into the table: \"SoulWinningSession\"" 
+insert_SoulWinningSession("upsert condition" 
+on_conflict: SoulWinningSession_on_conflict, "the rows to be inserted" 
+objects: [SoulWinningSession_insert_input!]!): SoulWinningSession_mutation_response
+  "insert data into the table: \"SoulWinningSessionGroup\"" 
+insert_SoulWinningSessionGroup("upsert condition" 
+on_conflict: SoulWinningSessionGroup_on_conflict, "the rows to be inserted" 
+objects: [SoulWinningSessionGroup_insert_input!]!): SoulWinningSessionGroup_mutation_response
+  "insert data into the table: \"User\"" 
+insert_User("upsert condition" 
+on_conflict: User_on_conflict, "the rows to be inserted" 
+objects: [User_insert_input!]!): User_mutation_response
+  "insert data into the table: \"_Organization_adminsOfOrganization\"" 
+insert__Organization_adminsOfOrganization("upsert condition" 
+on_conflict: _Organization_adminsOfOrganization_on_conflict, "the rows to be inserted" 
+objects: [_Organization_adminsOfOrganization_insert_input!]!): _Organization_adminsOfOrganization_mutation_response
+  "insert data into the table: \"_Organization_membersInOrganization\"" 
+insert__Organization_membersInOrganization("upsert condition" 
+on_conflict: _Organization_membersInOrganization_on_conflict, "the rows to be inserted" 
+objects: [_Organization_membersInOrganization_insert_input!]!): _Organization_membersInOrganization_mutation_response
+  "insert data into the table: \"_SoulWinningSessionGroup_members\"" 
+insert__SoulWinningSessionGroup_members("upsert condition" 
+on_conflict: _SoulWinningSessionGroup_members_on_conflict, "the rows to be inserted" 
+objects: [_SoulWinningSessionGroup_members_insert_input!]!): _SoulWinningSessionGroup_members_mutation_response
+  "update data of the table: \"Encounter\"" 
+update_Encounter("sets the columns of the filtered rows to the given values" 
+_set: Encounter_set_input, "filter the rows which have to be updated" 
+where: Encounter_bool_exp!): Encounter_mutation_response
+  "update data of the table: \"Event\"" 
+update_Event("sets the columns of the filtered rows to the given values" 
+_set: Event_set_input, "filter the rows which have to be updated" 
+where: Event_bool_exp!): Event_mutation_response
+  "update data of the table: \"Map\"" 
+update_Map("sets the columns of the filtered rows to the given values" 
+_set: Map_set_input, "filter the rows which have to be updated" 
+where: Map_bool_exp!): Map_mutation_response
+  "update data of the table: \"MapArea\"" 
+update_MapArea("sets the columns of the filtered rows to the given values" 
+_set: MapArea_set_input, "prepend existing jsonb value of filtered columns with new jsonb value" 
+_prepend: MapArea_prepend_input, "append existing jsonb value of filtered columns with new jsonb value" 
+_append: MapArea_append_input, "delete key/value pair or string element. key/value pairs are matched based on their key value" 
+_delete_key: MapArea_delete_key_input, "delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array" 
+_delete_elem: MapArea_delete_elem_input, "delete the field or element with specified path (for JSON arrays, negative integers count from the end)" 
+_delete_at_path: MapArea_delete_at_path_input, "filter the rows which have to be updated" 
+where: MapArea_bool_exp!): MapArea_mutation_response
+  "update data of the table: \"Organization\"" 
+update_Organization("sets the columns of the filtered rows to the given values" 
+_set: Organization_set_input, "filter the rows which have to be updated" 
+where: Organization_bool_exp!): Organization_mutation_response
+  "update data of the table: \"SavedPerson\"" 
+update_SavedPerson("sets the columns of the filtered rows to the given values" 
+_set: SavedPerson_set_input, "filter the rows which have to be updated" 
+where: SavedPerson_bool_exp!): SavedPerson_mutation_response
+  "update data of the table: \"SoulWinningSession\"" 
+update_SoulWinningSession("sets the columns of the filtered rows to the given values" 
+_set: SoulWinningSession_set_input, "filter the rows which have to be updated" 
+where: SoulWinningSession_bool_exp!): SoulWinningSession_mutation_response
+  "update data of the table: \"SoulWinningSessionGroup\"" 
+update_SoulWinningSessionGroup("sets the columns of the filtered rows to the given values" 
+_set: SoulWinningSessionGroup_set_input, "filter the rows which have to be updated" 
+where: SoulWinningSessionGroup_bool_exp!): SoulWinningSessionGroup_mutation_response
+  "update data of the table: \"User\"" 
+update_User("sets the columns of the filtered rows to the given values" 
+_set: User_set_input, "filter the rows which have to be updated" 
+where: User_bool_exp!): User_mutation_response
+  "update data of the table: \"_Organization_adminsOfOrganization\"" 
+update__Organization_adminsOfOrganization("sets the columns of the filtered rows to the given values" 
+_set: _Organization_adminsOfOrganization_set_input, "filter the rows which have to be updated" 
+where: _Organization_adminsOfOrganization_bool_exp!): _Organization_adminsOfOrganization_mutation_response
+  "update data of the table: \"_Organization_membersInOrganization\"" 
+update__Organization_membersInOrganization("sets the columns of the filtered rows to the given values" 
+_set: _Organization_membersInOrganization_set_input, "filter the rows which have to be updated" 
+where: _Organization_membersInOrganization_bool_exp!): _Organization_membersInOrganization_mutation_response
+  "update data of the table: \"_SoulWinningSessionGroup_members\"" 
+update__SoulWinningSessionGroup_members("sets the columns of the filtered rows to the given values" 
+_set: _SoulWinningSessionGroup_members_set_input, "filter the rows which have to be updated" 
+where: _SoulWinningSessionGroup_members_bool_exp!): _SoulWinningSessionGroup_members_mutation_response
+  "update multiples rows of table: \"Encounter\"" 
+update_Encounter_many("updates to execute, in order" 
+updates: [Encounter_updates!]!): [Encounter_mutation_response]
+  "update multiples rows of table: \"Event\"" 
+update_Event_many("updates to execute, in order" 
+updates: [Event_updates!]!): [Event_mutation_response]
+  "update multiples rows of table: \"Map\"" 
+update_Map_many("updates to execute, in order" 
+updates: [Map_updates!]!): [Map_mutation_response]
+  "update multiples rows of table: \"MapArea\"" 
+update_MapArea_many("updates to execute, in order" 
+updates: [MapArea_updates!]!): [MapArea_mutation_response]
+  "update multiples rows of table: \"Organization\"" 
+update_Organization_many("updates to execute, in order" 
+updates: [Organization_updates!]!): [Organization_mutation_response]
+  "update multiples rows of table: \"SavedPerson\"" 
+update_SavedPerson_many("updates to execute, in order" 
+updates: [SavedPerson_updates!]!): [SavedPerson_mutation_response]
+  "update multiples rows of table: \"SoulWinningSession\"" 
+update_SoulWinningSession_many("updates to execute, in order" 
+updates: [SoulWinningSession_updates!]!): [SoulWinningSession_mutation_response]
+  "update multiples rows of table: \"SoulWinningSessionGroup\"" 
+update_SoulWinningSessionGroup_many("updates to execute, in order" 
+updates: [SoulWinningSessionGroup_updates!]!): [SoulWinningSessionGroup_mutation_response]
+  "update multiples rows of table: \"User\"" 
+update_User_many("updates to execute, in order" 
+updates: [User_updates!]!): [User_mutation_response]
+  "update multiples rows of table: \"_Organization_adminsOfOrganization\"" 
+update__Organization_adminsOfOrganization_many("updates to execute, in order" 
+updates: [_Organization_adminsOfOrganization_updates!]!): [_Organization_adminsOfOrganization_mutation_response]
+  "update multiples rows of table: \"_Organization_membersInOrganization\"" 
+update__Organization_membersInOrganization_many("updates to execute, in order" 
+updates: [_Organization_membersInOrganization_updates!]!): [_Organization_membersInOrganization_mutation_response]
+  "update multiples rows of table: \"_SoulWinningSessionGroup_members\"" 
+update__SoulWinningSessionGroup_members_many("updates to execute, in order" 
+updates: [_SoulWinningSessionGroup_members_updates!]!): [_SoulWinningSessionGroup_members_mutation_response]
+  "update single row of the table: \"Encounter\"" 
+update_Encounter_by_pk("sets the columns of the filtered rows to the given values" 
+_set: Encounter_set_input, pk_columns: Encounter_pk_columns_input!): Encounter
+  "update single row of the table: \"Event\"" 
+update_Event_by_pk("sets the columns of the filtered rows to the given values" 
+_set: Event_set_input, pk_columns: Event_pk_columns_input!): Event
+  "update single row of the table: \"Map\"" 
+update_Map_by_pk("sets the columns of the filtered rows to the given values" 
+_set: Map_set_input, pk_columns: Map_pk_columns_input!): Map
+  "update single row of the table: \"MapArea\"" 
+update_MapArea_by_pk("sets the columns of the filtered rows to the given values" 
+_set: MapArea_set_input, "prepend existing jsonb value of filtered columns with new jsonb value" 
+_prepend: MapArea_prepend_input, "append existing jsonb value of filtered columns with new jsonb value" 
+_append: MapArea_append_input, "delete key/value pair or string element. key/value pairs are matched based on their key value" 
+_delete_key: MapArea_delete_key_input, "delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array" 
+_delete_elem: MapArea_delete_elem_input, "delete the field or element with specified path (for JSON arrays, negative integers count from the end)" 
+_delete_at_path: MapArea_delete_at_path_input, pk_columns: MapArea_pk_columns_input!): MapArea
+  "update single row of the table: \"Organization\"" 
+update_Organization_by_pk("sets the columns of the filtered rows to the given values" 
+_set: Organization_set_input, pk_columns: Organization_pk_columns_input!): Organization
+  "update single row of the table: \"SavedPerson\"" 
+update_SavedPerson_by_pk("sets the columns of the filtered rows to the given values" 
+_set: SavedPerson_set_input, pk_columns: SavedPerson_pk_columns_input!): SavedPerson
+  "update single row of the table: \"SoulWinningSession\"" 
+update_SoulWinningSession_by_pk("sets the columns of the filtered rows to the given values" 
+_set: SoulWinningSession_set_input, pk_columns: SoulWinningSession_pk_columns_input!): SoulWinningSession
+  "update single row of the table: \"SoulWinningSessionGroup\"" 
+update_SoulWinningSessionGroup_by_pk("sets the columns of the filtered rows to the given values" 
+_set: SoulWinningSessionGroup_set_input, pk_columns: SoulWinningSessionGroup_pk_columns_input!): SoulWinningSessionGroup
+  "update single row of the table: \"User\"" 
+update_User_by_pk("sets the columns of the filtered rows to the given values" 
+_set: User_set_input, pk_columns: User_pk_columns_input!): User
+}
+
+"response of any mutation on the table \"Encounter\"" 
+type Encounter_mutation_response { "data from the rows affected by the mutation" 
+returning: [Encounter!]!
+  "number of rows affected by the mutation" 
+affected_rows: Int!
+}
+
+"response of any mutation on the table \"Event\"" 
+type Event_mutation_response { "data from the rows affected by the mutation" 
+returning: [Event!]!
+  "number of rows affected by the mutation" 
+affected_rows: Int!
+}
+
+"response of any mutation on the table \"Map\"" 
+type Map_mutation_response { "data from the rows affected by the mutation" 
+returning: [Map!]!
+  "number of rows affected by the mutation" 
+affected_rows: Int!
+}
+
+"response of any mutation on the table \"MapArea\"" 
+type MapArea_mutation_response { "data from the rows affected by the mutation" 
+returning: [MapArea!]!
+  "number of rows affected by the mutation" 
+affected_rows: Int!
+}
+
+"response of any mutation on the table \"Organization\"" 
+type Organization_mutation_response { "data from the rows affected by the mutation" 
+returning: [Organization!]!
+  "number of rows affected by the mutation" 
+affected_rows: Int!
+}
+
+"response of any mutation on the table \"SavedPerson\"" 
+type SavedPerson_mutation_response { "data from the rows affected by the mutation" 
+returning: [SavedPerson!]!
+  "number of rows affected by the mutation" 
+affected_rows: Int!
+}
+
+"response of any mutation on the table \"SoulWinningSession\"" 
+type SoulWinningSession_mutation_response { "data from the rows affected by the mutation" 
+returning: [SoulWinningSession!]!
+  "number of rows affected by the mutation" 
+affected_rows: Int!
+}
+
+"response of any mutation on the table \"SoulWinningSessionGroup\"" 
+type SoulWinningSessionGroup_mutation_response { "data from the rows affected by the mutation" 
+returning: [SoulWinningSessionGroup!]!
+  "number of rows affected by the mutation" 
+affected_rows: Int!
+}
+
+"response of any mutation on the table \"User\"" 
+type User_mutation_response { "data from the rows affected by the mutation" 
+returning: [User!]!
+  "number of rows affected by the mutation" 
+affected_rows: Int!
+}
+
+"response of any mutation on the table \"_Organization_adminsOfOrganization\"" 
+type _Organization_adminsOfOrganization_mutation_response { "data from the rows affected by the mutation" 
+returning: [_Organization_adminsOfOrganization!]!
+  "number of rows affected by the mutation" 
+affected_rows: Int!
+}
+
+"response of any mutation on the table \"_Organization_membersInOrganization\"" 
+type _Organization_membersInOrganization_mutation_response { "data from the rows affected by the mutation" 
+returning: [_Organization_membersInOrganization!]!
+  "number of rows affected by the mutation" 
+affected_rows: Int!
+}
+
+"response of any mutation on the table \"_SoulWinningSessionGroup_members\"" 
+type _SoulWinningSessionGroup_members_mutation_response { "data from the rows affected by the mutation" 
+returning: [_SoulWinningSessionGroup_members!]!
+  "number of rows affected by the mutation" 
+affected_rows: Int!
+}
+
+enum __TypeKind {ENUM 
+  INPUT_OBJECT 
+  INTERFACE 
+  LIST 
+  NON_NULL 
+  OBJECT 
+  SCALAR 
+  UNION 
+}
+
+"column ordering options" 
+enum order_by {"in ascending order, nulls first" 
+asc_nulls_first 
+  "in ascending order, nulls last" 
+asc 
+  "in ascending order, nulls last" 
+asc_nulls_last 
+  "in descending order, nulls first" 
+desc 
+  "in descending order, nulls first" 
+desc_nulls_first 
+  "in descending order, nulls last" 
+desc_nulls_last 
+}
+
+"ordering argument of a cursor" 
+enum cursor_ordering {"ascending ordering of the cursor" 
+ASC 
+  "descending ordering of the cursor" 
+DESC 
+}
+
+"select columns of table \"Encounter\"" 
+enum Encounter_select_column {"column name" 
+encounterTimeInUtc 
+  "column name" 
+group 
+  "column name" 
+houseAddress 
+  "column name" 
+id 
+  "column name" 
+result 
+}
+
+"select columns of table \"Event\"" 
+enum Event_select_column {"column name" 
+coverPhotoUrl 
+  "column name" 
+eventPlan 
+  "column name" 
+id 
+  "column name" 
+name 
+  "column name" 
+organization 
+  "column name" 
+scheduledEndTimeInUtc 
+  "column name" 
+scheduledStartTimeInUtc 
+  "column name" 
+type 
+  "column name" 
+whatToExpect 
+}
+
+"select columns of table \"Map\"" 
+enum Map_select_column {"column name" 
+belongingOrganization 
+  "column name" 
+id 
+  "column name" 
+name 
+}
+
+"select columns of table \"MapArea\"" 
+enum MapArea_select_column {"column name" 
+belongingMap 
+  "column name" 
+id 
+  "column name" 
+name 
+  "column name" 
+polygonGeoJson 
+}
+
+"select columns of table \"Organization\"" 
+enum Organization_select_column {"column name" 
+id 
+  "column name" 
+name 
+  "column name" 
+type 
+}
+
+"select columns of table \"SavedPerson\"" 
+enum SavedPerson_select_column {"column name" 
+email 
+  "column name" 
+id 
+  "column name" 
+name 
+  "column name" 
+phone 
+  "column name" 
+savingEncounter 
+}
+
+"select columns of table \"SoulWinningSession\"" 
+enum SoulWinningSession_select_column {"column name" 
+event 
+  "column name" 
+id 
+  "column name" 
+name 
+  "column name" 
+scheduledEndTimeInUtc 
+  "column name" 
+scheduledStartTimeInUtc 
+}
+
+"select columns of table \"SoulWinningSessionGroup\"" 
+enum SoulWinningSessionGroup_select_column {"column name" 
+assignedMapArea 
+  "column name" 
+id 
+  "column name" 
+session 
+}
+
+"select columns of table \"User\"" 
+enum User_select_column {"column name" 
+adminUiPassword 
+  "column name" 
+createdAt 
+  "column name" 
+email 
+  "column name" 
+id 
+  "column name" 
+name 
+}
+
+"select columns of table \"_Organization_adminsOfOrganization\"" 
+enum _Organization_adminsOfOrganization_select_column {"column name" 
+A 
+  "column name" 
+B 
+}
+
+"select columns of table \"_Organization_membersInOrganization\"" 
+enum _Organization_membersInOrganization_select_column {"column name" 
+A 
+  "column name" 
+B 
+}
+
+"select columns of table \"_SoulWinningSessionGroup_members\"" 
+enum _SoulWinningSessionGroup_members_select_column {"column name" 
+A 
+  "column name" 
+B 
+}
+
+"unique or primary key constraints on table \"Encounter\"" 
+enum Encounter_constraint {"unique or primary key constraint on columns \"id\"" 
+Encounter_pkey 
+}
+
+"unique or primary key constraints on table \"Event\"" 
+enum Event_constraint {"unique or primary key constraint on columns \"id\"" 
+Event_pkey 
+}
+
+"unique or primary key constraints on table \"Map\"" 
+enum Map_constraint {"unique or primary key constraint on columns \"id\"" 
+Map_pkey 
+}
+
+"unique or primary key constraints on table \"MapArea\"" 
+enum MapArea_constraint {"unique or primary key constraint on columns \"id\"" 
+MapArea_pkey 
+}
+
+"unique or primary key constraints on table \"Organization\"" 
+enum Organization_constraint {"unique or primary key constraint on columns \"id\"" 
+Organization_pkey 
+}
+
+"unique or primary key constraints on table \"SavedPerson\"" 
+enum SavedPerson_constraint {"unique or primary key constraint on columns \"email\"" 
+SavedPerson_email_key 
+  "unique or primary key constraint on columns \"id\"" 
+SavedPerson_pkey 
+}
+
+"unique or primary key constraints on table \"SoulWinningSession\"" 
+enum SoulWinningSession_constraint {"unique or primary key constraint on columns \"id\"" 
+SoulWinningSession_pkey 
+}
+
+"unique or primary key constraints on table \"SoulWinningSessionGroup\"" 
+enum SoulWinningSessionGroup_constraint {"unique or primary key constraint on columns \"id\"" 
+SoulWinningSessionGroup_pkey 
+}
+
+"unique or primary key constraints on table \"User\"" 
+enum User_constraint {"unique or primary key constraint on columns \"email\"" 
+User_email_key 
+  "unique or primary key constraint on columns \"id\"" 
+User_pkey 
+}
+
+"unique or primary key constraints on table \"_Organization_adminsOfOrganization\"" 
+enum _Organization_adminsOfOrganization_constraint {"unique or primary key constraint on columns \"B\", \"A\"" 
+_Organization_adminsOfOrganization_AB_unique 
+}
+
+"unique or primary key constraints on table \"_Organization_membersInOrganization\"" 
+enum _Organization_membersInOrganization_constraint {"unique or primary key constraint on columns \"B\", \"A\"" 
+_Organization_membersInOrganization_AB_unique 
+}
+
+"unique or primary key constraints on table \"_SoulWinningSessionGroup_members\"" 
+enum _SoulWinningSessionGroup_members_constraint {"unique or primary key constraint on columns \"B\", \"A\"" 
+_SoulWinningSessionGroup_members_AB_unique 
+}
+
+"update columns of table \"Encounter\"" 
+enum Encounter_update_column {"column name" 
+encounterTimeInUtc 
+  "column name" 
+group 
+  "column name" 
+houseAddress 
+  "column name" 
+id 
+  "column name" 
+result 
+}
+
+"update columns of table \"Event\"" 
+enum Event_update_column {"column name" 
+coverPhotoUrl 
+  "column name" 
+eventPlan 
+  "column name" 
+id 
+  "column name" 
+name 
+  "column name" 
+organization 
+  "column name" 
+scheduledEndTimeInUtc 
+  "column name" 
+scheduledStartTimeInUtc 
+  "column name" 
+type 
+  "column name" 
+whatToExpect 
+}
+
+"update columns of table \"Map\"" 
+enum Map_update_column {"column name" 
+belongingOrganization 
+  "column name" 
+id 
+  "column name" 
+name 
+}
+
+"update columns of table \"MapArea\"" 
+enum MapArea_update_column {"column name" 
+belongingMap 
+  "column name" 
+id 
+  "column name" 
+name 
+  "column name" 
+polygonGeoJson 
+}
+
+"update columns of table \"Organization\"" 
+enum Organization_update_column {"column name" 
+id 
+  "column name" 
+name 
+  "column name" 
+type 
+}
+
+"update columns of table \"SavedPerson\"" 
+enum SavedPerson_update_column {"column name" 
+email 
+  "column name" 
+id 
+  "column name" 
+name 
+  "column name" 
+phone 
+  "column name" 
+savingEncounter 
+}
+
+"update columns of table \"SoulWinningSession\"" 
+enum SoulWinningSession_update_column {"column name" 
+event 
+  "column name" 
+id 
+  "column name" 
+name 
+  "column name" 
+scheduledEndTimeInUtc 
+  "column name" 
+scheduledStartTimeInUtc 
+}
+
+"update columns of table \"SoulWinningSessionGroup\"" 
+enum SoulWinningSessionGroup_update_column {"column name" 
+assignedMapArea 
+  "column name" 
+id 
+  "column name" 
+session 
+}
+
+"update columns of table \"User\"" 
+enum User_update_column {"column name" 
+adminUiPassword 
+  "column name" 
+createdAt 
+  "column name" 
+email 
+  "column name" 
+id 
+  "column name" 
+name 
+}
+
+"update columns of table \"_Organization_adminsOfOrganization\"" 
+enum _Organization_adminsOfOrganization_update_column {"column name" 
+A 
+  "column name" 
+B 
+}
+
+"update columns of table \"_Organization_membersInOrganization\"" 
+enum _Organization_membersInOrganization_update_column {"column name" 
+A 
+  "column name" 
+B 
+}
+
+"update columns of table \"_SoulWinningSessionGroup_members\"" 
+enum _SoulWinningSessionGroup_members_update_column {"column name" 
+A 
+  "column name" 
+B 
+}
+
+input Encounter_aggregate_bool_exp {count: Encounter_aggregate_bool_exp_count
+}
+
+input Encounter_aggregate_bool_exp_count {arguments: [Encounter_select_column!]
+  distinct: Boolean
+  filter: Encounter_bool_exp
+  predicate: Int_comparison_exp!
+}
+
+input Encounter_updates {"filter the rows which have to be updated" 
+where: Encounter_bool_exp!
+  "sets the columns of the filtered rows to the given values" 
+_set: Encounter_set_input
+}
+
+input Event_aggregate_bool_exp {count: Event_aggregate_bool_exp_count
+}
+
+input Event_aggregate_bool_exp_count {arguments: [Event_select_column!]
+  distinct: Boolean
+  filter: Event_bool_exp
+  predicate: Int_comparison_exp!
+}
+
+input Event_updates {"filter the rows which have to be updated" 
+where: Event_bool_exp!
+  "sets the columns of the filtered rows to the given values" 
+_set: Event_set_input
+}
+
+input MapArea_aggregate_bool_exp {count: MapArea_aggregate_bool_exp_count
+}
+
+input MapArea_aggregate_bool_exp_count {arguments: [MapArea_select_column!]
+  distinct: Boolean
+  filter: MapArea_bool_exp
+  predicate: Int_comparison_exp!
+}
+
+input MapArea_updates {"append existing jsonb value of filtered columns with new jsonb value" 
+_append: MapArea_append_input
+  "delete key/value pair or string element. key/value pairs are matched based on their key value" 
+_delete_key: MapArea_delete_key_input
+  "delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array" 
+_delete_elem: MapArea_delete_elem_input
+  "delete the field or element with specified path (for JSON arrays, negative integers count from the end)" 
+_delete_at_path: MapArea_delete_at_path_input
+  "filter the rows which have to be updated" 
+where: MapArea_bool_exp!
+  "prepend existing jsonb value of filtered columns with new jsonb value" 
+_prepend: MapArea_prepend_input
+  "sets the columns of the filtered rows to the given values" 
+_set: MapArea_set_input
+}
+
+input Map_aggregate_bool_exp {count: Map_aggregate_bool_exp_count
+}
+
+input Map_aggregate_bool_exp_count {arguments: [Map_select_column!]
+  distinct: Boolean
+  filter: Map_bool_exp
+  predicate: Int_comparison_exp!
+}
+
+input Map_updates {"filter the rows which have to be updated" 
+where: Map_bool_exp!
+  "sets the columns of the filtered rows to the given values" 
+_set: Map_set_input
+}
+
+input Organization_updates {"filter the rows which have to be updated" 
+where: Organization_bool_exp!
+  "sets the columns of the filtered rows to the given values" 
+_set: Organization_set_input
+}
+
+input SavedPerson_aggregate_bool_exp {count: SavedPerson_aggregate_bool_exp_count
+}
+
+input SavedPerson_aggregate_bool_exp_count {arguments: [SavedPerson_select_column!]
+  distinct: Boolean
+  filter: SavedPerson_bool_exp
+  predicate: Int_comparison_exp!
+}
+
+input SavedPerson_updates {"filter the rows which have to be updated" 
+where: SavedPerson_bool_exp!
+  "sets the columns of the filtered rows to the given values" 
+_set: SavedPerson_set_input
+}
+
+input SoulWinningSessionGroup_aggregate_bool_exp {count: SoulWinningSessionGroup_aggregate_bool_exp_count
+}
+
+input SoulWinningSessionGroup_aggregate_bool_exp_count {arguments: [SoulWinningSessionGroup_select_column!]
+  distinct: Boolean
+  filter: SoulWinningSessionGroup_bool_exp
+  predicate: Int_comparison_exp!
+}
+
+input SoulWinningSessionGroup_updates {"filter the rows which have to be updated" 
+where: SoulWinningSessionGroup_bool_exp!
+  "sets the columns of the filtered rows to the given values" 
+_set: SoulWinningSessionGroup_set_input
+}
+
+input SoulWinningSession_aggregate_bool_exp {count: SoulWinningSession_aggregate_bool_exp_count
+}
+
+input SoulWinningSession_aggregate_bool_exp_count {arguments: [SoulWinningSession_select_column!]
+  distinct: Boolean
+  filter: SoulWinningSession_bool_exp
+  predicate: Int_comparison_exp!
+}
+
+input SoulWinningSession_updates {"filter the rows which have to be updated" 
+where: SoulWinningSession_bool_exp!
+  "sets the columns of the filtered rows to the given values" 
+_set: SoulWinningSession_set_input
+}
+
+input User_updates {"filter the rows which have to be updated" 
+where: User_bool_exp!
+  "sets the columns of the filtered rows to the given values" 
+_set: User_set_input
+}
+
+input _Organization_adminsOfOrganization_aggregate_bool_exp {count: _Organization_adminsOfOrganization_aggregate_bool_exp_count
+}
+
+input _Organization_adminsOfOrganization_aggregate_bool_exp_count {arguments: [_Organization_adminsOfOrganization_select_column!]
+  distinct: Boolean
+  filter: _Organization_adminsOfOrganization_bool_exp
+  predicate: Int_comparison_exp!
+}
+
+input _Organization_adminsOfOrganization_updates {"filter the rows which have to be updated" 
+where: _Organization_adminsOfOrganization_bool_exp!
+  "sets the columns of the filtered rows to the given values" 
+_set: _Organization_adminsOfOrganization_set_input
+}
+
+input _Organization_membersInOrganization_aggregate_bool_exp {count: _Organization_membersInOrganization_aggregate_bool_exp_count
+}
+
+input _Organization_membersInOrganization_aggregate_bool_exp_count {arguments: [_Organization_membersInOrganization_select_column!]
+  distinct: Boolean
+  filter: _Organization_membersInOrganization_bool_exp
+  predicate: Int_comparison_exp!
+}
+
+input _Organization_membersInOrganization_updates {"filter the rows which have to be updated" 
+where: _Organization_membersInOrganization_bool_exp!
+  "sets the columns of the filtered rows to the given values" 
+_set: _Organization_membersInOrganization_set_input
+}
+
+input _SoulWinningSessionGroup_members_aggregate_bool_exp {count: _SoulWinningSessionGroup_members_aggregate_bool_exp_count
+}
+
+input _SoulWinningSessionGroup_members_aggregate_bool_exp_count {arguments: [_SoulWinningSessionGroup_members_select_column!]
+  distinct: Boolean
+  filter: _SoulWinningSessionGroup_members_bool_exp
+  predicate: Int_comparison_exp!
+}
+
+input _SoulWinningSessionGroup_members_updates {"filter the rows which have to be updated" 
+where: _SoulWinningSessionGroup_members_bool_exp!
+  "sets the columns of the filtered rows to the given values" 
+_set: _SoulWinningSessionGroup_members_set_input
+}
+
+input jsonb_cast_exp {String: String_comparison_exp
+}
+
+"Boolean expression to compare columns of type \"EncounterResultType\". All fields are combined with logical 'AND'." 
+input EncounterResultType_comparison_exp {_eq: EncounterResultType
+  _gt: EncounterResultType
+  _gte: EncounterResultType
+  _in: [EncounterResultType!]
+  _is_null: Boolean
+  _lt: EncounterResultType
+  _lte: EncounterResultType
+  _neq: EncounterResultType
+  _nin: [EncounterResultType!]
+}
+
+"Boolean expression to compare columns of type \"EventTypeType\". All fields are combined with logical 'AND'." 
+input EventTypeType_comparison_exp {_eq: EventTypeType
+  _gt: EventTypeType
+  _gte: EventTypeType
+  _in: [EventTypeType!]
+  _is_null: Boolean
+  _lt: EventTypeType
+  _lte: EventTypeType
+  _neq: EventTypeType
+  _nin: [EventTypeType!]
+}
+
+"Boolean expression to compare columns of type \"Int\". All fields are combined with logical 'AND'." 
+input Int_comparison_exp {_eq: Int
+  _gt: Int
+  _gte: Int
+  _in: [Int!]
+  _is_null: Boolean
+  _lt: Int
+  _lte: Int
+  _neq: Int
+  _nin: [Int!]
+}
+
+"Boolean expression to compare columns of type \"OrganizationTypeType\". All fields are combined with logical 'AND'." 
+input OrganizationTypeType_comparison_exp {_eq: OrganizationTypeType
+  _gt: OrganizationTypeType
+  _gte: OrganizationTypeType
+  _in: [OrganizationTypeType!]
+  _is_null: Boolean
+  _lt: OrganizationTypeType
+  _lte: OrganizationTypeType
+  _neq: OrganizationTypeType
+  _nin: [OrganizationTypeType!]
+}
+
+"Boolean expression to compare columns of type \"String\". All fields are combined with logical 'AND'." 
+input String_comparison_exp {_eq: String
+  _gt: String
+  _gte: String
+  _in: [String!]
+  _is_null: Boolean
+  _lt: String
+  _lte: String
+  _neq: String
+  _nin: [String!]
+  "does the column NOT match the given POSIX regular expression, case insensitive" 
+_niregex: String
+  "does the column NOT match the given POSIX regular expression, case sensitive" 
+_nregex: String
+  "does the column NOT match the given SQL regular expression" 
+_nsimilar: String
+  "does the column NOT match the given case-insensitive pattern" 
+_nilike: String
+  "does the column NOT match the given pattern" 
+_nlike: String
+  "does the column match the given POSIX regular expression, case insensitive" 
+_iregex: String
+  "does the column match the given POSIX regular expression, case sensitive" 
+_regex: String
+  "does the column match the given SQL regular expression" 
+_similar: String
+  "does the column match the given case-insensitive pattern" 
+_ilike: String
+  "does the column match the given pattern" 
+_like: String
+}
+
+"Boolean expression to compare columns of type \"jsonb\". All fields are combined with logical 'AND'." 
+input jsonb_comparison_exp {_cast: jsonb_cast_exp
+  _eq: jsonb
+  _gt: jsonb
+  _gte: jsonb
+  _in: [jsonb!]
+  _is_null: Boolean
+  _lt: jsonb
+  _lte: jsonb
+  _neq: jsonb
+  _nin: [jsonb!]
+  "do all of these strings exist as top-level keys in the column" 
+_has_keys_all: [String!]
+  "do any of these strings exist as top-level keys in the column" 
+_has_keys_any: [String!]
+  "does the column contain the given json value at the top level" 
+_contains: jsonb
+  "does the string exist as a top-level key in the column" 
+_has_key: String
+  "is the column contained in the given json value" 
+_contained_in: jsonb
+}
+
+"Boolean expression to compare columns of type \"timestamp\". All fields are combined with logical 'AND'." 
+input timestamp_comparison_exp {_eq: timestamp
+  _gt: timestamp
+  _gte: timestamp
+  _in: [timestamp!]
+  _is_null: Boolean
+  _lt: timestamp
+  _lte: timestamp
+  _neq: timestamp
+  _nin: [timestamp!]
+}
+
+"Boolean expression to filter rows from the table \"Encounter\". All fields are combined with a logical 'AND'." 
+input Encounter_bool_exp {SavedPeople: SavedPerson_bool_exp
+  SavedPeople_aggregate: SavedPerson_aggregate_bool_exp
+  SoulWinningSessionGroup: SoulWinningSessionGroup_bool_exp
+  _and: [Encounter_bool_exp!]
+  _not: Encounter_bool_exp
+  _or: [Encounter_bool_exp!]
+  encounterTimeInUtc: timestamp_comparison_exp
+  group: String_comparison_exp
+  houseAddress: String_comparison_exp
+  id: String_comparison_exp
+  result: EncounterResultType_comparison_exp
+}
+
+"Boolean expression to filter rows from the table \"Event\". All fields are combined with a logical 'AND'." 
+input Event_bool_exp {Organization: Organization_bool_exp
+  SoulWinningSessions: SoulWinningSession_bool_exp
+  SoulWinningSessions_aggregate: SoulWinningSession_aggregate_bool_exp
+  _and: [Event_bool_exp!]
+  _not: Event_bool_exp
+  _or: [Event_bool_exp!]
+  coverPhotoUrl: String_comparison_exp
+  eventPlan: String_comparison_exp
+  id: String_comparison_exp
+  name: String_comparison_exp
+  organization: String_comparison_exp
+  scheduledEndTimeInUtc: timestamp_comparison_exp
+  scheduledStartTimeInUtc: timestamp_comparison_exp
+  type: EventTypeType_comparison_exp
+  whatToExpect: String_comparison_exp
+}
+
+"Boolean expression to filter rows from the table \"Map\". All fields are combined with a logical 'AND'." 
+input Map_bool_exp {MapAreas: MapArea_bool_exp
+  MapAreas_aggregate: MapArea_aggregate_bool_exp
+  Organization: Organization_bool_exp
+  _and: [Map_bool_exp!]
+  _not: Map_bool_exp
+  _or: [Map_bool_exp!]
+  belongingOrganization: String_comparison_exp
+  id: String_comparison_exp
+  name: String_comparison_exp
+}
+
+"Boolean expression to filter rows from the table \"MapArea\". All fields are combined with a logical 'AND'." 
+input MapArea_bool_exp {Map: Map_bool_exp
+  SoulWinningSessionGroups: SoulWinningSessionGroup_bool_exp
+  SoulWinningSessionGroups_aggregate: SoulWinningSessionGroup_aggregate_bool_exp
+  _and: [MapArea_bool_exp!]
+  _not: MapArea_bool_exp
+  _or: [MapArea_bool_exp!]
+  belongingMap: String_comparison_exp
+  id: String_comparison_exp
+  name: String_comparison_exp
+  polygonGeoJson: jsonb_comparison_exp
+}
+
+"Boolean expression to filter rows from the table \"Organization\". All fields are combined with a logical 'AND'." 
+input Organization_bool_exp {Events: Event_bool_exp
+  Events_aggregate: Event_aggregate_bool_exp
+  Maps: Map_bool_exp
+  Maps_aggregate: Map_aggregate_bool_exp
+  _Organization_adminsOfOrganizations: _Organization_adminsOfOrganization_bool_exp
+  _Organization_adminsOfOrganizations_aggregate: _Organization_adminsOfOrganization_aggregate_bool_exp
+  _Organization_membersInOrganizations: _Organization_membersInOrganization_bool_exp
+  _Organization_membersInOrganizations_aggregate: _Organization_membersInOrganization_aggregate_bool_exp
+  _and: [Organization_bool_exp!]
+  _not: Organization_bool_exp
+  _or: [Organization_bool_exp!]
+  id: String_comparison_exp
+  name: String_comparison_exp
+  type: OrganizationTypeType_comparison_exp
+}
+
+"Boolean expression to filter rows from the table \"SavedPerson\". All fields are combined with a logical 'AND'." 
+input SavedPerson_bool_exp {Encounter: Encounter_bool_exp
+  _and: [SavedPerson_bool_exp!]
+  _not: SavedPerson_bool_exp
+  _or: [SavedPerson_bool_exp!]
+  email: String_comparison_exp
+  id: String_comparison_exp
+  name: String_comparison_exp
+  phone: String_comparison_exp
+  savingEncounter: String_comparison_exp
+}
+
+"Boolean expression to filter rows from the table \"SoulWinningSession\". All fields are combined with a logical 'AND'." 
+input SoulWinningSession_bool_exp {Event: Event_bool_exp
+  SoulWinningSessionGroups: SoulWinningSessionGroup_bool_exp
+  SoulWinningSessionGroups_aggregate: SoulWinningSessionGroup_aggregate_bool_exp
+  _and: [SoulWinningSession_bool_exp!]
+  _not: SoulWinningSession_bool_exp
+  _or: [SoulWinningSession_bool_exp!]
+  event: String_comparison_exp
+  id: String_comparison_exp
+  name: String_comparison_exp
+  scheduledEndTimeInUtc: timestamp_comparison_exp
+  scheduledStartTimeInUtc: timestamp_comparison_exp
+}
+
+"Boolean expression to filter rows from the table \"SoulWinningSessionGroup\". All fields are combined with a logical 'AND'." 
+input SoulWinningSessionGroup_bool_exp {Encounters: Encounter_bool_exp
+  Encounters_aggregate: Encounter_aggregate_bool_exp
+  MapArea: MapArea_bool_exp
+  SoulWinningSession: SoulWinningSession_bool_exp
+  _SoulWinningSessionGroup_members: _SoulWinningSessionGroup_members_bool_exp
+  _SoulWinningSessionGroup_members_aggregate: _SoulWinningSessionGroup_members_aggregate_bool_exp
+  _and: [SoulWinningSessionGroup_bool_exp!]
+  _not: SoulWinningSessionGroup_bool_exp
+  _or: [SoulWinningSessionGroup_bool_exp!]
+  assignedMapArea: String_comparison_exp
+  id: String_comparison_exp
+  session: String_comparison_exp
+}
+
+"Boolean expression to filter rows from the table \"User\". All fields are combined with a logical 'AND'." 
+input User_bool_exp {_Organization_adminsOfOrganizations: _Organization_adminsOfOrganization_bool_exp
+  _Organization_adminsOfOrganizations_aggregate: _Organization_adminsOfOrganization_aggregate_bool_exp
+  _Organization_membersInOrganizations: _Organization_membersInOrganization_bool_exp
+  _Organization_membersInOrganizations_aggregate: _Organization_membersInOrganization_aggregate_bool_exp
+  _SoulWinningSessionGroup_members: _SoulWinningSessionGroup_members_bool_exp
+  _SoulWinningSessionGroup_members_aggregate: _SoulWinningSessionGroup_members_aggregate_bool_exp
+  _and: [User_bool_exp!]
+  _not: User_bool_exp
+  _or: [User_bool_exp!]
+  adminUiPassword: String_comparison_exp
+  createdAt: timestamp_comparison_exp
+  email: String_comparison_exp
+  id: String_comparison_exp
+  name: String_comparison_exp
+}
+
+"Boolean expression to filter rows from the table \"_Organization_adminsOfOrganization\". All fields are combined with a logical 'AND'." 
+input _Organization_adminsOfOrganization_bool_exp {A: String_comparison_exp
+  B: String_comparison_exp
+  Organization: Organization_bool_exp
+  User: User_bool_exp
+  _and: [_Organization_adminsOfOrganization_bool_exp!]
+  _not: _Organization_adminsOfOrganization_bool_exp
+  _or: [_Organization_adminsOfOrganization_bool_exp!]
+}
+
+"Boolean expression to filter rows from the table \"_Organization_membersInOrganization\". All fields are combined with a logical 'AND'." 
+input _Organization_membersInOrganization_bool_exp {A: String_comparison_exp
+  B: String_comparison_exp
+  Organization: Organization_bool_exp
+  User: User_bool_exp
+  _and: [_Organization_membersInOrganization_bool_exp!]
+  _not: _Organization_membersInOrganization_bool_exp
+  _or: [_Organization_membersInOrganization_bool_exp!]
+}
+
+"Boolean expression to filter rows from the table \"_SoulWinningSessionGroup_members\". All fields are combined with a logical 'AND'." 
+input _SoulWinningSessionGroup_members_bool_exp {A: String_comparison_exp
+  B: String_comparison_exp
+  SoulWinningSessionGroup: SoulWinningSessionGroup_bool_exp
+  User: User_bool_exp
+  _and: [_SoulWinningSessionGroup_members_bool_exp!]
+  _not: _SoulWinningSessionGroup_members_bool_exp
+  _or: [_SoulWinningSessionGroup_members_bool_exp!]
+}
+
+"Initial value of the column from where the streaming should start" 
+input Encounter_stream_cursor_value_input {encounterTimeInUtc: timestamp
+  group: String
+  houseAddress: String
+  id: String
+  result: EncounterResultType
+}
+
+"Initial value of the column from where the streaming should start" 
+input Event_stream_cursor_value_input {coverPhotoUrl: String
+  eventPlan: String
+  id: String
+  name: String
+  organization: String
+  scheduledEndTimeInUtc: timestamp
+  scheduledStartTimeInUtc: timestamp
+  type: EventTypeType
+  whatToExpect: String
+}
+
+"Initial value of the column from where the streaming should start" 
+input MapArea_stream_cursor_value_input {belongingMap: String
+  id: String
+  name: String
+  polygonGeoJson: jsonb
+}
+
+"Initial value of the column from where the streaming should start" 
+input Map_stream_cursor_value_input {belongingOrganization: String
+  id: String
+  name: String
+}
+
+"Initial value of the column from where the streaming should start" 
+input Organization_stream_cursor_value_input {id: String
+  name: String
+  type: OrganizationTypeType
+}
+
+"Initial value of the column from where the streaming should start" 
+input SavedPerson_stream_cursor_value_input {email: String
+  id: String
+  name: String
+  phone: String
+  savingEncounter: String
+}
+
+"Initial value of the column from where the streaming should start" 
+input SoulWinningSessionGroup_stream_cursor_value_input {assignedMapArea: String
+  id: String
+  session: String
+}
+
+"Initial value of the column from where the streaming should start" 
+input SoulWinningSession_stream_cursor_value_input {event: String
+  id: String
+  name: String
+  scheduledEndTimeInUtc: timestamp
+  scheduledStartTimeInUtc: timestamp
+}
+
+"Initial value of the column from where the streaming should start" 
+input User_stream_cursor_value_input {adminUiPassword: String
+  createdAt: timestamp
+  email: String
+  id: String
+  name: String
+}
+
+"Initial value of the column from where the streaming should start" 
+input _Organization_adminsOfOrganization_stream_cursor_value_input {A: String
+  B: String
+}
+
+"Initial value of the column from where the streaming should start" 
+input _Organization_membersInOrganization_stream_cursor_value_input {A: String
+  B: String
+}
+
+"Initial value of the column from where the streaming should start" 
+input _SoulWinningSessionGroup_members_stream_cursor_value_input {A: String
+  B: String
+}
+
+"Ordering options when selecting data from \"Encounter\"." 
+input Encounter_order_by {SavedPeople_aggregate: SavedPerson_aggregate_order_by
+  SoulWinningSessionGroup: SoulWinningSessionGroup_order_by
+  encounterTimeInUtc: order_by
+  group: order_by
+  houseAddress: order_by
+  id: order_by
+  result: order_by
+}
+
+"Ordering options when selecting data from \"Event\"." 
+input Event_order_by {Organization: Organization_order_by
+  SoulWinningSessions_aggregate: SoulWinningSession_aggregate_order_by
+  coverPhotoUrl: order_by
+  eventPlan: order_by
+  id: order_by
+  name: order_by
+  organization: order_by
+  scheduledEndTimeInUtc: order_by
+  scheduledStartTimeInUtc: order_by
+  type: order_by
+  whatToExpect: order_by
+}
+
+"Ordering options when selecting data from \"Map\"." 
+input Map_order_by {MapAreas_aggregate: MapArea_aggregate_order_by
+  Organization: Organization_order_by
+  belongingOrganization: order_by
+  id: order_by
+  name: order_by
+}
+
+"Ordering options when selecting data from \"MapArea\"." 
+input MapArea_order_by {Map: Map_order_by
+  SoulWinningSessionGroups_aggregate: SoulWinningSessionGroup_aggregate_order_by
+  belongingMap: order_by
+  id: order_by
+  name: order_by
+  polygonGeoJson: order_by
+}
+
+"Ordering options when selecting data from \"Organization\"." 
+input Organization_order_by {Events_aggregate: Event_aggregate_order_by
+  Maps_aggregate: Map_aggregate_order_by
+  _Organization_adminsOfOrganizations_aggregate: _Organization_adminsOfOrganization_aggregate_order_by
+  _Organization_membersInOrganizations_aggregate: _Organization_membersInOrganization_aggregate_order_by
+  id: order_by
+  name: order_by
+  type: order_by
+}
+
+"Ordering options when selecting data from \"SavedPerson\"." 
+input SavedPerson_order_by {Encounter: Encounter_order_by
+  email: order_by
+  id: order_by
+  name: order_by
+  phone: order_by
+  savingEncounter: order_by
+}
+
+"Ordering options when selecting data from \"SoulWinningSession\"." 
+input SoulWinningSession_order_by {Event: Event_order_by
+  SoulWinningSessionGroups_aggregate: SoulWinningSessionGroup_aggregate_order_by
+  event: order_by
+  id: order_by
+  name: order_by
+  scheduledEndTimeInUtc: order_by
+  scheduledStartTimeInUtc: order_by
+}
+
+"Ordering options when selecting data from \"SoulWinningSessionGroup\"." 
+input SoulWinningSessionGroup_order_by {Encounters_aggregate: Encounter_aggregate_order_by
+  MapArea: MapArea_order_by
+  SoulWinningSession: SoulWinningSession_order_by
+  _SoulWinningSessionGroup_members_aggregate: _SoulWinningSessionGroup_members_aggregate_order_by
+  assignedMapArea: order_by
+  id: order_by
+  session: order_by
+}
+
+"Ordering options when selecting data from \"User\"." 
+input User_order_by {_Organization_adminsOfOrganizations_aggregate: _Organization_adminsOfOrganization_aggregate_order_by
+  _Organization_membersInOrganizations_aggregate: _Organization_membersInOrganization_aggregate_order_by
+  _SoulWinningSessionGroup_members_aggregate: _SoulWinningSessionGroup_members_aggregate_order_by
+  adminUiPassword: order_by
+  createdAt: order_by
+  email: order_by
+  id: order_by
+  name: order_by
+}
+
+"Ordering options when selecting data from \"_Organization_adminsOfOrganization\"." 
+input _Organization_adminsOfOrganization_order_by {A: order_by
+  B: order_by
+  Organization: Organization_order_by
+  User: User_order_by
+}
+
+"Ordering options when selecting data from \"_Organization_membersInOrganization\"." 
+input _Organization_membersInOrganization_order_by {A: order_by
+  B: order_by
+  Organization: Organization_order_by
+  User: User_order_by
+}
+
+"Ordering options when selecting data from \"_SoulWinningSessionGroup_members\"." 
+input _SoulWinningSessionGroup_members_order_by {A: order_by
+  B: order_by
+  SoulWinningSessionGroup: SoulWinningSessionGroup_order_by
+  User: User_order_by
+}
+
+"Streaming cursor of the table \"Encounter\"" 
+input Encounter_stream_cursor_input {"Stream column input with initial value" 
+initial_value: Encounter_stream_cursor_value_input!
+  "cursor ordering" 
+ordering: cursor_ordering
+}
+
+"Streaming cursor of the table \"Event\"" 
+input Event_stream_cursor_input {"Stream column input with initial value" 
+initial_value: Event_stream_cursor_value_input!
+  "cursor ordering" 
+ordering: cursor_ordering
+}
+
+"Streaming cursor of the table \"Map\"" 
+input Map_stream_cursor_input {"Stream column input with initial value" 
+initial_value: Map_stream_cursor_value_input!
+  "cursor ordering" 
+ordering: cursor_ordering
+}
+
+"Streaming cursor of the table \"MapArea\"" 
+input MapArea_stream_cursor_input {"Stream column input with initial value" 
+initial_value: MapArea_stream_cursor_value_input!
+  "cursor ordering" 
+ordering: cursor_ordering
+}
+
+"Streaming cursor of the table \"Organization\"" 
+input Organization_stream_cursor_input {"Stream column input with initial value" 
+initial_value: Organization_stream_cursor_value_input!
+  "cursor ordering" 
+ordering: cursor_ordering
+}
+
+"Streaming cursor of the table \"SavedPerson\"" 
+input SavedPerson_stream_cursor_input {"Stream column input with initial value" 
+initial_value: SavedPerson_stream_cursor_value_input!
+  "cursor ordering" 
+ordering: cursor_ordering
+}
+
+"Streaming cursor of the table \"SoulWinningSession\"" 
+input SoulWinningSession_stream_cursor_input {"Stream column input with initial value" 
+initial_value: SoulWinningSession_stream_cursor_value_input!
+  "cursor ordering" 
+ordering: cursor_ordering
+}
+
+"Streaming cursor of the table \"SoulWinningSessionGroup\"" 
+input SoulWinningSessionGroup_stream_cursor_input {"Stream column input with initial value" 
+initial_value: SoulWinningSessionGroup_stream_cursor_value_input!
+  "cursor ordering" 
+ordering: cursor_ordering
+}
+
+"Streaming cursor of the table \"User\"" 
+input User_stream_cursor_input {"Stream column input with initial value" 
+initial_value: User_stream_cursor_value_input!
+  "cursor ordering" 
+ordering: cursor_ordering
+}
+
+"Streaming cursor of the table \"_Organization_adminsOfOrganization\"" 
+input _Organization_adminsOfOrganization_stream_cursor_input {"Stream column input with initial value" 
+initial_value: _Organization_adminsOfOrganization_stream_cursor_value_input!
+  "cursor ordering" 
+ordering: cursor_ordering
+}
+
+"Streaming cursor of the table \"_Organization_membersInOrganization\"" 
+input _Organization_membersInOrganization_stream_cursor_input {"Stream column input with initial value" 
+initial_value: _Organization_membersInOrganization_stream_cursor_value_input!
+  "cursor ordering" 
+ordering: cursor_ordering
+}
+
+"Streaming cursor of the table \"_SoulWinningSessionGroup_members\"" 
+input _SoulWinningSessionGroup_members_stream_cursor_input {"Stream column input with initial value" 
+initial_value: _SoulWinningSessionGroup_members_stream_cursor_value_input!
+  "cursor ordering" 
+ordering: cursor_ordering
+}
+
+"append existing jsonb value of filtered columns with new jsonb value" 
+input MapArea_append_input {polygonGeoJson: jsonb
+}
+
+"delete key/value pair or string element. key/value pairs are matched based on their key value" 
+input MapArea_delete_key_input {polygonGeoJson: String
+}
+
+"delete the array element with specified index (negative integers count from the end). throws an error if top level container is not an array" 
+input MapArea_delete_elem_input {polygonGeoJson: Int
+}
+
+"delete the field or element with specified path (for JSON arrays, negative integers count from the end)" 
+input MapArea_delete_at_path_input {polygonGeoJson: [String!]
+}
+
+"input type for inserting array relation for remote table \"Encounter\"" 
+input Encounter_arr_rel_insert_input {data: [Encounter_insert_input!]!
+  "upsert condition" 
+on_conflict: Encounter_on_conflict
+}
+
+"input type for inserting array relation for remote table \"Event\"" 
+input Event_arr_rel_insert_input {data: [Event_insert_input!]!
+  "upsert condition" 
+on_conflict: Event_on_conflict
+}
+
+"input type for inserting array relation for remote table \"Map\"" 
+input Map_arr_rel_insert_input {data: [Map_insert_input!]!
+  "upsert condition" 
+on_conflict: Map_on_conflict
+}
+
+"input type for inserting array relation for remote table \"MapArea\"" 
+input MapArea_arr_rel_insert_input {data: [MapArea_insert_input!]!
+  "upsert condition" 
+on_conflict: MapArea_on_conflict
+}
+
+"input type for inserting array relation for remote table \"SavedPerson\"" 
+input SavedPerson_arr_rel_insert_input {data: [SavedPerson_insert_input!]!
+  "upsert condition" 
+on_conflict: SavedPerson_on_conflict
+}
+
+"input type for inserting array relation for remote table \"SoulWinningSession\"" 
+input SoulWinningSession_arr_rel_insert_input {data: [SoulWinningSession_insert_input!]!
+  "upsert condition" 
+on_conflict: SoulWinningSession_on_conflict
+}
+
+"input type for inserting array relation for remote table \"SoulWinningSessionGroup\"" 
+input SoulWinningSessionGroup_arr_rel_insert_input {data: [SoulWinningSessionGroup_insert_input!]!
+  "upsert condition" 
+on_conflict: SoulWinningSessionGroup_on_conflict
+}
+
+"input type for inserting array relation for remote table \"_Organization_adminsOfOrganization\"" 
+input _Organization_adminsOfOrganization_arr_rel_insert_input {data: [_Organization_adminsOfOrganization_insert_input!]!
+  "upsert condition" 
+on_conflict: _Organization_adminsOfOrganization_on_conflict
+}
+
+"input type for inserting array relation for remote table \"_Organization_membersInOrganization\"" 
+input _Organization_membersInOrganization_arr_rel_insert_input {data: [_Organization_membersInOrganization_insert_input!]!
+  "upsert condition" 
+on_conflict: _Organization_membersInOrganization_on_conflict
+}
+
+"input type for inserting array relation for remote table \"_SoulWinningSessionGroup_members\"" 
+input _SoulWinningSessionGroup_members_arr_rel_insert_input {data: [_SoulWinningSessionGroup_members_insert_input!]!
+  "upsert condition" 
+on_conflict: _SoulWinningSessionGroup_members_on_conflict
+}
+
+"input type for inserting data into table \"Encounter\"" 
+input Encounter_insert_input {SavedPeople: SavedPerson_arr_rel_insert_input
+  SoulWinningSessionGroup: SoulWinningSessionGroup_obj_rel_insert_input
+  encounterTimeInUtc: timestamp
+  group: String
+  houseAddress: String
+  id: String
+  result: EncounterResultType
+}
+
+"input type for inserting data into table \"Event\"" 
+input Event_insert_input {Organization: Organization_obj_rel_insert_input
+  SoulWinningSessions: SoulWinningSession_arr_rel_insert_input
+  coverPhotoUrl: String
+  eventPlan: String
+  id: String
+  name: String
+  organization: String
+  scheduledEndTimeInUtc: timestamp
+  scheduledStartTimeInUtc: timestamp
+  type: EventTypeType
+  whatToExpect: String
+}
+
+"input type for inserting data into table \"Map\"" 
+input Map_insert_input {MapAreas: MapArea_arr_rel_insert_input
+  Organization: Organization_obj_rel_insert_input
+  belongingOrganization: String
+  id: String
+  name: String
+}
+
+"input type for inserting data into table \"MapArea\"" 
+input MapArea_insert_input {Map: Map_obj_rel_insert_input
+  SoulWinningSessionGroups: SoulWinningSessionGroup_arr_rel_insert_input
+  belongingMap: String
+  id: String
+  name: String
+  polygonGeoJson: jsonb
+}
+
+"input type for inserting data into table \"Organization\"" 
+input Organization_insert_input {Events: Event_arr_rel_insert_input
+  Maps: Map_arr_rel_insert_input
+  _Organization_adminsOfOrganizations: _Organization_adminsOfOrganization_arr_rel_insert_input
+  _Organization_membersInOrganizations: _Organization_membersInOrganization_arr_rel_insert_input
+  id: String
+  name: String
+  type: OrganizationTypeType
+}
+
+"input type for inserting data into table \"SavedPerson\"" 
+input SavedPerson_insert_input {Encounter: Encounter_obj_rel_insert_input
+  email: String
+  id: String
+  name: String
+  phone: String
+  savingEncounter: String
+}
+
+"input type for inserting data into table \"SoulWinningSession\"" 
+input SoulWinningSession_insert_input {Event: Event_obj_rel_insert_input
+  SoulWinningSessionGroups: SoulWinningSessionGroup_arr_rel_insert_input
+  event: String
+  id: String
+  name: String
+  scheduledEndTimeInUtc: timestamp
+  scheduledStartTimeInUtc: timestamp
+}
+
+"input type for inserting data into table \"SoulWinningSessionGroup\"" 
+input SoulWinningSessionGroup_insert_input {Encounters: Encounter_arr_rel_insert_input
+  MapArea: MapArea_obj_rel_insert_input
+  SoulWinningSession: SoulWinningSession_obj_rel_insert_input
+  _SoulWinningSessionGroup_members: _SoulWinningSessionGroup_members_arr_rel_insert_input
+  assignedMapArea: String
+  id: String
+  session: String
+}
+
+"input type for inserting data into table \"User\"" 
+input User_insert_input {_Organization_adminsOfOrganizations: _Organization_adminsOfOrganization_arr_rel_insert_input
+  _Organization_membersInOrganizations: _Organization_membersInOrganization_arr_rel_insert_input
+  _SoulWinningSessionGroup_members: _SoulWinningSessionGroup_members_arr_rel_insert_input
+  adminUiPassword: String
+  createdAt: timestamp
+  email: String
+  id: String
+  name: String
+}
+
+"input type for inserting data into table \"_Organization_adminsOfOrganization\"" 
+input _Organization_adminsOfOrganization_insert_input {A: String
+  B: String
+  Organization: Organization_obj_rel_insert_input
+  User: User_obj_rel_insert_input
+}
+
+"input type for inserting data into table \"_Organization_membersInOrganization\"" 
+input _Organization_membersInOrganization_insert_input {A: String
+  B: String
+  Organization: Organization_obj_rel_insert_input
+  User: User_obj_rel_insert_input
+}
+
+"input type for inserting data into table \"_SoulWinningSessionGroup_members\"" 
+input _SoulWinningSessionGroup_members_insert_input {A: String
+  B: String
+  SoulWinningSessionGroup: SoulWinningSessionGroup_obj_rel_insert_input
+  User: User_obj_rel_insert_input
+}
+
+"input type for inserting object relation for remote table \"Encounter\"" 
+input Encounter_obj_rel_insert_input {data: Encounter_insert_input!
+  "upsert condition" 
+on_conflict: Encounter_on_conflict
+}
+
+"input type for inserting object relation for remote table \"Event\"" 
+input Event_obj_rel_insert_input {data: Event_insert_input!
+  "upsert condition" 
+on_conflict: Event_on_conflict
+}
+
+"input type for inserting object relation for remote table \"Map\"" 
+input Map_obj_rel_insert_input {data: Map_insert_input!
+  "upsert condition" 
+on_conflict: Map_on_conflict
+}
+
+"input type for inserting object relation for remote table \"MapArea\"" 
+input MapArea_obj_rel_insert_input {data: MapArea_insert_input!
+  "upsert condition" 
+on_conflict: MapArea_on_conflict
+}
+
+"input type for inserting object relation for remote table \"Organization\"" 
+input Organization_obj_rel_insert_input {data: Organization_insert_input!
+  "upsert condition" 
+on_conflict: Organization_on_conflict
+}
+
+"input type for inserting object relation for remote table \"SoulWinningSession\"" 
+input SoulWinningSession_obj_rel_insert_input {data: SoulWinningSession_insert_input!
+  "upsert condition" 
+on_conflict: SoulWinningSession_on_conflict
+}
+
+"input type for inserting object relation for remote table \"SoulWinningSessionGroup\"" 
+input SoulWinningSessionGroup_obj_rel_insert_input {data: SoulWinningSessionGroup_insert_input!
+  "upsert condition" 
+on_conflict: SoulWinningSessionGroup_on_conflict
+}
+
+"input type for inserting object relation for remote table \"User\"" 
+input User_obj_rel_insert_input {data: User_insert_input!
+  "upsert condition" 
+on_conflict: User_on_conflict
+}
+
+"input type for updating data in table \"Encounter\"" 
+input Encounter_set_input {encounterTimeInUtc: timestamp
+  group: String
+  houseAddress: String
+  id: String
+  result: EncounterResultType
+}
+
+"input type for updating data in table \"Event\"" 
+input Event_set_input {coverPhotoUrl: String
+  eventPlan: String
+  id: String
+  name: String
+  organization: String
+  scheduledEndTimeInUtc: timestamp
+  scheduledStartTimeInUtc: timestamp
+  type: EventTypeType
+  whatToExpect: String
+}
+
+"input type for updating data in table \"Map\"" 
+input Map_set_input {belongingOrganization: String
+  id: String
+  name: String
+}
+
+"input type for updating data in table \"MapArea\"" 
+input MapArea_set_input {belongingMap: String
+  id: String
+  name: String
+  polygonGeoJson: jsonb
+}
+
+"input type for updating data in table \"Organization\"" 
+input Organization_set_input {id: String
+  name: String
+  type: OrganizationTypeType
+}
+
+"input type for updating data in table \"SavedPerson\"" 
+input SavedPerson_set_input {email: String
+  id: String
+  name: String
+  phone: String
+  savingEncounter: String
+}
+
+"input type for updating data in table \"SoulWinningSession\"" 
+input SoulWinningSession_set_input {event: String
+  id: String
+  name: String
+  scheduledEndTimeInUtc: timestamp
+  scheduledStartTimeInUtc: timestamp
+}
+
+"input type for updating data in table \"SoulWinningSessionGroup\"" 
+input SoulWinningSessionGroup_set_input {assignedMapArea: String
+  id: String
+  session: String
+}
+
+"input type for updating data in table \"User\"" 
+input User_set_input {adminUiPassword: String
+  createdAt: timestamp
+  email: String
+  id: String
+  name: String
+}
+
+"input type for updating data in table \"_Organization_adminsOfOrganization\"" 
+input _Organization_adminsOfOrganization_set_input {A: String
+  B: String
+}
+
+"input type for updating data in table \"_Organization_membersInOrganization\"" 
+input _Organization_membersInOrganization_set_input {A: String
+  B: String
+}
+
+"input type for updating data in table \"_SoulWinningSessionGroup_members\"" 
+input _SoulWinningSessionGroup_members_set_input {A: String
+  B: String
+}
+
+"on_conflict condition type for table \"Encounter\"" 
+input Encounter_on_conflict {constraint: Encounter_constraint!
+  update_columns: [Encounter_update_column!]! = []
+  where: Encounter_bool_exp
+}
+
+"on_conflict condition type for table \"Event\"" 
+input Event_on_conflict {constraint: Event_constraint!
+  update_columns: [Event_update_column!]! = []
+  where: Event_bool_exp
+}
+
+"on_conflict condition type for table \"Map\"" 
+input Map_on_conflict {constraint: Map_constraint!
+  update_columns: [Map_update_column!]! = []
+  where: Map_bool_exp
+}
+
+"on_conflict condition type for table \"MapArea\"" 
+input MapArea_on_conflict {constraint: MapArea_constraint!
+  update_columns: [MapArea_update_column!]! = []
+  where: MapArea_bool_exp
+}
+
+"on_conflict condition type for table \"Organization\"" 
+input Organization_on_conflict {constraint: Organization_constraint!
+  update_columns: [Organization_update_column!]! = []
+  where: Organization_bool_exp
+}
+
+"on_conflict condition type for table \"SavedPerson\"" 
+input SavedPerson_on_conflict {constraint: SavedPerson_constraint!
+  update_columns: [SavedPerson_update_column!]! = []
+  where: SavedPerson_bool_exp
+}
+
+"on_conflict condition type for table \"SoulWinningSession\"" 
+input SoulWinningSession_on_conflict {constraint: SoulWinningSession_constraint!
+  update_columns: [SoulWinningSession_update_column!]! = []
+  where: SoulWinningSession_bool_exp
+}
+
+"on_conflict condition type for table \"SoulWinningSessionGroup\"" 
+input SoulWinningSessionGroup_on_conflict {constraint: SoulWinningSessionGroup_constraint!
+  update_columns: [SoulWinningSessionGroup_update_column!]! = []
+  where: SoulWinningSessionGroup_bool_exp
+}
+
+"on_conflict condition type for table \"User\"" 
+input User_on_conflict {constraint: User_constraint!
+  update_columns: [User_update_column!]! = []
+  where: User_bool_exp
+}
+
+"on_conflict condition type for table \"_Organization_adminsOfOrganization\"" 
+input _Organization_adminsOfOrganization_on_conflict {constraint: _Organization_adminsOfOrganization_constraint!
+  update_columns: [_Organization_adminsOfOrganization_update_column!]! = []
+  where: _Organization_adminsOfOrganization_bool_exp
+}
+
+"on_conflict condition type for table \"_Organization_membersInOrganization\"" 
+input _Organization_membersInOrganization_on_conflict {constraint: _Organization_membersInOrganization_constraint!
+  update_columns: [_Organization_membersInOrganization_update_column!]! = []
+  where: _Organization_membersInOrganization_bool_exp
+}
+
+"on_conflict condition type for table \"_SoulWinningSessionGroup_members\"" 
+input _SoulWinningSessionGroup_members_on_conflict {constraint: _SoulWinningSessionGroup_members_constraint!
+  update_columns: [_SoulWinningSessionGroup_members_update_column!]! = []
+  where: _SoulWinningSessionGroup_members_bool_exp
+}
+
+"order by aggregate values of table \"Encounter\"" 
+input Encounter_aggregate_order_by {count: order_by
+  max: Encounter_max_order_by
+  min: Encounter_min_order_by
+}
+
+"order by aggregate values of table \"Event\"" 
+input Event_aggregate_order_by {count: order_by
+  max: Event_max_order_by
+  min: Event_min_order_by
+}
+
+"order by aggregate values of table \"Map\"" 
+input Map_aggregate_order_by {count: order_by
+  max: Map_max_order_by
+  min: Map_min_order_by
+}
+
+"order by aggregate values of table \"MapArea\"" 
+input MapArea_aggregate_order_by {count: order_by
+  max: MapArea_max_order_by
+  min: MapArea_min_order_by
+}
+
+"order by aggregate values of table \"SavedPerson\"" 
+input SavedPerson_aggregate_order_by {count: order_by
+  max: SavedPerson_max_order_by
+  min: SavedPerson_min_order_by
+}
+
+"order by aggregate values of table \"SoulWinningSession\"" 
+input SoulWinningSession_aggregate_order_by {count: order_by
+  max: SoulWinningSession_max_order_by
+  min: SoulWinningSession_min_order_by
+}
+
+"order by aggregate values of table \"SoulWinningSessionGroup\"" 
+input SoulWinningSessionGroup_aggregate_order_by {count: order_by
+  max: SoulWinningSessionGroup_max_order_by
+  min: SoulWinningSessionGroup_min_order_by
+}
+
+"order by aggregate values of table \"_Organization_adminsOfOrganization\"" 
+input _Organization_adminsOfOrganization_aggregate_order_by {count: order_by
+  max: _Organization_adminsOfOrganization_max_order_by
+  min: _Organization_adminsOfOrganization_min_order_by
+}
+
+"order by aggregate values of table \"_Organization_membersInOrganization\"" 
+input _Organization_membersInOrganization_aggregate_order_by {count: order_by
+  max: _Organization_membersInOrganization_max_order_by
+  min: _Organization_membersInOrganization_min_order_by
+}
+
+"order by aggregate values of table \"_SoulWinningSessionGroup_members\"" 
+input _SoulWinningSessionGroup_members_aggregate_order_by {count: order_by
+  max: _SoulWinningSessionGroup_members_max_order_by
+  min: _SoulWinningSessionGroup_members_min_order_by
+}
+
+"order by max() on columns of table \"Encounter\"" 
+input Encounter_max_order_by {encounterTimeInUtc: order_by
+  group: order_by
+  houseAddress: order_by
+  id: order_by
+  result: order_by
+}
+
+"order by max() on columns of table \"Event\"" 
+input Event_max_order_by {coverPhotoUrl: order_by
+  eventPlan: order_by
+  id: order_by
+  name: order_by
+  organization: order_by
+  scheduledEndTimeInUtc: order_by
+  scheduledStartTimeInUtc: order_by
+  type: order_by
+  whatToExpect: order_by
+}
+
+"order by max() on columns of table \"Map\"" 
+input Map_max_order_by {belongingOrganization: order_by
+  id: order_by
+  name: order_by
+}
+
+"order by max() on columns of table \"MapArea\"" 
+input MapArea_max_order_by {belongingMap: order_by
+  id: order_by
+  name: order_by
+}
+
+"order by max() on columns of table \"SavedPerson\"" 
+input SavedPerson_max_order_by {email: order_by
+  id: order_by
+  name: order_by
+  phone: order_by
+  savingEncounter: order_by
+}
+
+"order by max() on columns of table \"SoulWinningSession\"" 
+input SoulWinningSession_max_order_by {event: order_by
+  id: order_by
+  name: order_by
+  scheduledEndTimeInUtc: order_by
+  scheduledStartTimeInUtc: order_by
+}
+
+"order by max() on columns of table \"SoulWinningSessionGroup\"" 
+input SoulWinningSessionGroup_max_order_by {assignedMapArea: order_by
+  id: order_by
+  session: order_by
+}
+
+"order by max() on columns of table \"_Organization_adminsOfOrganization\"" 
+input _Organization_adminsOfOrganization_max_order_by {A: order_by
+  B: order_by
+}
+
+"order by max() on columns of table \"_Organization_membersInOrganization\"" 
+input _Organization_membersInOrganization_max_order_by {A: order_by
+  B: order_by
+}
+
+"order by max() on columns of table \"_SoulWinningSessionGroup_members\"" 
+input _SoulWinningSessionGroup_members_max_order_by {A: order_by
+  B: order_by
+}
+
+"order by min() on columns of table \"Encounter\"" 
+input Encounter_min_order_by {encounterTimeInUtc: order_by
+  group: order_by
+  houseAddress: order_by
+  id: order_by
+  result: order_by
+}
+
+"order by min() on columns of table \"Event\"" 
+input Event_min_order_by {coverPhotoUrl: order_by
+  eventPlan: order_by
+  id: order_by
+  name: order_by
+  organization: order_by
+  scheduledEndTimeInUtc: order_by
+  scheduledStartTimeInUtc: order_by
+  type: order_by
+  whatToExpect: order_by
+}
+
+"order by min() on columns of table \"Map\"" 
+input Map_min_order_by {belongingOrganization: order_by
+  id: order_by
+  name: order_by
+}
+
+"order by min() on columns of table \"MapArea\"" 
+input MapArea_min_order_by {belongingMap: order_by
+  id: order_by
+  name: order_by
+}
+
+"order by min() on columns of table \"SavedPerson\"" 
+input SavedPerson_min_order_by {email: order_by
+  id: order_by
+  name: order_by
+  phone: order_by
+  savingEncounter: order_by
+}
+
+"order by min() on columns of table \"SoulWinningSession\"" 
+input SoulWinningSession_min_order_by {event: order_by
+  id: order_by
+  name: order_by
+  scheduledEndTimeInUtc: order_by
+  scheduledStartTimeInUtc: order_by
+}
+
+"order by min() on columns of table \"SoulWinningSessionGroup\"" 
+input SoulWinningSessionGroup_min_order_by {assignedMapArea: order_by
+  id: order_by
+  session: order_by
+}
+
+"order by min() on columns of table \"_Organization_adminsOfOrganization\"" 
+input _Organization_adminsOfOrganization_min_order_by {A: order_by
+  B: order_by
+}
+
+"order by min() on columns of table \"_Organization_membersInOrganization\"" 
+input _Organization_membersInOrganization_min_order_by {A: order_by
+  B: order_by
+}
+
+"order by min() on columns of table \"_SoulWinningSessionGroup_members\"" 
+input _SoulWinningSessionGroup_members_min_order_by {A: order_by
+  B: order_by
+}
+
+"prepend existing jsonb value of filtered columns with new jsonb value" 
+input MapArea_prepend_input {polygonGeoJson: jsonb
+}
+
+"primary key columns input for table: Encounter" 
+input Encounter_pk_columns_input {id: String!
+}
+
+"primary key columns input for table: Event" 
+input Event_pk_columns_input {id: String!
+}
+
+"primary key columns input for table: Map" 
+input Map_pk_columns_input {id: String!
+}
+
+"primary key columns input for table: MapArea" 
+input MapArea_pk_columns_input {id: String!
+}
+
+"primary key columns input for table: Organization" 
+input Organization_pk_columns_input {id: String!
+}
+
+"primary key columns input for table: SavedPerson" 
+input SavedPerson_pk_columns_input {id: String!
+}
+
+"primary key columns input for table: SoulWinningSession" 
+input SoulWinningSession_pk_columns_input {id: String!
+}
+
+"primary key columns input for table: SoulWinningSessionGroup" 
+input SoulWinningSessionGroup_pk_columns_input {id: String!
+}
+
+"primary key columns input for table: User" 
+input User_pk_columns_input {id: String!
+}

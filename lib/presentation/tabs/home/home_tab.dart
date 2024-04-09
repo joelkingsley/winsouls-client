@@ -1,12 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:winsouls/domain/entities/event.dart';
 import 'package:winsouls/domain/entities/home_event.dart';
 import 'package:winsouls/domain/entities/home_organization.dart';
 import 'package:winsouls/domain/entities/organization_type.dart';
 import 'package:winsouls/presentation/tabs/home/event_detail/event_detail.dart';
+import 'package:winsouls/presentation/tabs/home/home_tab_provider.dart';
 
-class HomeTabPage extends StatefulWidget {
+class HomeTabPage extends ConsumerWidget {
   final List<HomeEvent> events = [
     HomeEvent(
       '1',
@@ -46,62 +48,77 @@ class HomeTabPage extends StatefulWidget {
   HomeTabPage({super.key});
 
   @override
-  State<HomeTabPage> createState() => _HomeTabPageState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final getAllEventsUseCase = ref.watch(getAllEventsUseCaseProvider);
 
-enum EventStatus { current, upcoming }
-
-class _HomeTabPageState extends State<HomeTabPage> {
-  @override
-  Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Home'),
         actions: const [Icon(Icons.qr_code)],
       ),
-      body: ListView(
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(10),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                FloatingActionButton.extended(
-                    label: const Text('Add Event'),
-                    icon: const Icon(Icons.add),
-                    onPressed: () => ()),
-              ],
-            ),
-          ),
-          for (var event in widget.events)
-            Card(
-              child: ListTile(
-                title: Text(event.title),
-                subtitle: Text(event.organization.name),
-                onTap: () => Navigator.of(context).push(
-                  CupertinoPageRoute<void>(
-                    builder: (BuildContext context) {
-                      return EventDetailPage(
-                        event: Event(
-                            event.id,
-                            event.title,
-                            event.coverPhotoUrl,
-                            event.whatToExpect,
-                            event.eventPlan,
-                            event.scheduledStartTimeInUtc,
-                            event.scheduledEndTimeInUtc, []),
-                      );
-                    },
-                  ),
-                ),
-              ),
-            ),
-          Center(
-            child: CupertinoButton(
-                child: const Text('See all'), onPressed: () => ()),
-          ),
-        ],
-      ),
+      body: FutureBuilder<List<HomeEvent>>(
+          future: getAllEventsUseCase.execute(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const CircularProgressIndicator();
+            } else if (snapshot.hasError) {
+              return Text('Error: ${snapshot.error}');
+            } else {
+              final data = snapshot.data;
+              if (snapshot.hasData && data != null) {
+                return ListView(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          FloatingActionButton.extended(
+                              label: const Text('Add Event'),
+                              icon: const Icon(Icons.add),
+                              onPressed: () => ()),
+                        ],
+                      ),
+                    ),
+                    for (var event in data)
+                      Card(
+                        child: ListTile(
+                          title: Text(event.title),
+                          subtitle: Text(event.organization.name),
+                          onTap: () => Navigator.of(context).push(
+                            CupertinoPageRoute<void>(
+                              builder: (BuildContext context) {
+                                return EventDetailPage(
+                                  event: Event(
+                                      event.id,
+                                      event.title,
+                                      event.coverPhotoUrl,
+                                      event.whatToExpect,
+                                      event.eventPlan,
+                                      event.scheduledStartTimeInUtc,
+                                      event.scheduledEndTimeInUtc, []),
+                                );
+                              },
+                            ),
+                          ),
+                        ),
+                      ),
+                    Center(
+                      child: CupertinoButton(
+                          child: const Text('See all'), onPressed: () => ()),
+                    ),
+                  ],
+                );
+              }
+              return Scaffold(
+                  appBar: AppBar(
+                title: const Text('Home'),
+                actions: const [Icon(Icons.qr_code)],
+              ));
+            }
+          }),
     );
   }
 }
+
+enum EventStatus { current, upcoming }
