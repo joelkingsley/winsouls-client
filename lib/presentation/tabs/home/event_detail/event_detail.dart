@@ -1,16 +1,21 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:winsouls/domain/entities/event.dart';
 import 'package:winsouls/presentation/styles/dark_mode.dart';
 
 class EventDetailPage extends StatelessWidget {
-  const EventDetailPage({super.key});
+  final Event event;
+
+  const EventDetailPage({super.key, required this.event});
 
   @override
   Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-      navigationBar: const CupertinoNavigationBar(
-        middle: Text('Event'),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Event'),
+        actions: const [Icon(Icons.qr_code)],
       ),
-      child: ListView(
+      body: ListView(
         children: [
           Column(children: [
             Stack(
@@ -18,11 +23,10 @@ class EventDetailPage extends StatelessWidget {
                 Container(
                   width: MediaQuery.of(context).size.width,
                   height: 200,
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     image: DecorationImage(
                       fit: BoxFit.fitWidth,
-                      image: NetworkImage(
-                          'https://i0.wp.com/baptisten-zuverlaessiges-wort.church/wp-content/uploads/2022/08/BKZW-scaled.jpg?resize=1200%2C750&ssl=1'),
+                      image: NetworkImage(event.coverPhotoUrl),
                     ),
                   ),
                 ),
@@ -33,30 +37,24 @@ class EventDetailPage extends StatelessWidget {
                     begin: Alignment.topCenter,
                     end: Alignment.bottomCenter,
                     colors: context.isDarkMode
-                        ? [
-                            CupertinoColors.black.withOpacity(0.0),
-                            CupertinoColors.black
-                          ]
-                        : [
-                            CupertinoColors.white.withOpacity(0.0),
-                            CupertinoColors.white
-                          ],
+                        ? [Colors.white.withOpacity(0.0), Colors.white]
+                        : [Colors.white.withOpacity(0.0), Colors.white],
                   )),
                 ),
               ],
             ),
           ]),
-          const SafeArea(
+          SafeArea(
             child: Text(
-              '5 APR AT 10:00 - 9 APR AT 07:00',
-              style: TextStyle(fontWeight: FontWeight.w300),
+              '${event.scheduledStartTimeInUtc.toLocal().day}/${event.scheduledStartTimeInUtc.toLocal().month}/${event.scheduledStartTimeInUtc.toLocal().year} (${event.scheduledStartTimeInUtc.toLocal().hour.toString().padLeft(2, '0')}:${event.scheduledStartTimeInUtc.toLocal().minute.toString().padLeft(2, '0')}) - ${event.scheduledEndTimeInUtc.toLocal().day}/${event.scheduledEndTimeInUtc.toLocal().month}/${event.scheduledEndTimeInUtc.toLocal().year} (${event.scheduledEndTimeInUtc.toLocal().hour.toString().padLeft(2, '0')}:${event.scheduledEndTimeInUtc.toLocal().minute.toString().padLeft(2, '0')})',
+              style: const TextStyle(fontWeight: FontWeight.w300),
               textAlign: TextAlign.center,
             ),
           ),
-          const SafeArea(
+          SafeArea(
             child: Text(
-              'Seelengewinnen-Mega-Marathon',
-              style: TextStyle(fontWeight: FontWeight.w900, fontSize: 30),
+              event.title,
+              style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 30),
               textAlign: TextAlign.center,
             ),
           ),
@@ -67,30 +65,74 @@ class EventDetailPage extends StatelessWidget {
                 children: [
                   Expanded(
                     flex: 9,
-                    child: CupertinoButton.filled(
+                    child: ElevatedButton(
                         child: const Text('Interested'), onPressed: () => ()),
                   ),
                   const Padding(padding: EdgeInsets.only(right: 10)),
                   Expanded(
                     flex: 1,
                     child: CupertinoButton(
-                        child: const Icon(CupertinoIcons.ellipsis_vertical),
+                        child: const Icon(Icons.more_vert),
                         onPressed: () => ()),
                   ),
                 ],
               ),
             ),
           ),
-          SafeArea(
-            child: CupertinoListSection.insetGrouped(
-              backgroundColor: CupertinoColors.systemBackground,
-              header: const Text('What to expect'),
-              children: const [
-                Text(
-                    'Auch wenn Sie noch keine Erfahrung im Seelengewinnen haben, können Sie gerne als stiller Partner dabei sein und lernen, wie wir evangelisieren. Auf der Seite Seelengewinnen finden Sie weitere Informationen zum Thema Seelengewinnen. Sie können uns auch gerne jederzeit eine E-Mail schreiben, falls Sie weitere Fragen haben: post@bkzw.church.'),
-              ],
+          const Padding(
+            padding: EdgeInsets.all(10),
+            child: Text(
+              'What to expect',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
             ),
           ),
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Text(
+              event.whatToExpect,
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.all(10),
+            child: Text(
+              'Event plan',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.all(10),
+            child: Text(
+              event.eventPlan,
+            ),
+          ),
+          const Padding(
+            padding: EdgeInsets.all(10),
+            child: Text(
+              'Sessions',
+              style: TextStyle(fontSize: 20, fontWeight: FontWeight.w800),
+            ),
+          ),
+          event.sessions.isNotEmpty
+              ? Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Column(
+                        children: [
+                          for (var session in event.sessions)
+                            Card(
+                              child: ListTile(
+                                title: Text(session.name),
+                                subtitle: Text(
+                                    '${session.scheduledStartTimeInUtc.toLocal()} - ${session.scheduledEndTimeInUtc.toLocal()}'),
+                              ),
+                            )
+                        ],
+                      ),
+                    ),
+                  ],
+                )
+              : const SizedBox.shrink(),
         ],
       ),
     );

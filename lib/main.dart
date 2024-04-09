@@ -1,8 +1,9 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:winsouls/presentation/navigation_tab_bar.dart';
 
 void main() {
-  runApp(const WinSoulsApp());
+  runApp(const ProviderScope(child: WinSoulsApp()));
 }
 
 class WinSoulsApp extends StatelessWidget {
@@ -11,10 +12,10 @@ class WinSoulsApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const CupertinoApp(
+    return MaterialApp(
       title: 'Win Souls',
-      theme: CupertinoThemeData(),
-      home: NavigationTabBar(),
+      theme: ThemeData(appBarTheme: const AppBarTheme(toolbarHeight: 40)),
+      home: const NavigationTabBar(),
     );
   }
 }

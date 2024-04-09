@@ -1,95 +1,124 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:winsouls/domain/entities/event.dart';
+import 'package:winsouls/domain/entities/home_event.dart';
+import 'package:winsouls/domain/entities/home_organization.dart';
+import 'package:winsouls/domain/entities/organization_type.dart';
 import 'package:winsouls/presentation/tabs/home/event_detail/event_detail.dart';
+import 'package:winsouls/presentation/tabs/home/home_tab_provider.dart';
 
-class HomeTabPage extends StatefulWidget {
-  const HomeTabPage({super.key});
+class HomeTabPage extends ConsumerWidget {
+  final List<HomeEvent> events = [
+    HomeEvent(
+      '1',
+      'Monthly Soul Winning Marathon',
+      HomeOrganization(
+          'Baptistenkirche Zuverlässiges Wort', OrganizationType.church),
+      'https://i0.wp.com/baptisten-zuverlaessiges-wort.church/wp-content/uploads/2022/08/BKZW-scaled.jpg?resize=1200%2C750&ssl=1',
+      'Auch wenn Sie noch keine Erfahrung im Seelengewinnen haben, können Sie gerne als stiller Partner dabei sein und lernen, wie wir evangelisieren. Auf der Seite Seelengewinnen finden Sie weitere Informationen zum Thema Seelengewinnen. Sie können uns auch gerne jederzeit eine E-Mail schreiben, falls Sie weitere Fragen haben: post@bkzw.church.',
+      'Samstag\n\n10:30 Uhr Treff zum Seelengewinnen an der Kirche\nfür Mittagessen für alle Teilnehmer wird gesorgt\n18:00 Uhr Gottesdienst mit Predigt live aus Tempe, Arizona\nfür Abendessen für alle Teilnehmer wird gesorgt\n\n\nSonntag\n\n10:30 Uhr Gottesdienst\nfür Mittagessen für alle Teilnehmer wird gesorgt Seelengewinnen',
+      DateTime.utc(2023, 9, 22, 9),
+      DateTime.utc(2023, 9, 23, 18),
+    ),
+    HomeEvent(
+      '2',
+      'Soul Winning Magdeburg',
+      HomeOrganization(
+          'Baptistenkirche Zuverlässiges Wort', OrganizationType.church),
+      'https://i0.wp.com/baptisten-zuverlaessiges-wort.church/wp-content/uploads/2022/08/BKZW-scaled.jpg?resize=1200%2C750&ssl=1',
+      'Auch wenn Sie noch keine Erfahrung im Seelengewinnen haben, können Sie gerne als stiller Partner dabei sein und lernen, wie wir evangelisieren. Auf der Seite Seelengewinnen finden Sie weitere Informationen zum Thema Seelengewinnen. Sie können uns auch gerne jederzeit eine E-Mail schreiben, falls Sie weitere Fragen haben: post@bkzw.church.',
+      'Samstag\n\n10:30 Uhr Treff zum Seelengewinnen an der Kirche\nfür Mittagessen für alle Teilnehmer wird gesorgt\n18:00 Uhr Gottesdienst mit Predigt live aus Tempe, Arizona\nfür Abendessen für alle Teilnehmer wird gesorgt\n\n\nSonntag\n\n10:30 Uhr Gottesdienst\nfür Mittagessen für alle Teilnehmer wird gesorgt Seelengewinnen',
+      DateTime.utc(2023, 10, 22, 9),
+      DateTime.utc(2023, 10, 23, 18),
+    ),
+    HomeEvent(
+      '3',
+      'Soul Winning Passau',
+      HomeOrganization(
+          'Baptistenkirche Zuverlässiges Wort', OrganizationType.church),
+      'https://i0.wp.com/baptisten-zuverlaessiges-wort.church/wp-content/uploads/2022/08/BKZW-scaled.jpg?resize=1200%2C750&ssl=1',
+      'Auch wenn Sie noch keine Erfahrung im Seelengewinnen haben, können Sie gerne als stiller Partner dabei sein und lernen, wie wir evangelisieren. Auf der Seite Seelengewinnen finden Sie weitere Informationen zum Thema Seelengewinnen. Sie können uns auch gerne jederzeit eine E-Mail schreiben, falls Sie weitere Fragen haben: post@bkzw.church.',
+      'Samstag\n\n10:30 Uhr Treff zum Seelengewinnen an der Kirche\nfür Mittagessen für alle Teilnehmer wird gesorgt\n18:00 Uhr Gottesdienst mit Predigt live aus Tempe, Arizona\nfür Abendessen für alle Teilnehmer wird gesorgt\n\n\nSonntag\n\n10:30 Uhr Gottesdienst\nfür Mittagessen für alle Teilnehmer wird gesorgt Seelengewinnen',
+      DateTime.utc(2023, 11, 22, 9),
+      DateTime.utc(2023, 11, 23, 18),
+    )
+  ];
+
+  HomeTabPage({super.key});
 
   @override
-  State<HomeTabPage> createState() => _HomeTabPageState();
-}
+  Widget build(BuildContext context, WidgetRef ref) {
+    final getAllEventsUseCase = ref.watch(getAllEventsUseCaseProvider);
 
-enum EventStatus { current, upcoming }
-
-class _HomeTabPageState extends State<HomeTabPage> {
-  @override
-  Widget build(BuildContext context) {
-    return CupertinoPageScaffold(
-      navigationBar: const CupertinoNavigationBar(
-        middle: Text('Home'),
-        trailing: Icon(CupertinoIcons.qrcode),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Home'),
+        actions: const [Icon(Icons.qr_code)],
       ),
-      child: SafeArea(
-        child: ListView(
-          children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                CupertinoButton(
-                    child: const Text('Add Event'), onPressed: () => ()),
-              ],
-            ),
-            CupertinoListSection.insetGrouped(
-                backgroundColor: CupertinoColors.systemBackground,
-                header: const Row(
+      body: FutureBuilder<List<HomeEvent>>(
+          future: getAllEventsUseCase.execute(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const CircularProgressIndicator();
+            } else if (snapshot.hasError) {
+              return Text('Error: ${snapshot.error}');
+            } else {
+              final data = snapshot.data;
+              if (snapshot.hasData && data != null) {
+                return ListView(
                   children: [
-                    Text('Current Events'),
-                    Padding(padding: EdgeInsets.symmetric(horizontal: 2)),
-                    Icon(CupertinoIcons.antenna_radiowaves_left_right)
-                  ],
-                ),
-                children: <CupertinoListTile>[
-                  CupertinoListTile(
-                    title: const Text('Monthly Soul Winning Marathon'),
-                    subtitle: const Text('Baptistenkirche Zuverlässiges Wort'),
-                    trailing: const CupertinoListTileChevron(),
-                    onTap: () => Navigator.of(context).push(
-                      CupertinoPageRoute<void>(
-                        builder: (BuildContext context) {
-                          return const EventDetailPage();
-                        },
+                    Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.end,
+                        children: [
+                          FloatingActionButton.extended(
+                              label: const Text('Add Event'),
+                              icon: const Icon(Icons.add),
+                              onPressed: () => ()),
+                        ],
                       ),
                     ),
-                  )
-                ]),
-            CupertinoListSection.insetGrouped(
-              backgroundColor: CupertinoColors.systemBackground,
-              header: const Text('Upcoming Events'),
-              footer: Center(
-                child: CupertinoButton(
-                    child: const Text('See all'), onPressed: () => ()),
-              ),
-              children: [
-                CupertinoListTile(
-                  title: const Text('Soul Winning Magdeburg'),
-                  subtitle: const Text('Baptistenkirche Zuverlässiges Wort'),
-                  trailing: const CupertinoListTileChevron(),
-                  additionalInfo: const Text('In 3 days'),
-                  onTap: () => Navigator.of(context).push(
-                    CupertinoPageRoute<void>(
-                      builder: (BuildContext context) {
-                        return const EventDetailPage();
-                      },
+                    for (var event in data)
+                      Card(
+                        child: ListTile(
+                          title: Text(event.title),
+                          subtitle: Text(event.organization.name),
+                          onTap: () => Navigator.of(context).push(
+                            CupertinoPageRoute<void>(
+                              builder: (BuildContext context) {
+                                return EventDetailPage(
+                                  event: Event(
+                                      event.id,
+                                      event.title,
+                                      event.coverPhotoUrl,
+                                      event.whatToExpect,
+                                      event.eventPlan,
+                                      event.scheduledStartTimeInUtc,
+                                      event.scheduledEndTimeInUtc, []),
+                                );
+                              },
+                            ),
+                          ),
+                        ),
+                      ),
+                    Center(
+                      child: CupertinoButton(
+                          child: const Text('See all'), onPressed: () => ()),
                     ),
-                  ),
-                ),
-                CupertinoListTile(
-                  title: const Text('Soul Winning Passau'),
-                  subtitle: const Text('Baptistenkirche Zuverlässiges Wort'),
-                  additionalInfo: const Text('In 9 days'),
-                  trailing: const CupertinoListTileChevron(),
-                  onTap: () => Navigator.of(context).push(
-                    CupertinoPageRoute<void>(
-                      builder: (BuildContext context) {
-                        return const EventDetailPage();
-                      },
-                    ),
-                  ),
-                ),
-              ],
-            ),
-          ],
-        ),
-      ),
+                  ],
+                );
+              }
+              return Scaffold(
+                  appBar: AppBar(
+                title: const Text('Home'),
+                actions: const [Icon(Icons.qr_code)],
+              ));
+            }
+          }),
     );
   }
 }
+
+enum EventStatus { current, upcoming }
