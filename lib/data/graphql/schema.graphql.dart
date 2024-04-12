@@ -13201,6 +13201,7 @@ class Input$SoulWinningSessionGroup_bool_exp {
     List<Input$SoulWinningSessionGroup_bool_exp>? $_or,
     Input$String_comparison_exp? assignedMapArea,
     Input$String_comparison_exp? id,
+    Input$String_comparison_exp? name,
     Input$String_comparison_exp? session,
   }) =>
       Input$SoulWinningSessionGroup_bool_exp._({
@@ -13221,6 +13222,7 @@ class Input$SoulWinningSessionGroup_bool_exp {
         if ($_or != null) r'_or': $_or,
         if (assignedMapArea != null) r'assignedMapArea': assignedMapArea,
         if (id != null) r'id': id,
+        if (name != null) r'name': name,
         if (session != null) r'session': session,
       });
 
@@ -13312,6 +13314,13 @@ class Input$SoulWinningSessionGroup_bool_exp {
           : Input$String_comparison_exp.fromJson(
               (l$id as Map<String, dynamic>));
     }
+    if (data.containsKey('name')) {
+      final l$name = data['name'];
+      result$data['name'] = l$name == null
+          ? null
+          : Input$String_comparison_exp.fromJson(
+              (l$name as Map<String, dynamic>));
+    }
     if (data.containsKey('session')) {
       final l$session = data['session'];
       result$data['session'] = l$session == null
@@ -13350,6 +13359,8 @@ class Input$SoulWinningSessionGroup_bool_exp {
       (_$data['assignedMapArea'] as Input$String_comparison_exp?);
   Input$String_comparison_exp? get id =>
       (_$data['id'] as Input$String_comparison_exp?);
+  Input$String_comparison_exp? get name =>
+      (_$data['name'] as Input$String_comparison_exp?);
   Input$String_comparison_exp? get session =>
       (_$data['session'] as Input$String_comparison_exp?);
   Map<String, dynamic> toJson() {
@@ -13401,6 +13412,10 @@ class Input$SoulWinningSessionGroup_bool_exp {
     if (_$data.containsKey('id')) {
       final l$id = id;
       result$data['id'] = l$id?.toJson();
+    }
+    if (_$data.containsKey('name')) {
+      final l$name = name;
+      result$data['name'] = l$name?.toJson();
     }
     if (_$data.containsKey('session')) {
       final l$session = session;
@@ -13547,6 +13562,14 @@ class Input$SoulWinningSessionGroup_bool_exp {
     if (l$id != lOther$id) {
       return false;
     }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (_$data.containsKey('name') != other._$data.containsKey('name')) {
+      return false;
+    }
+    if (l$name != lOther$name) {
+      return false;
+    }
     final l$session = session;
     final lOther$session = other.session;
     if (_$data.containsKey('session') != other._$data.containsKey('session')) {
@@ -13573,6 +13596,7 @@ class Input$SoulWinningSessionGroup_bool_exp {
     final l$$_or = $_or;
     final l$assignedMapArea = assignedMapArea;
     final l$id = id;
+    final l$name = name;
     final l$session = session;
     return Object.hashAll([
       _$data.containsKey('Encounters') ? l$Encounters : const {},
@@ -13602,6 +13626,7 @@ class Input$SoulWinningSessionGroup_bool_exp {
           : const {},
       _$data.containsKey('assignedMapArea') ? l$assignedMapArea : const {},
       _$data.containsKey('id') ? l$id : const {},
+      _$data.containsKey('name') ? l$name : const {},
       _$data.containsKey('session') ? l$session : const {},
     ]);
   }
@@ -13630,6 +13655,7 @@ abstract class CopyWith$Input$SoulWinningSessionGroup_bool_exp<TRes> {
     List<Input$SoulWinningSessionGroup_bool_exp>? $_or,
     Input$String_comparison_exp? assignedMapArea,
     Input$String_comparison_exp? id,
+    Input$String_comparison_exp? name,
     Input$String_comparison_exp? session,
   });
   CopyWith$Input$Encounter_bool_exp<TRes> get Encounters;
@@ -13655,6 +13681,7 @@ abstract class CopyWith$Input$SoulWinningSessionGroup_bool_exp<TRes> {
           _fn);
   CopyWith$Input$String_comparison_exp<TRes> get assignedMapArea;
   CopyWith$Input$String_comparison_exp<TRes> get id;
+  CopyWith$Input$String_comparison_exp<TRes> get name;
   CopyWith$Input$String_comparison_exp<TRes> get session;
 }
 
@@ -13683,6 +13710,7 @@ class _CopyWithImpl$Input$SoulWinningSessionGroup_bool_exp<TRes>
     Object? $_or = _undefined,
     Object? assignedMapArea = _undefined,
     Object? id = _undefined,
+    Object? name = _undefined,
     Object? session = _undefined,
   }) =>
       _then(Input$SoulWinningSessionGroup_bool_exp._({
@@ -13713,6 +13741,7 @@ class _CopyWithImpl$Input$SoulWinningSessionGroup_bool_exp<TRes>
         if (assignedMapArea != _undefined)
           'assignedMapArea': (assignedMapArea as Input$String_comparison_exp?),
         if (id != _undefined) 'id': (id as Input$String_comparison_exp?),
+        if (name != _undefined) 'name': (name as Input$String_comparison_exp?),
         if (session != _undefined)
           'session': (session as Input$String_comparison_exp?),
       }));
@@ -13819,6 +13848,14 @@ class _CopyWithImpl$Input$SoulWinningSessionGroup_bool_exp<TRes>
         : CopyWith$Input$String_comparison_exp(local$id, (e) => call(id: e));
   }
 
+  CopyWith$Input$String_comparison_exp<TRes> get name {
+    final local$name = _instance.name;
+    return local$name == null
+        ? CopyWith$Input$String_comparison_exp.stub(_then(_instance))
+        : CopyWith$Input$String_comparison_exp(
+            local$name, (e) => call(name: e));
+  }
+
   CopyWith$Input$String_comparison_exp<TRes> get session {
     final local$session = _instance.session;
     return local$session == null
@@ -13848,6 +13885,7 @@ class _CopyWithStubImpl$Input$SoulWinningSessionGroup_bool_exp<TRes>
     List<Input$SoulWinningSessionGroup_bool_exp>? $_or,
     Input$String_comparison_exp? assignedMapArea,
     Input$String_comparison_exp? id,
+    Input$String_comparison_exp? name,
     Input$String_comparison_exp? session,
   }) =>
       _res;
@@ -13873,6 +13911,8 @@ class _CopyWithStubImpl$Input$SoulWinningSessionGroup_bool_exp<TRes>
   CopyWith$Input$String_comparison_exp<TRes> get assignedMapArea =>
       CopyWith$Input$String_comparison_exp.stub(_res);
   CopyWith$Input$String_comparison_exp<TRes> get id =>
+      CopyWith$Input$String_comparison_exp.stub(_res);
+  CopyWith$Input$String_comparison_exp<TRes> get name =>
       CopyWith$Input$String_comparison_exp.stub(_res);
   CopyWith$Input$String_comparison_exp<TRes> get session =>
       CopyWith$Input$String_comparison_exp.stub(_res);
@@ -17329,11 +17369,13 @@ class Input$SoulWinningSessionGroup_stream_cursor_value_input {
   factory Input$SoulWinningSessionGroup_stream_cursor_value_input({
     String? assignedMapArea,
     String? id,
+    String? name,
     String? session,
   }) =>
       Input$SoulWinningSessionGroup_stream_cursor_value_input._({
         if (assignedMapArea != null) r'assignedMapArea': assignedMapArea,
         if (id != null) r'id': id,
+        if (name != null) r'name': name,
         if (session != null) r'session': session,
       });
 
@@ -17350,6 +17392,10 @@ class Input$SoulWinningSessionGroup_stream_cursor_value_input {
       final l$id = data['id'];
       result$data['id'] = (l$id as String?);
     }
+    if (data.containsKey('name')) {
+      final l$name = data['name'];
+      result$data['name'] = (l$name as String?);
+    }
     if (data.containsKey('session')) {
       final l$session = data['session'];
       result$data['session'] = (l$session as String?);
@@ -17362,6 +17408,7 @@ class Input$SoulWinningSessionGroup_stream_cursor_value_input {
 
   String? get assignedMapArea => (_$data['assignedMapArea'] as String?);
   String? get id => (_$data['id'] as String?);
+  String? get name => (_$data['name'] as String?);
   String? get session => (_$data['session'] as String?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
@@ -17372,6 +17419,10 @@ class Input$SoulWinningSessionGroup_stream_cursor_value_input {
     if (_$data.containsKey('id')) {
       final l$id = id;
       result$data['id'] = l$id;
+    }
+    if (_$data.containsKey('name')) {
+      final l$name = name;
+      result$data['name'] = l$name;
     }
     if (_$data.containsKey('session')) {
       final l$session = session;
@@ -17413,6 +17464,14 @@ class Input$SoulWinningSessionGroup_stream_cursor_value_input {
     if (l$id != lOther$id) {
       return false;
     }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (_$data.containsKey('name') != other._$data.containsKey('name')) {
+      return false;
+    }
+    if (l$name != lOther$name) {
+      return false;
+    }
     final l$session = session;
     final lOther$session = other.session;
     if (_$data.containsKey('session') != other._$data.containsKey('session')) {
@@ -17428,10 +17487,12 @@ class Input$SoulWinningSessionGroup_stream_cursor_value_input {
   int get hashCode {
     final l$assignedMapArea = assignedMapArea;
     final l$id = id;
+    final l$name = name;
     final l$session = session;
     return Object.hashAll([
       _$data.containsKey('assignedMapArea') ? l$assignedMapArea : const {},
       _$data.containsKey('id') ? l$id : const {},
+      _$data.containsKey('name') ? l$name : const {},
       _$data.containsKey('session') ? l$session : const {},
     ]);
   }
@@ -17451,6 +17512,7 @@ abstract class CopyWith$Input$SoulWinningSessionGroup_stream_cursor_value_input<
   TRes call({
     String? assignedMapArea,
     String? id,
+    String? name,
     String? session,
   });
 }
@@ -17474,6 +17536,7 @@ class _CopyWithImpl$Input$SoulWinningSessionGroup_stream_cursor_value_input<
   TRes call({
     Object? assignedMapArea = _undefined,
     Object? id = _undefined,
+    Object? name = _undefined,
     Object? session = _undefined,
   }) =>
       _then(Input$SoulWinningSessionGroup_stream_cursor_value_input._({
@@ -17481,6 +17544,7 @@ class _CopyWithImpl$Input$SoulWinningSessionGroup_stream_cursor_value_input<
         if (assignedMapArea != _undefined)
           'assignedMapArea': (assignedMapArea as String?),
         if (id != _undefined) 'id': (id as String?),
+        if (name != _undefined) 'name': (name as String?),
         if (session != _undefined) 'session': (session as String?),
       }));
 }
@@ -17497,6 +17561,7 @@ class _CopyWithStubImpl$Input$SoulWinningSessionGroup_stream_cursor_value_input<
   call({
     String? assignedMapArea,
     String? id,
+    String? name,
     String? session,
   }) =>
       _res;
@@ -20805,6 +20870,7 @@ class Input$SoulWinningSessionGroup_order_by {
         $_SoulWinningSessionGroup_members_aggregate,
     Enum$order_by? assignedMapArea,
     Enum$order_by? id,
+    Enum$order_by? name,
     Enum$order_by? session,
   }) =>
       Input$SoulWinningSessionGroup_order_by._({
@@ -20818,6 +20884,7 @@ class Input$SoulWinningSessionGroup_order_by {
               $_SoulWinningSessionGroup_members_aggregate,
         if (assignedMapArea != null) r'assignedMapArea': assignedMapArea,
         if (id != null) r'id': id,
+        if (name != null) r'name': name,
         if (session != null) r'session': session,
       });
 
@@ -20868,6 +20935,11 @@ class Input$SoulWinningSessionGroup_order_by {
       result$data['id'] =
           l$id == null ? null : fromJson$Enum$order_by((l$id as String));
     }
+    if (data.containsKey('name')) {
+      final l$name = data['name'];
+      result$data['name'] =
+          l$name == null ? null : fromJson$Enum$order_by((l$name as String));
+    }
     if (data.containsKey('session')) {
       final l$session = data['session'];
       result$data['session'] = l$session == null
@@ -20892,6 +20964,7 @@ class Input$SoulWinningSessionGroup_order_by {
   Enum$order_by? get assignedMapArea =>
       (_$data['assignedMapArea'] as Enum$order_by?);
   Enum$order_by? get id => (_$data['id'] as Enum$order_by?);
+  Enum$order_by? get name => (_$data['name'] as Enum$order_by?);
   Enum$order_by? get session => (_$data['session'] as Enum$order_by?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
@@ -20922,6 +20995,11 @@ class Input$SoulWinningSessionGroup_order_by {
     if (_$data.containsKey('id')) {
       final l$id = id;
       result$data['id'] = l$id == null ? null : toJson$Enum$order_by(l$id);
+    }
+    if (_$data.containsKey('name')) {
+      final l$name = name;
+      result$data['name'] =
+          l$name == null ? null : toJson$Enum$order_by(l$name);
     }
     if (_$data.containsKey('session')) {
       final l$session = session;
@@ -21002,6 +21080,14 @@ class Input$SoulWinningSessionGroup_order_by {
     if (l$id != lOther$id) {
       return false;
     }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (_$data.containsKey('name') != other._$data.containsKey('name')) {
+      return false;
+    }
+    if (l$name != lOther$name) {
+      return false;
+    }
     final l$session = session;
     final lOther$session = other.session;
     if (_$data.containsKey('session') != other._$data.containsKey('session')) {
@@ -21022,6 +21108,7 @@ class Input$SoulWinningSessionGroup_order_by {
         $_SoulWinningSessionGroup_members_aggregate;
     final l$assignedMapArea = assignedMapArea;
     final l$id = id;
+    final l$name = name;
     final l$session = session;
     return Object.hashAll([
       _$data.containsKey('Encounters_aggregate')
@@ -21036,6 +21123,7 @@ class Input$SoulWinningSessionGroup_order_by {
           : const {},
       _$data.containsKey('assignedMapArea') ? l$assignedMapArea : const {},
       _$data.containsKey('id') ? l$id : const {},
+      _$data.containsKey('name') ? l$name : const {},
       _$data.containsKey('session') ? l$session : const {},
     ]);
   }
@@ -21058,6 +21146,7 @@ abstract class CopyWith$Input$SoulWinningSessionGroup_order_by<TRes> {
         $_SoulWinningSessionGroup_members_aggregate,
     Enum$order_by? assignedMapArea,
     Enum$order_by? id,
+    Enum$order_by? name,
     Enum$order_by? session,
   });
   CopyWith$Input$Encounter_aggregate_order_by<TRes> get Encounters_aggregate;
@@ -21087,6 +21176,7 @@ class _CopyWithImpl$Input$SoulWinningSessionGroup_order_by<TRes>
     Object? $_SoulWinningSessionGroup_members_aggregate = _undefined,
     Object? assignedMapArea = _undefined,
     Object? id = _undefined,
+    Object? name = _undefined,
     Object? session = _undefined,
   }) =>
       _then(Input$SoulWinningSessionGroup_order_by._({
@@ -21106,6 +21196,7 @@ class _CopyWithImpl$Input$SoulWinningSessionGroup_order_by<TRes>
         if (assignedMapArea != _undefined)
           'assignedMapArea': (assignedMapArea as Enum$order_by?),
         if (id != _undefined) 'id': (id as Enum$order_by?),
+        if (name != _undefined) 'name': (name as Enum$order_by?),
         if (session != _undefined) 'session': (session as Enum$order_by?),
       }));
   CopyWith$Input$Encounter_aggregate_order_by<TRes> get Encounters_aggregate {
@@ -21159,6 +21250,7 @@ class _CopyWithStubImpl$Input$SoulWinningSessionGroup_order_by<TRes>
         $_SoulWinningSessionGroup_members_aggregate,
     Enum$order_by? assignedMapArea,
     Enum$order_by? id,
+    Enum$order_by? name,
     Enum$order_by? session,
   }) =>
       _res;
@@ -28776,6 +28868,7 @@ class Input$SoulWinningSessionGroup_insert_input {
         $_SoulWinningSessionGroup_members,
     String? assignedMapArea,
     String? id,
+    String? name,
     String? session,
   }) =>
       Input$SoulWinningSessionGroup_insert_input._({
@@ -28788,6 +28881,7 @@ class Input$SoulWinningSessionGroup_insert_input {
               $_SoulWinningSessionGroup_members,
         if (assignedMapArea != null) r'assignedMapArea': assignedMapArea,
         if (id != null) r'id': id,
+        if (name != null) r'name': name,
         if (session != null) r'session': session,
       });
 
@@ -28835,6 +28929,10 @@ class Input$SoulWinningSessionGroup_insert_input {
       final l$id = data['id'];
       result$data['id'] = (l$id as String?);
     }
+    if (data.containsKey('name')) {
+      final l$name = data['name'];
+      result$data['name'] = (l$name as String?);
+    }
     if (data.containsKey('session')) {
       final l$session = data['session'];
       result$data['session'] = (l$session as String?);
@@ -28857,6 +28955,7 @@ class Input$SoulWinningSessionGroup_insert_input {
               as Input$_SoulWinningSessionGroup_members_arr_rel_insert_input?);
   String? get assignedMapArea => (_$data['assignedMapArea'] as String?);
   String? get id => (_$data['id'] as String?);
+  String? get name => (_$data['name'] as String?);
   String? get session => (_$data['session'] as String?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
@@ -28885,6 +28984,10 @@ class Input$SoulWinningSessionGroup_insert_input {
     if (_$data.containsKey('id')) {
       final l$id = id;
       result$data['id'] = l$id;
+    }
+    if (_$data.containsKey('name')) {
+      final l$name = name;
+      result$data['name'] = l$name;
     }
     if (_$data.containsKey('session')) {
       final l$session = session;
@@ -28963,6 +29066,14 @@ class Input$SoulWinningSessionGroup_insert_input {
     if (l$id != lOther$id) {
       return false;
     }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (_$data.containsKey('name') != other._$data.containsKey('name')) {
+      return false;
+    }
+    if (l$name != lOther$name) {
+      return false;
+    }
     final l$session = session;
     final lOther$session = other.session;
     if (_$data.containsKey('session') != other._$data.containsKey('session')) {
@@ -28983,6 +29094,7 @@ class Input$SoulWinningSessionGroup_insert_input {
         $_SoulWinningSessionGroup_members;
     final l$assignedMapArea = assignedMapArea;
     final l$id = id;
+    final l$name = name;
     final l$session = session;
     return Object.hashAll([
       _$data.containsKey('Encounters') ? l$Encounters : const {},
@@ -28995,6 +29107,7 @@ class Input$SoulWinningSessionGroup_insert_input {
           : const {},
       _$data.containsKey('assignedMapArea') ? l$assignedMapArea : const {},
       _$data.containsKey('id') ? l$id : const {},
+      _$data.containsKey('name') ? l$name : const {},
       _$data.containsKey('session') ? l$session : const {},
     ]);
   }
@@ -29017,6 +29130,7 @@ abstract class CopyWith$Input$SoulWinningSessionGroup_insert_input<TRes> {
         $_SoulWinningSessionGroup_members,
     String? assignedMapArea,
     String? id,
+    String? name,
     String? session,
   });
   CopyWith$Input$Encounter_arr_rel_insert_input<TRes> get Encounters;
@@ -29047,6 +29161,7 @@ class _CopyWithImpl$Input$SoulWinningSessionGroup_insert_input<TRes>
     Object? $_SoulWinningSessionGroup_members = _undefined,
     Object? assignedMapArea = _undefined,
     Object? id = _undefined,
+    Object? name = _undefined,
     Object? session = _undefined,
   }) =>
       _then(Input$SoulWinningSessionGroup_insert_input._({
@@ -29064,6 +29179,7 @@ class _CopyWithImpl$Input$SoulWinningSessionGroup_insert_input<TRes>
         if (assignedMapArea != _undefined)
           'assignedMapArea': (assignedMapArea as String?),
         if (id != _undefined) 'id': (id as String?),
+        if (name != _undefined) 'name': (name as String?),
         if (session != _undefined) 'session': (session as String?),
       }));
   CopyWith$Input$Encounter_arr_rel_insert_input<TRes> get Encounters {
@@ -29119,6 +29235,7 @@ class _CopyWithStubImpl$Input$SoulWinningSessionGroup_insert_input<TRes>
         $_SoulWinningSessionGroup_members,
     String? assignedMapArea,
     String? id,
+    String? name,
     String? session,
   }) =>
       _res;
@@ -33075,11 +33192,13 @@ class Input$SoulWinningSessionGroup_set_input {
   factory Input$SoulWinningSessionGroup_set_input({
     String? assignedMapArea,
     String? id,
+    String? name,
     String? session,
   }) =>
       Input$SoulWinningSessionGroup_set_input._({
         if (assignedMapArea != null) r'assignedMapArea': assignedMapArea,
         if (id != null) r'id': id,
+        if (name != null) r'name': name,
         if (session != null) r'session': session,
       });
 
@@ -33096,6 +33215,10 @@ class Input$SoulWinningSessionGroup_set_input {
       final l$id = data['id'];
       result$data['id'] = (l$id as String?);
     }
+    if (data.containsKey('name')) {
+      final l$name = data['name'];
+      result$data['name'] = (l$name as String?);
+    }
     if (data.containsKey('session')) {
       final l$session = data['session'];
       result$data['session'] = (l$session as String?);
@@ -33107,6 +33230,7 @@ class Input$SoulWinningSessionGroup_set_input {
 
   String? get assignedMapArea => (_$data['assignedMapArea'] as String?);
   String? get id => (_$data['id'] as String?);
+  String? get name => (_$data['name'] as String?);
   String? get session => (_$data['session'] as String?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
@@ -33117,6 +33241,10 @@ class Input$SoulWinningSessionGroup_set_input {
     if (_$data.containsKey('id')) {
       final l$id = id;
       result$data['id'] = l$id;
+    }
+    if (_$data.containsKey('name')) {
+      final l$name = name;
+      result$data['name'] = l$name;
     }
     if (_$data.containsKey('session')) {
       final l$session = session;
@@ -33157,6 +33285,14 @@ class Input$SoulWinningSessionGroup_set_input {
     if (l$id != lOther$id) {
       return false;
     }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (_$data.containsKey('name') != other._$data.containsKey('name')) {
+      return false;
+    }
+    if (l$name != lOther$name) {
+      return false;
+    }
     final l$session = session;
     final lOther$session = other.session;
     if (_$data.containsKey('session') != other._$data.containsKey('session')) {
@@ -33172,10 +33308,12 @@ class Input$SoulWinningSessionGroup_set_input {
   int get hashCode {
     final l$assignedMapArea = assignedMapArea;
     final l$id = id;
+    final l$name = name;
     final l$session = session;
     return Object.hashAll([
       _$data.containsKey('assignedMapArea') ? l$assignedMapArea : const {},
       _$data.containsKey('id') ? l$id : const {},
+      _$data.containsKey('name') ? l$name : const {},
       _$data.containsKey('session') ? l$session : const {},
     ]);
   }
@@ -33193,6 +33331,7 @@ abstract class CopyWith$Input$SoulWinningSessionGroup_set_input<TRes> {
   TRes call({
     String? assignedMapArea,
     String? id,
+    String? name,
     String? session,
   });
 }
@@ -33213,6 +33352,7 @@ class _CopyWithImpl$Input$SoulWinningSessionGroup_set_input<TRes>
   TRes call({
     Object? assignedMapArea = _undefined,
     Object? id = _undefined,
+    Object? name = _undefined,
     Object? session = _undefined,
   }) =>
       _then(Input$SoulWinningSessionGroup_set_input._({
@@ -33220,6 +33360,7 @@ class _CopyWithImpl$Input$SoulWinningSessionGroup_set_input<TRes>
         if (assignedMapArea != _undefined)
           'assignedMapArea': (assignedMapArea as String?),
         if (id != _undefined) 'id': (id as String?),
+        if (name != _undefined) 'name': (name as String?),
         if (session != _undefined) 'session': (session as String?),
       }));
 }
@@ -33233,6 +33374,7 @@ class _CopyWithStubImpl$Input$SoulWinningSessionGroup_set_input<TRes>
   call({
     String? assignedMapArea,
     String? id,
+    String? name,
     String? session,
   }) =>
       _res;
@@ -39541,11 +39683,13 @@ class Input$SoulWinningSessionGroup_max_order_by {
   factory Input$SoulWinningSessionGroup_max_order_by({
     Enum$order_by? assignedMapArea,
     Enum$order_by? id,
+    Enum$order_by? name,
     Enum$order_by? session,
   }) =>
       Input$SoulWinningSessionGroup_max_order_by._({
         if (assignedMapArea != null) r'assignedMapArea': assignedMapArea,
         if (id != null) r'id': id,
+        if (name != null) r'name': name,
         if (session != null) r'session': session,
       });
 
@@ -39565,6 +39709,11 @@ class Input$SoulWinningSessionGroup_max_order_by {
       result$data['id'] =
           l$id == null ? null : fromJson$Enum$order_by((l$id as String));
     }
+    if (data.containsKey('name')) {
+      final l$name = data['name'];
+      result$data['name'] =
+          l$name == null ? null : fromJson$Enum$order_by((l$name as String));
+    }
     if (data.containsKey('session')) {
       final l$session = data['session'];
       result$data['session'] = l$session == null
@@ -39579,6 +39728,7 @@ class Input$SoulWinningSessionGroup_max_order_by {
   Enum$order_by? get assignedMapArea =>
       (_$data['assignedMapArea'] as Enum$order_by?);
   Enum$order_by? get id => (_$data['id'] as Enum$order_by?);
+  Enum$order_by? get name => (_$data['name'] as Enum$order_by?);
   Enum$order_by? get session => (_$data['session'] as Enum$order_by?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
@@ -39591,6 +39741,11 @@ class Input$SoulWinningSessionGroup_max_order_by {
     if (_$data.containsKey('id')) {
       final l$id = id;
       result$data['id'] = l$id == null ? null : toJson$Enum$order_by(l$id);
+    }
+    if (_$data.containsKey('name')) {
+      final l$name = name;
+      result$data['name'] =
+          l$name == null ? null : toJson$Enum$order_by(l$name);
     }
     if (_$data.containsKey('session')) {
       final l$session = session;
@@ -39632,6 +39787,14 @@ class Input$SoulWinningSessionGroup_max_order_by {
     if (l$id != lOther$id) {
       return false;
     }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (_$data.containsKey('name') != other._$data.containsKey('name')) {
+      return false;
+    }
+    if (l$name != lOther$name) {
+      return false;
+    }
     final l$session = session;
     final lOther$session = other.session;
     if (_$data.containsKey('session') != other._$data.containsKey('session')) {
@@ -39647,10 +39810,12 @@ class Input$SoulWinningSessionGroup_max_order_by {
   int get hashCode {
     final l$assignedMapArea = assignedMapArea;
     final l$id = id;
+    final l$name = name;
     final l$session = session;
     return Object.hashAll([
       _$data.containsKey('assignedMapArea') ? l$assignedMapArea : const {},
       _$data.containsKey('id') ? l$id : const {},
+      _$data.containsKey('name') ? l$name : const {},
       _$data.containsKey('session') ? l$session : const {},
     ]);
   }
@@ -39668,6 +39833,7 @@ abstract class CopyWith$Input$SoulWinningSessionGroup_max_order_by<TRes> {
   TRes call({
     Enum$order_by? assignedMapArea,
     Enum$order_by? id,
+    Enum$order_by? name,
     Enum$order_by? session,
   });
 }
@@ -39688,6 +39854,7 @@ class _CopyWithImpl$Input$SoulWinningSessionGroup_max_order_by<TRes>
   TRes call({
     Object? assignedMapArea = _undefined,
     Object? id = _undefined,
+    Object? name = _undefined,
     Object? session = _undefined,
   }) =>
       _then(Input$SoulWinningSessionGroup_max_order_by._({
@@ -39695,6 +39862,7 @@ class _CopyWithImpl$Input$SoulWinningSessionGroup_max_order_by<TRes>
         if (assignedMapArea != _undefined)
           'assignedMapArea': (assignedMapArea as Enum$order_by?),
         if (id != _undefined) 'id': (id as Enum$order_by?),
+        if (name != _undefined) 'name': (name as Enum$order_by?),
         if (session != _undefined) 'session': (session as Enum$order_by?),
       }));
 }
@@ -39708,6 +39876,7 @@ class _CopyWithStubImpl$Input$SoulWinningSessionGroup_max_order_by<TRes>
   call({
     Enum$order_by? assignedMapArea,
     Enum$order_by? id,
+    Enum$order_by? name,
     Enum$order_by? session,
   }) =>
       _res;
@@ -41577,11 +41746,13 @@ class Input$SoulWinningSessionGroup_min_order_by {
   factory Input$SoulWinningSessionGroup_min_order_by({
     Enum$order_by? assignedMapArea,
     Enum$order_by? id,
+    Enum$order_by? name,
     Enum$order_by? session,
   }) =>
       Input$SoulWinningSessionGroup_min_order_by._({
         if (assignedMapArea != null) r'assignedMapArea': assignedMapArea,
         if (id != null) r'id': id,
+        if (name != null) r'name': name,
         if (session != null) r'session': session,
       });
 
@@ -41601,6 +41772,11 @@ class Input$SoulWinningSessionGroup_min_order_by {
       result$data['id'] =
           l$id == null ? null : fromJson$Enum$order_by((l$id as String));
     }
+    if (data.containsKey('name')) {
+      final l$name = data['name'];
+      result$data['name'] =
+          l$name == null ? null : fromJson$Enum$order_by((l$name as String));
+    }
     if (data.containsKey('session')) {
       final l$session = data['session'];
       result$data['session'] = l$session == null
@@ -41615,6 +41791,7 @@ class Input$SoulWinningSessionGroup_min_order_by {
   Enum$order_by? get assignedMapArea =>
       (_$data['assignedMapArea'] as Enum$order_by?);
   Enum$order_by? get id => (_$data['id'] as Enum$order_by?);
+  Enum$order_by? get name => (_$data['name'] as Enum$order_by?);
   Enum$order_by? get session => (_$data['session'] as Enum$order_by?);
   Map<String, dynamic> toJson() {
     final result$data = <String, dynamic>{};
@@ -41627,6 +41804,11 @@ class Input$SoulWinningSessionGroup_min_order_by {
     if (_$data.containsKey('id')) {
       final l$id = id;
       result$data['id'] = l$id == null ? null : toJson$Enum$order_by(l$id);
+    }
+    if (_$data.containsKey('name')) {
+      final l$name = name;
+      result$data['name'] =
+          l$name == null ? null : toJson$Enum$order_by(l$name);
     }
     if (_$data.containsKey('session')) {
       final l$session = session;
@@ -41668,6 +41850,14 @@ class Input$SoulWinningSessionGroup_min_order_by {
     if (l$id != lOther$id) {
       return false;
     }
+    final l$name = name;
+    final lOther$name = other.name;
+    if (_$data.containsKey('name') != other._$data.containsKey('name')) {
+      return false;
+    }
+    if (l$name != lOther$name) {
+      return false;
+    }
     final l$session = session;
     final lOther$session = other.session;
     if (_$data.containsKey('session') != other._$data.containsKey('session')) {
@@ -41683,10 +41873,12 @@ class Input$SoulWinningSessionGroup_min_order_by {
   int get hashCode {
     final l$assignedMapArea = assignedMapArea;
     final l$id = id;
+    final l$name = name;
     final l$session = session;
     return Object.hashAll([
       _$data.containsKey('assignedMapArea') ? l$assignedMapArea : const {},
       _$data.containsKey('id') ? l$id : const {},
+      _$data.containsKey('name') ? l$name : const {},
       _$data.containsKey('session') ? l$session : const {},
     ]);
   }
@@ -41704,6 +41896,7 @@ abstract class CopyWith$Input$SoulWinningSessionGroup_min_order_by<TRes> {
   TRes call({
     Enum$order_by? assignedMapArea,
     Enum$order_by? id,
+    Enum$order_by? name,
     Enum$order_by? session,
   });
 }
@@ -41724,6 +41917,7 @@ class _CopyWithImpl$Input$SoulWinningSessionGroup_min_order_by<TRes>
   TRes call({
     Object? assignedMapArea = _undefined,
     Object? id = _undefined,
+    Object? name = _undefined,
     Object? session = _undefined,
   }) =>
       _then(Input$SoulWinningSessionGroup_min_order_by._({
@@ -41731,6 +41925,7 @@ class _CopyWithImpl$Input$SoulWinningSessionGroup_min_order_by<TRes>
         if (assignedMapArea != _undefined)
           'assignedMapArea': (assignedMapArea as Enum$order_by?),
         if (id != _undefined) 'id': (id as Enum$order_by?),
+        if (name != _undefined) 'name': (name as Enum$order_by?),
         if (session != _undefined) 'session': (session as Enum$order_by?),
       }));
 }
@@ -41744,6 +41939,7 @@ class _CopyWithStubImpl$Input$SoulWinningSessionGroup_min_order_by<TRes>
   call({
     Enum$order_by? assignedMapArea,
     Enum$order_by? id,
+    Enum$order_by? name,
     Enum$order_by? session,
   }) =>
       _res;
@@ -43592,6 +43788,7 @@ Enum$SoulWinningSession_select_column
 enum Enum$SoulWinningSessionGroup_select_column {
   assignedMapArea,
   id,
+  name,
   session,
   $unknown
 }
@@ -43603,6 +43800,8 @@ String toJson$Enum$SoulWinningSessionGroup_select_column(
       return r'assignedMapArea';
     case Enum$SoulWinningSessionGroup_select_column.id:
       return r'id';
+    case Enum$SoulWinningSessionGroup_select_column.name:
+      return r'name';
     case Enum$SoulWinningSessionGroup_select_column.session:
       return r'session';
     case Enum$SoulWinningSessionGroup_select_column.$unknown:
@@ -43617,6 +43816,8 @@ Enum$SoulWinningSessionGroup_select_column
       return Enum$SoulWinningSessionGroup_select_column.assignedMapArea;
     case r'id':
       return Enum$SoulWinningSessionGroup_select_column.id;
+    case r'name':
+      return Enum$SoulWinningSessionGroup_select_column.name;
     case r'session':
       return Enum$SoulWinningSessionGroup_select_column.session;
     default:
@@ -44324,6 +44525,7 @@ Enum$SoulWinningSession_update_column
 enum Enum$SoulWinningSessionGroup_update_column {
   assignedMapArea,
   id,
+  name,
   session,
   $unknown
 }
@@ -44335,6 +44537,8 @@ String toJson$Enum$SoulWinningSessionGroup_update_column(
       return r'assignedMapArea';
     case Enum$SoulWinningSessionGroup_update_column.id:
       return r'id';
+    case Enum$SoulWinningSessionGroup_update_column.name:
+      return r'name';
     case Enum$SoulWinningSessionGroup_update_column.session:
       return r'session';
     case Enum$SoulWinningSessionGroup_update_column.$unknown:
@@ -44349,6 +44553,8 @@ Enum$SoulWinningSessionGroup_update_column
       return Enum$SoulWinningSessionGroup_update_column.assignedMapArea;
     case r'id':
       return Enum$SoulWinningSessionGroup_update_column.id;
+    case r'name':
+      return Enum$SoulWinningSessionGroup_update_column.name;
     case r'session':
       return Enum$SoulWinningSessionGroup_update_column.session;
     default:

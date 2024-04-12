@@ -89,14 +89,7 @@ class HomeTabPage extends ConsumerWidget {
                             CupertinoPageRoute<void>(
                               builder: (BuildContext context) {
                                 return EventDetailPage(
-                                  event: Event(
-                                      event.id,
-                                      event.title,
-                                      event.coverPhotoUrl,
-                                      event.whatToExpect,
-                                      event.eventPlan,
-                                      event.scheduledStartTimeInUtc,
-                                      event.scheduledEndTimeInUtc, []),
+                                  eventId: event.id,
                                 );
                               },
                             ),

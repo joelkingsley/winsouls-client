@@ -613,6 +613,7 @@ type SavedPerson_max_fields { email: String
 "aggregate max on columns" 
 type SoulWinningSessionGroup_max_fields { assignedMapArea: String
   id: String
+  name: String
   session: String
 }
 
@@ -696,6 +697,7 @@ type SavedPerson_min_fields { email: String
 "aggregate min on columns" 
 type SoulWinningSessionGroup_min_fields { assignedMapArea: String
   id: String
+  name: String
   session: String
 }
 
@@ -791,7 +793,7 @@ type _SoulWinningSessionGroup_members_aggregate { aggregate: _SoulWinningSession
 }
 
 "columns and relationships of \"Encounter\"" 
-type Encounter { encounterTimeInUtc: timestamp
+type Encounter { encounterTimeInUtc: timestamp!
   group: String
   houseAddress: String!
   id: String!
@@ -987,6 +989,7 @@ Event: Event
 "columns and relationships of \"SoulWinningSessionGroup\"" 
 type SoulWinningSessionGroup { assignedMapArea: String
   id: String!
+  name: String!
   session: String
   "An aggregate relationship" 
 Encounters_aggregate("filter the rows returned" 
@@ -1584,6 +1587,8 @@ assignedMapArea
   "column name" 
 id 
   "column name" 
+name 
+  "column name" 
 session 
 }
 
@@ -1779,6 +1784,8 @@ enum SoulWinningSessionGroup_update_column {"column name"
 assignedMapArea 
   "column name" 
 id 
+  "column name" 
+name 
   "column name" 
 session 
 }
@@ -2219,6 +2226,7 @@ input SoulWinningSessionGroup_bool_exp {Encounters: Encounter_bool_exp
   _or: [SoulWinningSessionGroup_bool_exp!]
   assignedMapArea: String_comparison_exp
   id: String_comparison_exp
+  name: String_comparison_exp
   session: String_comparison_exp
 }
 
@@ -2319,6 +2327,7 @@ input SavedPerson_stream_cursor_value_input {email: String
 "Initial value of the column from where the streaming should start" 
 input SoulWinningSessionGroup_stream_cursor_value_input {assignedMapArea: String
   id: String
+  name: String
   session: String
 }
 
@@ -2430,6 +2439,7 @@ input SoulWinningSessionGroup_order_by {Encounters_aggregate: Encounter_aggregat
   _SoulWinningSessionGroup_members_aggregate: _SoulWinningSessionGroup_members_aggregate_order_by
   assignedMapArea: order_by
   id: order_by
+  name: order_by
   session: order_by
 }
 
@@ -2702,6 +2712,7 @@ input SoulWinningSessionGroup_insert_input {Encounters: Encounter_arr_rel_insert
   _SoulWinningSessionGroup_members: _SoulWinningSessionGroup_members_arr_rel_insert_input
   assignedMapArea: String
   id: String
+  name: String
   session: String
 }
 
@@ -2843,6 +2854,7 @@ input SoulWinningSession_set_input {event: String
 "input type for updating data in table \"SoulWinningSessionGroup\"" 
 input SoulWinningSessionGroup_set_input {assignedMapArea: String
   id: String
+  name: String
   session: String
 }
 
@@ -3052,6 +3064,7 @@ input SoulWinningSession_max_order_by {event: order_by
 "order by max() on columns of table \"SoulWinningSessionGroup\"" 
 input SoulWinningSessionGroup_max_order_by {assignedMapArea: order_by
   id: order_by
+  name: order_by
   session: order_by
 }
 
@@ -3121,6 +3134,7 @@ input SoulWinningSession_min_order_by {event: order_by
 "order by min() on columns of table \"SoulWinningSessionGroup\"" 
 input SoulWinningSessionGroup_min_order_by {assignedMapArea: order_by
   id: order_by
+  name: order_by
   session: order_by
 }
 
